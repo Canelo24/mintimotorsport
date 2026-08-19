@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Minti Motorsport token layer                                       */
+/*  Every colour is named for the material world of the Safari.        */
+/*  No arbitrary hex in components — tokens only.                      */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  /* Palette — see DESIGN-PLAN.md for justification */
+  --color-murram: #7d3a22; /* red-brown laterite of Kenyan gravel roads */
+  --color-murram-deep: #54250f; /* murram after rain — hover/pressed, shadows */
+  --color-feshfesh: #e5dfd3; /* talc-fine dust — warm ash, large light surfaces */
+  --color-night: #171310; /* service park after dark — warm near-black */
+  --color-night-2: #231d17; /* raised surfaces on night */
+  --color-sodium: #e1962e; /* floodlight amber — the single accent */
+  --color-chalk: #f1ece2; /* off-white type on dark */
+  --color-grease: #84796a; /* oil-stained concrete — secondary text, hairlines */
+
+  /* Type families (populated by next/font in app/fonts.ts) */
+  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-body: var(--font-source-sans), Georgia, "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), "Courier New", monospace;
+
+  /* Named type scale — fluid */
+  --text-data-s: 0.75rem;
+  --text-data-s--line-height: 1.4;
+  --text-data: 0.875rem;
+  --text-data--line-height: 1.5;
+  --text-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --text-body--line-height: 1.65;
+  --text-lead: clamp(1.3125rem, 1.15rem + 0.6vw, 1.5rem);
+  --text-lead--line-height: 1.45;
+  --text-h3: clamp(1.5rem, 1.3rem + 0.9vw, 1.875rem);
+  --text-h3--line-height: 1.15;
+  --text-h2: clamp(2rem, 1.6rem + 1.8vw, 2.75rem);
+  --text-h2--line-height: 1.05;
+  --text-h1: clamp(2.75rem, 2rem + 3.4vw, 4.5rem);
+  --text-h1--line-height: 0.98;
+  --text-marquee: clamp(4rem, 2.5rem + 7vw, 8.75rem);
+  --text-marquee--line-height: 0.92;
+
+  /* Motion */
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --spacing-rail: 5.5rem; /* roadbook rail width on desktop */
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-feshfesh);
+  color: var(--color-night);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-sodium);
+  color: var(--color-night);
+}
+
+/* Visible focus that survives dark sections */
+:focus-visible {
+  outline: 2px solid var(--color-sodium);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Display treatments — the two extremes of one variable grotesque    */
+/* ------------------------------------------------------------------ */
+
+.display-wide {
+  font-family: var(--font-display);
+  font-stretch: 118%;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+}
+
+.display-cond {
+  font-family: var(--font-display);
+  font-stretch: 66%;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* Roadbook / data voice */
+.data-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Motion primitives — CSS side of Reveal/IO                          */
+/*  Only transform and opacity are ever animated.                      */
+/* ------------------------------------------------------------------ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 0.7s var(--ease-settle),
+    transform 0.7s var(--ease-settle);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-inview {
+  opacity: 1;
+  transform: none;
+}
+
+/* Image reveal — clip-path wipe in the direction of travel */
+.reveal-wipe {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.9s var(--ease-settle);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-wipe.is-inview {
+  clip-path: inset(0 0 0 0);
+}
+
+/* First-paint orchestration on the hero — runs once, CSS only */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 0.9s var(--ease-settle) both;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
+/* Marquee band — one per site */
+@keyframes marquee-run {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-run 36s linear infinite;
+  will-change: transform;
+}
+
+/* Route transition — murram sweep, enter only, < 400ms */
+@keyframes route-sweep {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes route-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.route-enter {
+  animation: route-fade 0.35s ease-out both;
+}
+
+.route-enter::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--color-murram);
+  transform-origin: right;
+  animation: route-sweep 0.38s var(--ease-settle) both;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Reduced motion — final states, immediately, everywhere             */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal-wipe,
+  .hero-rise {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    transition: none;
+    animation: none;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  .route-enter,
+  .route-enter::before {
+    animation: none;
+  }
+
+  .route-enter::before {
+    display: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Utilities                                                          */
+/* ------------------------------------------------------------------ */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: var(--color-sodium);
+  color: var(--color-night);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-data);
+}
+
+.skip-link:focus-visible {
+  left: 0;
+}
+
+/* Hairline rules in the grease value */
+.rule {
+  border-color: color-mix(in srgb, var(--color-grease) 40%, transparent);
+}
+
+/* Scrollbar-free horizontal scroller for the mobile drive sequence */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
