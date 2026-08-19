@@ -201,6 +201,37 @@ body {
   pointer-events: none;
 }
 
+/* Enquiry wizard — horizontal step transitions */
+@keyframes step-in-fwd {
+  from {
+    opacity: 0;
+    transform: translateX(2.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes step-in-back {
+  from {
+    opacity: 0;
+    transform: translateX(-2.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.wizard-step[data-direction="fwd"] {
+  animation: step-in-fwd 0.4s var(--ease-settle) both;
+}
+
+.wizard-step[data-direction="back"] {
+  animation: step-in-back 0.4s var(--ease-settle) both;
+}
+
 /* ------------------------------------------------------------------ */
 /*  Reduced motion — final states, immediately, everywhere             */
 /* ------------------------------------------------------------------ */
@@ -221,6 +252,11 @@ body {
   }
 
   .marquee-track {
+    animation: none;
+  }
+
+  .wizard-step[data-direction="fwd"],
+  .wizard-step[data-direction="back"] {
     animation: none;
   }
 
