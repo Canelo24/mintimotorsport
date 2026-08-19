@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SectionHeading, Container } from "@/components/ui/Section";
 import type { ImageSlot } from "@/content/images.generated";
 
@@ -23,6 +23,9 @@ type Props = {
 export function DriveSequence({ instruction, title, lead, cards }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  // Only lock the track's own scrolling once GSAP pinning is actually live;
+  // under reduced motion (or if the import fails) it stays a swipeable rail.
+  const [pinned, setPinned] = useState(false);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -36,6 +39,7 @@ export function DriveSequence({ instruction, title, lead, cards }: Props) {
       ([{ gsap }, { ScrollTrigger }]) => {
         if (cancelled || !sectionRef.current || !trackRef.current) return;
         gsap.registerPlugin(ScrollTrigger);
+        setPinned(true);
 
         const track = trackRef.current;
         const getDistance = () => track.scrollWidth - window.innerWidth * 0.92;
@@ -57,6 +61,7 @@ export function DriveSequence({ instruction, title, lead, cards }: Props) {
         cleanup = () => {
           tween.scrollTrigger?.kill();
           tween.kill();
+          setPinned(false);
         };
       },
     );
@@ -78,7 +83,9 @@ export function DriveSequence({ instruction, title, lead, cards }: Props) {
       </Container>
       <div
         ref={trackRef}
-        className="no-scrollbar mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 sm:px-8 lg:snap-none lg:overflow-x-visible lg:will-change-transform"
+        className={`no-scrollbar mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 sm:px-8 ${
+          pinned ? "lg:snap-none lg:overflow-x-visible lg:will-change-transform" : ""
+        }`}
       >
         {cards.map((card, i) => (
           <article

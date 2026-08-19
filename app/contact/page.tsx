@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Page } from "@/components/layout/Page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
-import { Container, Section, SectionHeading } from "@/components/ui/Section";
+import { Container, Section } from "@/components/ui/Section";
 import { Todo } from "@/components/ui/Todo";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";

@@ -9,6 +9,7 @@
  */
 import sharp from "sharp";
 import { mkdir, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 
 const OUT = path.resolve("public/images");
@@ -106,9 +107,17 @@ await mkdir(OUT, { recursive: true });
 const entries = [];
 for (const img of IMAGES) {
   const file = path.join(OUT, `${img.name}.jpg`);
-  await sharp(Buffer.from(svgFor(img)), { density: 72 })
-    .jpeg({ quality: 68, mozjpeg: true })
-    .toFile(file);
+  // Idempotent: an existing file (real photography or a previous placeholder)
+  // is kept as-is — delete a file to force placeholder regeneration. Blur data
+  // and dimensions are always derived from the actual file on disk.
+  if (!existsSync(file)) {
+    await sharp(Buffer.from(svgFor(img)), { density: 72 })
+      .jpeg({ quality: 68, mozjpeg: true })
+      .toFile(file);
+  }
+  const meta = await sharp(file).metadata();
+  img.w = meta.width ?? img.w;
+  img.h = meta.height ?? img.h;
   const blur = await sharp(file).resize(12).blur(2).jpeg({ quality: 40 }).toBuffer();
   const key = img.name.replace(/-\d+x\d+$/, "").replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase());
   entries.push(

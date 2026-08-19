@@ -117,7 +117,9 @@ export function EnquiryWizard() {
   useEffect(() => {
     if (!restored.current) return;
     try {
-      const { website: _hp, consent: _c, ...persistable } = values;
+      const persistable: Partial<FormValues> = { ...values };
+      delete persistable.website; // never persist the honeypot
+      delete persistable.consent; // consent must be re-given, not restored
       sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ step, values: persistable }));
     } catch {
       // storage full/blocked — continue without persistence
