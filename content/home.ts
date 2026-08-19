@@ -100,7 +100,7 @@ export const people = {
     {
       name: "The Nairobi workshop",
       role: "Home ground",
-      body: "Preparation, spares and testing an hour from the airport — not a container shipped in three weeks before the start.",
+      body: "Preparation, spares and testing on home ground in Nairobi — not a container shipped in three weeks before the start.",
       image: images.peopleWorkshopNairobi,
     },
   ],

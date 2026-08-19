@@ -303,6 +303,50 @@ body {
   border-color: color-mix(in srgb, var(--color-grease) 40%, transparent);
 }
 
+/* Journal long-form typography */
+.journal-prose {
+  max-width: 65ch;
+}
+
+.journal-prose p {
+  margin-block: 1.25em;
+  color: color-mix(in srgb, var(--color-night) 85%, transparent);
+}
+
+.journal-prose h2 {
+  font-family: var(--font-display);
+  font-stretch: 118%;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-size: var(--text-h3);
+  line-height: var(--text-h3--line-height);
+  margin-top: 2.2em;
+  margin-bottom: 0.6em;
+}
+
+.journal-prose ul,
+.journal-prose ol {
+  margin-block: 1.25em;
+  padding-left: 1.4em;
+  list-style: disc;
+}
+
+.journal-prose li {
+  margin-block: 0.4em;
+}
+
+.journal-prose em {
+  font-style: italic;
+}
+
+.journal-prose blockquote {
+  border-left: 2px solid var(--color-murram);
+  padding-left: 1.25em;
+  margin-block: 1.5em;
+  color: var(--color-grease);
+}
+
 /* Scrollbar-free horizontal scroller for the mobile drive sequence */
 .no-scrollbar {
   scrollbar-width: none;
