@@ -10,13 +10,37 @@
 
 export const TODO = (label: string) => `{{TODO: ${label}}}`;
 
+/**
+ * Env values arrive from dashboards where "added but left blank" is common.
+ * Treat empty/whitespace as unset so a blank variable can never break a build
+ * or hide a TBC chip behind an empty string.
+ */
+const env = (value: string | undefined): string | null => {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : null;
+};
+
+/** Site URL: tolerate blank values, a missing scheme, paths and bad input. */
+const resolveSiteUrl = (): string => {
+  const fallback = "https://mintimotorsport.example.com";
+  const raw = env(process.env.NEXT_PUBLIC_SITE_URL);
+  if (!raw) return fallback;
+  const candidate = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  try {
+    return new URL(candidate).origin;
+  } catch {
+    console.warn(`[site] NEXT_PUBLIC_SITE_URL is not a valid URL ("${raw}") — using fallback.`);
+    return fallback;
+  }
+};
+
 export const site = {
   name: "Minti Motorsport",
   tagline: "A seat in the Safari. Built, crewed and run from Nairobi.",
   description:
     "Minti Motorsport runs fully-supported seats on East African rallies: MST-built Safari-spec Ford Escorts, a Nairobi service crew, and the logistics to get a driver from first call to finish ramp.",
   // Production domain — set before launch. Used for canonical URLs, sitemap, OG.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mintimotorsport.example.com",
+  url: resolveSiteUrl(),
 
   founder: "Joey Ghose",
   managingDirector: "Jeet Ghose",
@@ -31,9 +55,9 @@ export const site = {
 
   contact: {
     // Gated: rendered only when real values are configured. No invented numbers.
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? null,
-    phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? null,
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? null, // digits only, intl format
+    email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
+    phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE),
+    whatsapp: env(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER), // digits only, intl format
     emailTodo: TODO("enquiries email address"),
     phoneTodo: TODO("Nairobi office phone with country code"),
     whatsappTodo: TODO("WhatsApp business number"),
@@ -46,7 +70,7 @@ export const site = {
   },
 
   /** Booking link for the post-enquiry call step. Offered only when configured. */
-  bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? null,
+  bookingUrl: env(process.env.NEXT_PUBLIC_BOOKING_URL),
 
   /** CTA vocabulary — one verb set through the whole funnel. */
   cta: {
