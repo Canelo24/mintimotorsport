@@ -48,19 +48,21 @@ launch, P3 = can follow.
 | `journal-reading-the-road-1600x1000.jpg` | 1600×1000 | Open roadbook page, pencil notes, dusty thumb. |
 | `contact-workshop-gate-1600x1000.jpg` | 1600×1000 | The workshop gate, sign visible. |
 
-## Brand files (client has these — awaiting the actual files)
-Four images were shown to us but the files themselves were not received. Upload them to the
-repo (GitHub → branch `claude/minti-motorsport-site-arbq1s` → Add file → Upload files) or
-send them through any channel, and they will be wired in:
+## Brand files — RECEIVED 2026-08-28 and wired in
+Originals are kept in `assets-src/`; processed by `scripts/ingest-brand-assets.mjs`.
 
-| File wanted | What it is | Where it goes |
-|---|---|---|
-| `minti-logo-dark.(png/svg)` | Square logo, white MINTI + gold laurel on black, "Preserving Heritage" | Footer lockup, favicon, OG share card |
-| `minti-logo-light.(png/svg)` | Horizontal version on white | Light-background uses, print/email |
-| Rally action shot (red car, airborne, murram, #26) | Owner-supplied photography | Home hero or heritage lead (subject to rights + car identification) |
-| Red Escort Mk1 on mountain road (CX71 BDG) | Owner-supplied photography | The Cars — Mk1 slot / "Why the Escort" journal cover |
+| File | Now used at |
+|---|---|
+| `assets-src/minti-logo-black.jpg` | Footer lockup, favicon (`app/icon.png`), OG share card |
+| `assets-src/minti-logo-white.png` | Stored in `public/brand/` for light-background uses |
+| `assets-src/safari-jump-26.jpg` | **Home hero** (`hero-safari-jump-murram`) |
+| `assets-src/escort-mk1-road.jpg` | Home car section + The Cars Mk1 (`cars-mk1-mountain-road`) |
+| `assets-src/minti-crew-stage-bw.jpg` | **Heritage hero** (`heritage-minti-stage-bw`) |
 
-Confirm photographer credit and usage rights for both photos before publishing.
+Still to confirm for these: **photographer credit and usage rights** for all three photos.
+Higher-resolution exports welcome (hero is 1320px wide — serviceable, but a 2400px+ export
+of the jump shot would be sharper on large screens; re-run the ingest script after
+replacing the file in `assets-src/`).
 
 ## Also wanted (no slot yet — future)
 - 10–20s hero film (muted, no audio dependence): car through fesh-fesh, one pass, locked-off

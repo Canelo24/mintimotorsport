@@ -20,7 +20,7 @@ export const partnership = {
 export const models = [
   {
     name: "Escort Mk1",
-    image: images.carsMk1ThreeQuarter,
+    image: images.carsMk1MountainRoad,
     blurb:
       "The original shape, the one the Safari made famous. Light, direct, and honest about everything the road is doing.",
     spec: [

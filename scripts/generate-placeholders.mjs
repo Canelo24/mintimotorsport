@@ -36,7 +36,8 @@ const SCHEMES = {
 /** @type {Array<{name:string,w:number,h:number,scheme:keyof typeof SCHEMES,alt:string}>} */
 const IMAGES = [
   // --- Home
-  { name: "hero-escort-fesh-fesh-2400x1350", w: 2400, h: 1350, scheme: "dust", alt: "MST-built Ford Escort Mk2 at speed through pale fesh-fesh dust, three-quarter front, dust plume trailing, open East African bush behind" },
+  // REAL (client-supplied): airborne Safari car over a murram crest.
+  { name: "hero-safari-jump-murram-1320x1132", w: 1320, h: 1132, scheme: "murram", alt: "Safari rally car, competition number 26, airborne over a murram crest, red dust trailing, East African bush behind" },
   { name: "drive-01-arrival-nairobi-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Driver arriving at the Minti workshop gate in Nairobi, shaking hands with the crew, Escort visible in the bay behind" },
   { name: "drive-02-shakedown-test-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "Escort mid-corner on a private murram test stage, driver on an early shakedown run, shallow evening light" },
   { name: "drive-03-scrutineering-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Scrutineering bay: officials checking the cage and extinguisher plumbing, crew standing by with the time card" },
@@ -50,7 +51,8 @@ const IMAGES = [
   // --- The Drive
   { name: "drive-hero-cockpit-2400x1350", w: 2400, h: 1350, scheme: "night", alt: "Cockpit view over the co-driver's shoulder: roadbook open, trip meter glowing, murram road ahead through the screen" },
   // --- The Cars
-  { name: "cars-mk1-three-quarter-2000x1250", w: 2000, h: 1250, scheme: "dust", alt: "MST Escort Mk1 front three-quarter on murram, period-correct silhouette, modern safety visible through the glass" },
+  // REAL (client-supplied): red Escort Mk1 on a mountain pass.
+  { name: "cars-mk1-mountain-road-1299x1047", w: 1299, h: 1047, scheme: "dust", alt: "Red Ford Escort Mk1 rally build on a wet mountain pass, gold wheels, roll cage visible through the glass" },
   { name: "cars-mk2-stage-2000x1250", w: 2000, h: 1250, scheme: "murram", alt: "Escort Mk2 sideways on a fast murram sweeper, full commitment, dust wall behind" },
   { name: "cars-build-mst-workshop-1600x1000", w: 1600, h: 1000, scheme: "night", alt: "MST build in progress: bare shell on a jig, cage welded in, fabricator at work" },
   { name: "cars-cockpit-detail-1200x1500", w: 1200, h: 1500, scheme: "night", alt: "Cockpit detail: hydraulic handbrake, gear lever, trip computer, roadbook holder — everything within reach" },
@@ -59,7 +61,8 @@ const IMAGES = [
   { name: "team-service-park-2am-2400x1350", w: 2400, h: 1350, scheme: "night", alt: "Wide shot of the full Minti service crew mid-service at night — wheels off, four people on the car, one on the clock" },
   { name: "team-workshop-bay-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Daylight workshop bay: engine on a stand, parts shelving, clean floor, Kenyan daylight through the roller door" },
   // --- Heritage
-  { name: "heritage-eascr-stage-2400x1350", w: 2400, h: 1350, scheme: "murram", alt: "Classic rally field on an East African stage during Minti's stewardship years — period cars, murram, distance" },
+  // REAL (client-supplied): archive B&W of a Minti-liveried crew at speed.
+  { name: "heritage-minti-stage-bw-1320x868", w: 1320, h: 868, scheme: "night", alt: "Archive black-and-white photograph: Minti-liveried classic rally saloon at speed on an East African stage, panned through thorn scrub" },
   { name: "heritage-duncan-240rs-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Ian Duncan's Nissan 240RS at speed on murram, a crew Minti ran" },
   { name: "heritage-tundo-r5-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "Carl Tundo's VW R5 flat through a village lined section, a crew Minti ran" },
   { name: "heritage-wahome-khan-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Maxine Wahome and Safina Khan with their rally car before a start — the all-Kenyan ladies crew Minti introduced to classic rallying" },
@@ -70,7 +73,8 @@ const IMAGES = [
   // --- Contact
   { name: "contact-workshop-gate-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "The Minti workshop gate in Nairobi, sign visible, gravel apron" },
   // --- OG
-  { name: "og-default-1200x630", w: 1200, h: 630, scheme: "night", alt: "Minti Motorsport — a seat in the Safari" },
+  // REAL: generated from the client logo by scripts/ingest-brand-assets.mjs.
+  { name: "og-default-1200x630", w: 1200, h: 630, scheme: "night", alt: "Minti Motorsport — Preserving Heritage" },
 ];
 
 function svgFor({ name, w, h, scheme }) {

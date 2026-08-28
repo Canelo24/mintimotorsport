@@ -11,7 +11,7 @@ export const heritageHero = {
   kicker: "SS5 — HERITAGE",
   headline: "We've stood in this dust before.",
   sub: "The record, in the correct tense: what the family built, the event it stewarded, and the crews it has run.",
-  image: images.heritageEascrStage,
+  image: images.heritageMintiStageBw,
 };
 
 export const stewardship = {

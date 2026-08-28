@@ -10,7 +10,7 @@ export const hero = {
   kicker: "MINTI MOTORSPORT · NAIROBI",
   headline: "A seat in the Safari.",
   sub: "Fully-run entries on East Africa's great rallies. The car built, the crew hired, the road known. You drive.",
-  image: images.heroEscortFeshFesh,
+  image: images.heroSafariJumpMurram,
 };
 
 export const proposition = [
@@ -91,7 +91,7 @@ export const car = {
   instruction: "SS1/06 — THE CAR",
   title: "The Escort, done properly",
   body: "New and original Ford Escort Mk1 and Mk2, built to Safari specification by MST Cars. The partnership is exclusive for the region: the same builds, the same parts book, the same people who put them together.",
-  image: images.carEscortMk2Profile,
+  image: images.carsMk1MountainRoad,
   spec: [
     { k: "BUILD", v: "MST CARS" },
     { k: "SHELL", v: "ESCORT MK1 / MK2" },

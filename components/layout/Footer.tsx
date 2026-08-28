@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/site";
 import { Todo } from "@/components/ui/Todo";
@@ -9,6 +10,13 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
+            <Image
+              src="/brand/minti-logo-black.jpg"
+              alt="Minti Motorsport — Preserving Heritage"
+              width={112}
+              height={112}
+              className="mb-5"
+            />
             <p className="display-wide text-h3">
               MINTI<span className="text-sodium">·</span>MOTORSPORT
             </p>
