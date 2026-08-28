@@ -43,7 +43,6 @@ export const site = {
   url: resolveSiteUrl(),
 
   founder: "Joey Ghose",
-  managingDirector: "Jeet Ghose",
   registeredIn: "United Kingdom",
   base: {
     city: "Nairobi",
@@ -76,7 +75,7 @@ export const site = {
   cta: {
     primary: "Take a seat",
     secondary: "See the car",
-    speak: "Speak to Jeet",
+    speak: "Speak to Joey",
     pack: "Request the brief",
   },
 

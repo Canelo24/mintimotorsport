@@ -9,9 +9,9 @@ import { site } from "@/content/site";
 import { base, crew, familyPhoto, ghose, teamHero } from "@/content/team";
 
 export const metadata = buildMetadata({
-  title: "The Team — the Ghose family and the Nairobi crew",
+  title: "The Team — Joey Ghose and the Nairobi crew",
   description:
-    "Founded by Joey Ghose, managed by Jeet Ghose. UK-registered, family-run, operated from Nairobi by a crew that has made a career of finishing rallies.",
+    "Founded and run by Joey Ghose. UK-registered, family-run, operated from Nairobi by a crew that has made a career of finishing rallies.",
   path: "/the-team",
 });
 

@@ -27,7 +27,7 @@ export default function ContactPage() {
             Talk to a person.
           </h1>
           <p className="hero-rise mt-6 max-w-2xl text-lead text-night/80" style={{ "--rise-delay": "240ms" } as React.CSSProperties}>
-            Serious about a seat? The fastest route is the enquiry — it lands with Jeet directly.
+            Serious about a seat? The fastest route is the enquiry — it lands with Joey directly.
             Everything else, use the lines below.
           </p>
 

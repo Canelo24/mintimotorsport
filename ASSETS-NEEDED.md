@@ -13,7 +13,7 @@ launch, P3 = can follow.
 |---|---|---|
 | `hero-escort-fesh-fesh-2400x1350.jpg` | 2400×1350 | THE shot: Escort at speed in pale fesh-fesh dust, three-quarter front, bush behind. Carries the whole first impression. |
 | `car-escort-mk2-profile-2400x1500.jpg` | 2400×1500 | Full side profile, workshop, sump guard and ride height visible. Clean light, no props. |
-| `people-jeet-ghose-900x1125.jpg` | 900×1125 | Jeet, workshop portrait, direct and unposed. This face closes deals. |
+| `people-joey-ghose-900x1125.jpg` | 900×1125 | Joey Ghose, workshop portrait, direct and unposed. This face closes deals. |
 | `people-crew-chief-900x1125.jpg` | 900×1125 | Crew chief at the bench, tool in hand. |
 | `people-workshop-nairobi-900x1125.jpg` | 900×1125 | Workshop at night, two cars on stands, floodlights. |
 | `ask-service-park-night-2400x1200.jpg` | 2400×1200 | Service park at 2am — crew around a raised car. The closing image. |
@@ -31,7 +31,7 @@ launch, P3 = can follow.
 | `cars-mk2-stage-2000x1250.jpg` | 2000×1250 | Mk2 sideways on a fast sweeper, dust wall. |
 | `cars-build-mst-workshop-1600x1000.jpg` | 1600×1000 | MST build: bare shell on jig, cage in, fabricator working. |
 | `cars-cockpit-detail-1200x1500.jpg` | 1200×1500 | Cockpit detail: handbrake, trip computer, roadbook holder. |
-| `team-joey-jeet-1600x1000.jpg` | 1600×1000 | Joey and Jeet together at the workshop door. |
+| `team-joey-ghose-workshop-1600x1000.jpg` | 1600×1000 | Joey Ghose at the workshop door, Escort behind. |
 | `team-service-park-2am-2400x1350.jpg` | 2400×1350 | Full crew mid-service at night, one person on the clock. |
 | `team-workshop-bay-1600x1000.jpg` | 1600×1000 | Daylight bay: engine on stand, shelving, Kenyan light. |
 | `heritage-eascr-stage-2400x1350.jpg` | 2400×1350 | Archive: classic field on an East African stage, stewardship years. |

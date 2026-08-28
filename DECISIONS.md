@@ -72,8 +72,17 @@ unless marked otherwise.
 20. **"Preserving Heritage"** (the strap from the supplied logo) adopted as brand language:
     footer lockup and marquee line. The logo artwork itself is NOT redrawn — the real
     files need to be supplied (see ASSETS-NEEDED "Brand files").
-21. **Jeet Ghose confirmed by the owner** as the named person — already used across home,
-    enquiry confirmation, team and contact pages; unchanged.
+21. ~~Jeet Ghose confirmed as the named person~~ — **superseded, see 22.**
+
+## Client feedback round 2
+22. **Jeet Ghose removed entirely** (client instruction, 2026-08-28): this is Joey Ghose's
+    project with no involvement from Jeet. Note this contradicts the original build brief
+    ("founded by Joey Ghose, managed by Jeet Ghose") — the client's direct instruction
+    overrides the brief. Joey is now the sole named principal: founder & team principal,
+    the person enquiries go to, the name on the first call. Image slots renamed
+    (people-joey-ghose, team-joey-ghose-workshop), Organization JSON-LD employee entry
+    removed, docs updated. Worth one final confirmation with Joey that "family-run"
+    remains accurate wording.
 
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles

@@ -50,7 +50,6 @@ export function organizationJsonLd() {
       address: { "@type": "PostalAddress", addressLocality: "Nairobi", addressCountry: "KE" },
     },
     founder: { "@type": "Person", name: site.founder },
-    employee: [{ "@type": "Person", name: site.managingDirector, jobTitle: "Team Principal" }],
   };
 }
 

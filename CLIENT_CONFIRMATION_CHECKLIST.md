@@ -3,7 +3,7 @@
 Everything Minti must approve or supply before launch. Companion to `CONTENT-TODO.md`
 (field-by-field detail) and `ASSETS-NEEDED.md` (photography).
 
-## Factual sign-off (Joey / Jeet)
+## Factual sign-off (Joey)
 - [ ] EASCR wording: site states the controlling stake **in the past tense** and that the
       event is now independently run — approve the exact copy on `/heritage` and `/`
 - [ ] Driver framing: Duncan, Tundo, Wahome & Khan presented as "crews we have run",
@@ -16,7 +16,7 @@ Everything Minti must approve or supply before launch. Companion to `CONTENT-TOD
 - [ ] Crew chief name + service crew details
 - [ ] Scarcity line: seats available and next event name/date — real numbers only
 
-## Commercial (Jeet)
+## Commercial (Joey)
 - [ ] Package names and inclusions (The Finish / The Result / The Programme)
 - [ ] "From" prices for each tier
 - [ ] Budget bands in the enquiry form (currently £100k / £250k boundaries)

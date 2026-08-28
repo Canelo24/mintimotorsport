@@ -171,7 +171,7 @@ export function EnquiryWizard() {
         <h2 className="display-wide mt-4 text-h2 text-chalk">Received. Properly.</h2>
         <div className="mt-6 max-w-xl space-y-4 text-body text-chalk/80">
           <p>
-            Your enquiry goes straight to <strong className="text-chalk">Jeet Ghose</strong>, who
+            Your enquiry goes straight to <strong className="text-chalk">Joey Ghose</strong>, who
             reads every one personally.
           </p>
           <p>

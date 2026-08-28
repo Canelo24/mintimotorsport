@@ -13,7 +13,7 @@ Minti Motorsport sells one thing: **a fully-supported seat in a Safari-spec rall
 East African rally** — car (MST-built Escort Mk1/Mk2), crew, spares, logistics, entry
 administration, family arrangements, the finish. It is a six-figure, trust-led purchase made
 over months by a tiny global pool of buyers. The site's single commercial job is to convert
-a serious enthusiast into a **qualified enquiry that ends in a booked call with Jeet**.
+a serious enthusiast into a **qualified enquiry that ends in a booked call with Joey**.
 
 Three buyers, one page must serve all without diluting:
 
@@ -100,7 +100,7 @@ smoothing/lerp is removed.
 │ |  ├──────────────────────────────────────────────┤
 │ ▫  │  THE CAR — full-width escort, spec in mono   │
 │ |  ├──────────────────────────────────────────────┤
-│ ▫  │  THE PEOPLE — Jeet / crew chief / workshop   │
+│ ▫  │  THE PEOPLE — Joey / crew chief / workshop   │
 │ |  ├──────────────────────────────────────────────┤
 │ ▫  │  HERITAGE — horizontal timeline, past tense  │
 │ ⛿  ├──────────────────────────────────────────────┤

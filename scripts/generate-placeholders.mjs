@@ -43,7 +43,7 @@ const IMAGES = [
   { name: "drive-04-the-event-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "Competition: the Escort flat over a crest, roof vents open, competition numbers on the doors, crowd of spectators at safe distance" },
   { name: "drive-05-finish-ramp-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Driver and co-driver on the finish ramp, dust-caked car, champagne held not sprayed, crew gathered below" },
   { name: "car-escort-mk2-profile-2400x1500", w: 2400, h: 1500, scheme: "dust", alt: "Full side profile of a Safari-spec Escort Mk2 in the workshop, sump guard and raised suspension visible, studio-clean light" },
-  { name: "people-jeet-ghose-900x1125", w: 900, h: 1125, scheme: "night", alt: "Jeet Ghose, portrait in the Nairobi workshop, arms crossed, service tools behind — direct, unposed" },
+  { name: "people-joey-ghose-900x1125", w: 900, h: 1125, scheme: "night", alt: "Joey Ghose, portrait in the Nairobi workshop, arms crossed, service tools behind — direct, unposed" },
   { name: "people-crew-chief-900x1125", w: 900, h: 1125, scheme: "night", alt: "Crew chief portrait at the service bench, torque wrench in hand, floodlit from above" },
   { name: "people-workshop-nairobi-900x1125", w: 900, h: 1125, scheme: "night", alt: "The Nairobi workshop at night: two Escorts on stands, parts trolleys, sodium floodlights" },
   { name: "ask-service-park-night-2400x1200", w: 2400, h: 1200, scheme: "night", alt: "Service park at 2am: crew under floodlights around a raised Escort, steam from tea mugs, spares laid out on tarpaulin" },
@@ -55,7 +55,7 @@ const IMAGES = [
   { name: "cars-build-mst-workshop-1600x1000", w: 1600, h: 1000, scheme: "night", alt: "MST build in progress: bare shell on a jig, cage welded in, fabricator at work" },
   { name: "cars-cockpit-detail-1200x1500", w: 1200, h: 1500, scheme: "night", alt: "Cockpit detail: hydraulic handbrake, gear lever, trip computer, roadbook holder — everything within reach" },
   // --- The Team
-  { name: "team-joey-jeet-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Joey and Jeet Ghose together at the workshop door, relaxed, an Escort behind them" },
+  { name: "team-joey-ghose-workshop-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Joey Ghose at the workshop door, relaxed, an Escort visible in the bay behind" },
   { name: "team-service-park-2am-2400x1350", w: 2400, h: 1350, scheme: "night", alt: "Wide shot of the full Minti service crew mid-service at night — wheels off, four people on the car, one on the clock" },
   { name: "team-workshop-bay-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Daylight workshop bay: engine on a stand, parts shelving, clean floor, Kenyan daylight through the roller door" },
   // --- Heritage

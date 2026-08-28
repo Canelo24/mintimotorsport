@@ -25,7 +25,7 @@ export const experienceOptions = [
 /**
  * Budget bands are indicative and confidential — a qualification aid, not a
  * price list. Band boundaries await client sign-off: {{TODO: confirm budget
- * bands with Jeet}} (also listed in CONTENT-TODO.md).
+ * bands with Joey}} (also listed in CONTENT-TODO.md).
  */
 export const budgetOptions = [
   { value: "band-1", label: "Up to £100,000", detail: "" },

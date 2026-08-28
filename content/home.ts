@@ -108,10 +108,10 @@ export const people = {
   lead: "A six-figure decision should come with people attached. These are ours.",
   cards: [
     {
-      name: "Jeet Ghose",
-      role: "Team principal",
-      body: "Runs the programme and answers the phone. Your first call and your last one before the start.",
-      image: images.peopleJeetGhose,
+      name: "Joey Ghose",
+      role: "Founder & team principal",
+      body: "Built Minti, runs the programme, and answers the phone himself. Your first call and your last one before the start.",
+      image: images.peopleJoeyGhose,
     },
     {
       name: TODO("crew chief name"),

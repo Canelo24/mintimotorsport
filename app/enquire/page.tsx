@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Take a seat — enquire",
   description:
-    "Five short questions, then a call with Jeet Ghose. No forms fifteen fields long, no obligation — a conversation about a seat in the Safari.",
+    "Five short questions, then a call with Joey Ghose. No forms fifteen fields long, no obligation — a conversation about a seat in the Safari.",
   path: "/enquire",
 });
 
@@ -24,7 +24,7 @@ export default function EnquirePage() {
           </p>
           <h1 className="display-wide mt-4 text-h1">Take a seat.</h1>
           <p className="mt-5 max-w-xl text-lead text-chalk/80">
-            One question per screen, most of a minute in total. Your answers go to Jeet, not into
+            One question per screen, most of a minute in total. Your answers go to Joey, not into
             a database purgatory.
           </p>
           <div className="mt-14">

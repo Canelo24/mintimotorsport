@@ -3,24 +3,19 @@ import { images } from "./images.generated";
 
 export const teamHero = {
   kicker: "SS4 — THE TEAM",
-  headline: "A family, then a crew.",
-  sub: "Minti is UK-registered and family-run: founded by Joey Ghose, managed by Jeet Ghose, and operated from Nairobi by people who have made careers of finishing rallies.",
+  headline: "A family name, then a crew.",
+  sub: "Minti is UK-registered and family-run: founded and run by Joey Ghose, and operated from Nairobi by people who have made careers of finishing rallies.",
 };
 
 export const ghose = [
   {
     name: "Joey Ghose",
-    role: "Founder",
-    body: "Built Minti from a family obsession into a rally operation, including the years stewarding the East African Safari Classic Rally organisation. Decades of knowing exactly which crossing floods first when the long rains come early.",
-  },
-  {
-    name: "Jeet Ghose",
-    role: "Team principal",
-    body: "Runs the operation day to day and owns every driver programme personally. When the site says a named person will call you back — this is the name.",
+    role: "Founder & team principal",
+    body: "Built Minti from a family obsession into a rally operation, including the years stewarding the East African Safari Classic Rally organisation, and still owns every driver programme personally. When the site says a named person will call you back — this is the name. Decades of knowing exactly which crossing floods first when the long rains come early.",
   },
 ];
 
-export const familyPhoto = images.teamJoeyJeet;
+export const familyPhoto = images.teamJoeyGhoseWorkshop;
 
 export const base = {
   title: "Home ground: Nairobi",
