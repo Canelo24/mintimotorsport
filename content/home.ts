@@ -65,8 +65,30 @@ export const driveSequence = {
   ],
 };
 
+export const routesIn = {
+  instruction: "SS1/05 — CHOOSE YOUR ROUTE IN",
+  title: "Three ways in",
+  items: [
+    {
+      name: "Arrive & Drive",
+      body: "A seat in our MST-built Escort with the whole operation around it. Land in Nairobi; drive.",
+      href: "/the-drive#arrive-and-drive",
+    },
+    {
+      name: "Your Car, Our Team",
+      body: "You own the machinery. We handle preparation, freight, testing and the event itself.",
+      href: "/the-drive#your-car-our-team",
+    },
+    {
+      name: "Commission a Safari Car",
+      body: "A new MST build specified around you, with storage, testing and a programme of events.",
+      href: "/the-drive#commission",
+    },
+  ],
+};
+
 export const car = {
-  instruction: "SS1/05 — THE CAR",
+  instruction: "SS1/06 — THE CAR",
   title: "The Escort, done properly",
   body: "New and original Ford Escort Mk1 and Mk2, built to Safari specification by MST Cars. The partnership is exclusive for the region: the same builds, the same parts book, the same people who put them together.",
   image: images.carEscortMk2Profile,
@@ -81,7 +103,7 @@ export const car = {
 };
 
 export const people = {
-  instruction: "SS1/06 — THE PEOPLE",
+  instruction: "SS1/07 — THE PEOPLE",
   title: "Names you can phone",
   lead: "A six-figure decision should come with people attached. These are ours.",
   cards: [
@@ -107,7 +129,7 @@ export const people = {
 };
 
 export const heritageStrip = {
-  instruction: "SS1/07 — WHERE WE COME FROM",
+  instruction: "SS1/08 — WHERE WE COME FROM",
   title: "Heritage, briefly",
   entries: [
     {
@@ -144,4 +166,4 @@ export const ask = {
 };
 
 export const marqueeLine =
-  "FIRST CALL · SHAKEDOWN · SCRUTINEERING · FLYING FINISH · SERVICE OUT · FINISH RAMP";
+  "PRESERVING HERITAGE · FIRST CALL · SHAKEDOWN · SCRUTINEERING · FLYING FINISH · SERVICE OUT · FINISH RAMP";

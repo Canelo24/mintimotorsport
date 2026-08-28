@@ -4,10 +4,43 @@ import { images } from "./images.generated";
 /** /the-drive — the money page. Answers: what exactly do I get, what is expected of me? */
 
 export const driveHero = {
-  kicker: "SS2 — THE DRIVE · THE ARRIVE-AND-DRIVE PROGRAMME",
+  kicker: "SS2 — THE DRIVE · THE PROGRAMMES",
   headline: "Take a seat.",
-  sub: "One programme: a Safari-spec Escort built by MST, a crew that has serviced at 2am more times than it can count, and a clear path from first call to finish ramp.",
+  sub: "Three ways into East African rallying — a seat in our car, our team behind your car, or a car commissioned for you. All of them run by the same crew, from Nairobi, end to end.",
   image: images.driveHeroCockpit,
+};
+
+/**
+ * The three programmes. Arrive & Drive is the flagship and gets the full
+ * page treatment below; the other two are complete offers in their own right.
+ */
+export const programmes = {
+  instruction: "SS2/00 — CHOOSE YOUR ROUTE IN",
+  title: "Three programmes",
+  lead: "Different starting points, same standard. Every one begins with a call to Jeet and ends with a car you trust on a road we know.",
+  items: [
+    {
+      id: "arrive-and-drive",
+      name: "Arrive & Drive",
+      strap: "Our car, our crew, your name on the door.",
+      body: "The flagship: a Safari-spec MST Escort prepared for you, shakedown week, full service crew, entry administration and family logistics. You land in Nairobi; everything after that is handled. The rest of this page describes it in detail.",
+      points: ["MST Escort Mk1/Mk2 seat", "Shakedown and coaching week", "Full crew, spares and logistics", "Entry and event administration"],
+    },
+    {
+      id: "your-car-our-team",
+      name: "Your Car, Our Team",
+      strap: "You own the car. We make it a rally entry.",
+      body: "Preparation, testing and event support for owner cars: freight coordination into East Africa, pre-event rebuild and shakedown on our roads, then the same service crew, chase cars and spares strategy our own entries get. Your machinery, our operation.",
+      points: ["Pre-event preparation and rebuild", "Freight and customs coordination", "Testing on private murram", "Full event service package"],
+    },
+    {
+      id: "commission",
+      name: "Commission a Safari Car",
+      strap: "A new MST build, specified around you.",
+      body: "Through the exclusive regional MST partnership: a new or original Escort Mk1/Mk2 commissioned to Safari specification, built to your seat, followed by testing, storage in Nairobi and a programme of events — a long-term way in, not a single start.",
+      points: ["MST build slot, Safari spec", "Specified and fitted to you", "Storage and upkeep in Nairobi", "Multi-event programme planning"],
+    },
+  ],
 };
 
 export const included = {

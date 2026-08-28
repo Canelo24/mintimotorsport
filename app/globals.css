@@ -201,6 +201,23 @@ body {
   pointer-events: none;
 }
 
+/* Mobile menu — quiet staggered entrance */
+@keyframes menu-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.menu-item {
+  animation: menu-item-in 0.45s var(--ease-settle) both;
+  animation-delay: var(--menu-delay, 0ms);
+}
+
 /* Enquiry wizard — horizontal step transitions */
 @keyframes step-in-fwd {
   from {
@@ -256,7 +273,8 @@ body {
   }
 
   .wizard-step[data-direction="fwd"],
-  .wizard-step[data-direction="back"] {
+  .wizard-step[data-direction="back"],
+  .menu-item {
     animation: none;
   }
 

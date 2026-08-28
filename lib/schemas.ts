@@ -2,8 +2,9 @@ import { z } from "zod";
 
 /** Step option values — single source for wizard UI and server validation. */
 export const purposeOptions = [
-  { value: "drive", label: "Drive an event", detail: "A supported seat in one of our cars" },
-  { value: "team", label: "Enter a team", detail: "Your car or crew, our preparation and support" },
+  { value: "drive", label: "Arrive & Drive", detail: "A supported seat in one of our cars" },
+  { value: "team", label: "Your car, our team", detail: "Preparation, freight, testing and event support" },
+  { value: "commission", label: "Commission a car", detail: "A new MST Safari build, specified around you" },
   { value: "sponsor", label: "Sponsor or partner", detail: "Brand, hospitality and media programmes" },
   { value: "other", label: "Something else", detail: "Tell us what you have in mind" },
 ] as const;

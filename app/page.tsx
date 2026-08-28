@@ -19,6 +19,7 @@ import {
   marqueeLine,
   people,
   proposition,
+  routesIn,
 } from "@/content/home";
 
 export const metadata = buildMetadata({
@@ -68,7 +69,35 @@ export default function HomePage() {
       {/* 4 — The drive: pinned horizontal sequence */}
       <DriveSequence {...driveSequence} />
 
-      {/* 5 — The car */}
+      {/* 5 — Choose your route in: the three programmes */}
+      <Section roadbook="THE ROUTES" className="py-24 sm:py-32">
+        <Container>
+          <SectionHeading instruction={routesIn.instruction} title={routesIn.title} />
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {routesIn.items.map((route, i) => (
+              <Reveal key={route.name} delay={i * 100}>
+                <Link
+                  href={route.href}
+                  className="group flex h-full flex-col border-t-2 border-murram pt-5 transition-colors"
+                >
+                  <p className="data-mono text-data-s font-medium text-murram">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="display-wide mt-2 text-h3 group-hover:text-murram">
+                    {route.name}
+                  </h3>
+                  <p className="mt-3 flex-1 text-data text-night/75">{route.body}</p>
+                  <p className="data-mono mt-5 text-data-s text-murram underline-offset-4 group-hover:underline">
+                    THE DETAIL →
+                  </p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* 6 — The car */}
       <Section roadbook="THE CAR" className="py-24 sm:py-32">
         <Container>
           <SectionHeading instruction={car.instruction} title={car.title} />

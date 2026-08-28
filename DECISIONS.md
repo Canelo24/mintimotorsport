@@ -59,6 +59,22 @@ unless marked otherwise.
     and never silently dropped; README documents setup. A dev-only banner was considered
     and rejected — the confirmation page must never look unfinished to a real buyer.
 
+## Client feedback round 1
+18. **Mobile menu rebuilt** after the owner's "cluttered" feedback. Root cause found via
+    screenshot: the menu sheet was rendered inside the header, whose `backdrop-filter`
+    made it a CSS containing block — the "full-screen" menu collapsed and page content
+    bled through behind the links. The menu is now a sibling of the header (true opaque
+    sheet), numbering and borders removed, links centred with air, one CTA at the bottom.
+19. **Programme range added** (per client): Arrive & Drive (flagship), Your Car Our Team,
+    Commission a Safari Car — summarised on the home page ("Three ways in"), detailed with
+    anchors on /the-drive, and reflected in the enquiry's first question. Commission copy
+    stays inside verified facts (MST partnership).
+20. **"Preserving Heritage"** (the strap from the supplied logo) adopted as brand language:
+    footer lockup and marquee line. The logo artwork itself is NOT redrawn — the real
+    files need to be supplied (see ASSETS-NEEDED "Brand files").
+21. **Jeet Ghose confirmed by the owner** as the named person — already used across home,
+    enquiry confirmation, team and contact pages; unchanged.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

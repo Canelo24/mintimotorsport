@@ -17,6 +17,7 @@ import {
   included,
   packages,
   packCta,
+  programmes,
   timeline,
 } from "@/content/drive";
 
@@ -54,11 +55,56 @@ export default function TheDrivePage() {
         </Container>
       </Section>
 
-      {/* Included / not included — two columns, stated plainly */}
-      <Section roadbook="INCLUDED" className="py-24">
+      {/* The three programmes */}
+      <Section roadbook="THE ROUTES" className="py-24">
         <Container>
           <SectionHeading
-            instruction="SS2/01 — THE CONTENTS"
+            instruction={programmes.instruction}
+            title={programmes.title}
+            lead={programmes.lead}
+          />
+          <div className="mt-12 space-y-10">
+            {programmes.items.map((prog, i) => (
+              <Reveal key={prog.id} delay={i * 80}>
+                <article
+                  id={prog.id}
+                  className="grid scroll-mt-24 gap-6 border-t-2 border-murram pt-6 lg:grid-cols-[280px_1fr_260px]"
+                >
+                  <div>
+                    <p className="data-mono text-data-s font-medium text-murram">
+                      {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="display-wide mt-1 text-h3">{prog.name}</h3>
+                    <p className="mt-2 text-data font-semibold text-night/70">{prog.strap}</p>
+                  </div>
+                  <p className="max-w-xl text-body text-night/80">{prog.body}</p>
+                  <ul className="space-y-2">
+                    {prog.points.map((pt) => (
+                      <li key={pt} className="flex gap-2.5 text-data text-night/70">
+                        <span className="text-murram" aria-hidden="true">·</span>
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={100}>
+            <p className="mt-12 max-w-2xl text-data text-night/60">
+              Everything below describes <strong className="text-night/80">Arrive &amp; Drive</strong> in
+              full — the shape of the other programmes follows the same standard, priced and
+              planned per car on the first call.
+            </p>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* Included / not included — two columns, stated plainly */}
+      <Section roadbook="INCLUDED" className="py-24 pt-0">
+        <Container>
+          <SectionHeading
+            instruction="SS2/01 — ARRIVE & DRIVE, IN FULL"
             title="What's in, what's not"
             lead="Plainly, before any call. The agreement you eventually sign says the same things in longer sentences."
           />

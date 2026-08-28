@@ -48,6 +48,20 @@ launch, P3 = can follow.
 | `journal-reading-the-road-1600x1000.jpg` | 1600×1000 | Open roadbook page, pencil notes, dusty thumb. |
 | `contact-workshop-gate-1600x1000.jpg` | 1600×1000 | The workshop gate, sign visible. |
 
+## Brand files (client has these — awaiting the actual files)
+Four images were shown to us but the files themselves were not received. Upload them to the
+repo (GitHub → branch `claude/minti-motorsport-site-arbq1s` → Add file → Upload files) or
+send them through any channel, and they will be wired in:
+
+| File wanted | What it is | Where it goes |
+|---|---|---|
+| `minti-logo-dark.(png/svg)` | Square logo, white MINTI + gold laurel on black, "Preserving Heritage" | Footer lockup, favicon, OG share card |
+| `minti-logo-light.(png/svg)` | Horizontal version on white | Light-background uses, print/email |
+| Rally action shot (red car, airborne, murram, #26) | Owner-supplied photography | Home hero or heritage lead (subject to rights + car identification) |
+| Red Escort Mk1 on mountain road (CX71 BDG) | Owner-supplied photography | The Cars — Mk1 slot / "Why the Escort" journal cover |
+
+Confirm photographer credit and usage rights for both photos before publishing.
+
 ## Also wanted (no slot yet — future)
 - 10–20s hero film (muted, no audio dependence): car through fesh-fesh, one pass, locked-off
   or slow tracking. Poster frame = the P1 hero still. Will slot behind the home hero with a

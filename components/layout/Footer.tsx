@@ -12,6 +12,9 @@ export function Footer() {
             <p className="display-wide text-h3">
               MINTI<span className="text-sodium">·</span>MOTORSPORT
             </p>
+            <p className="display-cond mt-2 text-data-s tracking-[0.24em] text-sodium">
+              Preserving Heritage
+            </p>
             <p className="mt-4 max-w-sm text-data text-chalk/70">
               {site.tagline}
             </p>
