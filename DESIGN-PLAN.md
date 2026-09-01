@@ -53,8 +53,8 @@ Contrast: `night` on `feshfesh` ≈ 13:1; `chalk` on `night` ≈ 12:1; `night` o
 
 | Role | Face | Why |
 |---|---|---|
-| Display | **Archivo** (variable, `wdth` 62–125, `wght` → 900) | One grotesque family used at its two width extremes: **expanded black uppercase, tight-tracked** for marquee headings (plated, competition-number character) and **condensed medium** for roadbook labels and eyebrows. Rejected Bebas/Oswald/Anton — the default rally condensed trio. |
-| Body | **Source Sans 3** | Neutral humanist sans that genuinely reads well long-form at 17–19px. Rejected Inter (AI house default). |
+| Display | **Big Shoulders** (rev. 2026-09-01; was Archivo expanded) | Tall condensed industrial variable face — rally-poster character at scale. Archivo survives as the wordmark + condensed labels. Rejected Bebas/Oswald/Anton — the default rally condensed trio. |
+| Body | **Familjen Grotesk** (rev. 2026-09-01) | Warm editorial grotesk with genuine personality at 17–19px. Replaced Source Sans 3 after client feedback ("fonts are boring") — it read institutional. |
 | Data / utility | **IBM Plex Mono** | Engineering-drawing heritage, tabular numerals. Used for *everything numeric and factual* — distances, dates, specs, coordinates, split-style timing — and never decoratively. Rejected JetBrains Mono (code-editor default, wrong register). |
 
 Type scale (named steps, `clamp()`-fluid): `--text-data-s` 12px · `--text-data` 14px ·

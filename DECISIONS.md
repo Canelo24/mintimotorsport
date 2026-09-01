@@ -118,6 +118,10 @@ unless marked otherwise.
     unchanged. Mobile: the roadbook distance chip now sits below the header and only
     appears once scrolling.
 
+30. **Body face changed to Familjen Grotesk** (client round 3b: body text still read
+    boring after the display swap — both flagged crops were Source Sans 3). Warm
+    editorial grotesk, variable 400–700 + italic, self-hosted; Source Sans removed.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

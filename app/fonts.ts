@@ -5,7 +5,8 @@ import localFont from "next/font/local";
  * - Big Shoulders (variable, opsz+wght) — marquee display: tall, condensed,
  *   industrial; rally-poster character at scale
  * - Archivo (variable, wdth 62–125)     — condensed labels + wordmark
- * - Source Sans 3 (variable)            — body, 17–19px long-form
+ * - Familjen Grotesk (variable)         — body: warm editorial grotesk,
+ *   17–19px long-form with actual personality
  * - IBM Plex Mono                       — everything numeric and factual
  */
 
@@ -29,21 +30,21 @@ export const archivo = localFont({
   fallback: ["Arial Narrow", "Arial", "sans-serif"],
 });
 
-export const sourceSans = localFont({
+export const familjen = localFont({
   src: [
     {
-      path: "./fonts/source-sans-3-variable.woff2",
-      weight: "200 900",
+      path: "./fonts/familjen-grotesk-variable.woff2",
+      weight: "400 700",
       style: "normal",
     },
     {
-      path: "./fonts/source-sans-3-italic-variable.woff2",
-      weight: "200 900",
+      path: "./fonts/familjen-grotesk-italic-variable.woff2",
+      weight: "400 700",
       style: "italic",
     },
   ],
   display: "swap",
-  variable: "--font-source-sans",
+  variable: "--font-familjen",
   fallback: ["Segoe UI", "Helvetica Neue", "sans-serif"],
 });
 
@@ -58,4 +59,4 @@ export const plexMono = localFont({
   fallback: ["Courier New", "monospace"],
 });
 
-export const fontClassNames = `${bigShoulders.variable} ${archivo.variable} ${sourceSans.variable} ${plexMono.variable}`;
+export const fontClassNames = `${bigShoulders.variable} ${archivo.variable} ${familjen.variable} ${plexMono.variable}`;

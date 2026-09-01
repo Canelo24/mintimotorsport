@@ -20,7 +20,7 @@
   /* Type families (populated by next/font in app/fonts.ts) */
   --font-marquee: var(--font-big-shoulders), "Arial Narrow", Impact, sans-serif;
   --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
-  --font-body: var(--font-source-sans), Georgia, "Segoe UI", sans-serif;
+  --font-body: var(--font-familjen), "Segoe UI", "Helvetica Neue", sans-serif;
   --font-mono: var(--font-plex-mono), "Courier New", monospace;
 
   /* Named type scale — fluid. Sized for the tall condensed display face. */
