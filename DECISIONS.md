@@ -123,6 +123,15 @@ unless marked otherwise.
     boring after the display swap — both flagged crops were Source Sans 3). Warm
     editorial grotesk, variable 400–700 + italic, self-hosted; Source Sans removed.
 
+## Client feedback round 5 (2026-09-01) — focus pass
+31. **Home page edited down around EASCR 2027** (client: "too crowded; the main job is to
+    sell the 2027 arrive-and-drive"). The hero now IS the campaign (kicker names the event,
+    primary CTA = "Apply for the seat" → pre-qualified enquiry), which allowed deleting the
+    separate campaign strip. Cut from home: the two TBC credibility cells, the three TBC
+    spec rows, two heritage cards, and the three-card programmes band (now one line of
+    links). Header nav drops Journal (kept in footer + mobile menu). Every remaining CTA on
+    home targets the 2027 application. The removed detail all still lives on its own pages.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

@@ -7,9 +7,13 @@ import { images } from "./images.generated";
  */
 
 export const hero = {
-  kicker: "MINTI MOTORSPORT · NAIROBI",
+  kicker: "ARRIVE & DRIVE · EAST AFRICAN SAFARI CLASSIC 2027",
   headline: "A seat in the Safari.",
-  sub: "Fully-run entries on East Africa's great rallies. The car built, the crew hired, the road known. You drive.",
+  sub: "One programme, one event, a handful of cars. We build it, crew it and run it — you drive the 2027 Safari Classic.",
+  primaryCta: "Apply for the seat",
+  primaryHref: "/enquire?e=eascr2027",
+  secondaryCta: "The full programme",
+  secondaryHref: "/the-drive",
   image: images.heroSafariJumpMurram,
 };
 
@@ -32,14 +36,12 @@ export const credibility = [
   { label: "REGISTERED", value: "UNITED KINGDOM" },
   { label: "BASE", value: "NAIROBI · 1.2921°S 36.8219°E" },
   { label: "CAR PARTNER", value: "MST CARS — EXCLUSIVE, REGIONAL" },
-  { label: "YEARS ON THIS GROUND", value: TODO("years operating in East Africa") },
-  { label: "CREWS RUN", value: TODO("number of crews run to date") },
 ];
 
 export const driveSequence = {
-  instruction: "SS1/04 — WHAT A SEAT INCLUDES",
+  instruction: "SS1/02 — ARRIVE & DRIVE · SAFARI CLASSIC 2027",
   title: "First call to finish ramp",
-  lead: "One programme, run end to end from Nairobi. Five controls between deciding and finishing.",
+  lead: "The 2027 seat, run end to end from Nairobi. Five controls between deciding and finishing.",
   cards: [
     {
       tc: "TC1",
@@ -75,8 +77,7 @@ export const driveSequence = {
 };
 
 export const routesIn = {
-  instruction: "SS1/05 — CHOOSE YOUR ROUTE IN",
-  title: "Three ways in",
+  line: "Not an arrive-and-drive buyer?",
   items: [
     {
       name: "Arrive & Drive",
@@ -97,7 +98,7 @@ export const routesIn = {
 };
 
 export const car = {
-  instruction: "SS1/06 — THE CAR",
+  instruction: "SS1/03 — THE CAR",
   title: "The Escort, done properly",
   body: "New and original Ford Escort Mk1 and Mk2, built to Safari specification by MST Cars. The partnership is exclusive for the region: the same builds, the same parts book, the same people who put them together.",
   image: images.carsMk1MountainRoad,
@@ -105,14 +106,11 @@ export const car = {
     { k: "BUILD", v: "MST CARS" },
     { k: "SHELL", v: "ESCORT MK1 / MK2" },
     { k: "SPEC", v: "SAFARI — ENDURANCE" },
-    { k: "ENGINE", v: TODO("engine specification") },
-    { k: "GEARBOX", v: TODO("gearbox specification") },
-    { k: "SUSPENSION", v: TODO("suspension specification") },
   ],
 };
 
 export const people = {
-  instruction: "SS1/07 — THE PEOPLE",
+  instruction: "SS1/04 — THE PEOPLE",
   title: "Names you can phone",
   lead: "A six-figure decision should come with people attached. These are ours.",
   cards: [
@@ -138,7 +136,7 @@ export const people = {
 };
 
 export const heritageStrip = {
-  instruction: "SS1/08 — WHERE WE COME FROM",
+  instruction: "SS1/05 — WHERE WE COME FROM",
   title: "Heritage, briefly",
   entries: [
     {
@@ -150,27 +148,21 @@ export const heritageStrip = {
       text: "Held a controlling stake in East African Safari Classic Rally Ltd — stewardship we're proud of. The event is now independently run.",
     },
     {
-      year: TODO("Duncan/Tundo years"),
-      text: "Ran crews including Ian Duncan (Nissan 240RS) and Carl “Flash” Tundo (VW R5).",
-    },
-    {
-      year: TODO("Wahome/Khan year"),
-      text: "Introduced an all-Kenyan ladies crew — Maxine Wahome and Safina Khan — to classic rallying.",
-    },
-    {
-      year: TODO("MST partnership year"),
-      text: "Announced the exclusive regional partnership with MST Cars for Safari-spec Escorts.",
+      year: TODO("crew years"),
+      text: "Ran crews including Ian Duncan and Carl “Flash” Tundo, and introduced Maxine Wahome and Safina Khan to classic rallying.",
     },
   ],
 };
 
 export const ask = {
-  headline: "The start list is short.",
-  body: "We run a small number of cars, and we run them properly. When this event's seats are allocated, the next start is a year away.",
+  headline: "The 2027 start list is short.",
+  body: "We will run a small number of cars on the Safari Classic 2027, and we will run them properly. When they are allocated, the next start is years away.",
   scarcityLine: {
     seats: TODO("number of seats available"),
     event: "EAST AFRICAN SAFARI CLASSIC 2027",
   },
+  cta: "Apply for the seat",
+  href: "/enquire?e=eascr2027",
   image: images.askMurramRoadAerial,
 };
 

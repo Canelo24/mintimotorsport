@@ -61,7 +61,9 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
-          {site.nav.map((item) => (
+          {/* Journal stays in the footer and mobile menu; the header keeps only
+              the selling routes. */}
+          {site.nav.filter((item) => item.href !== "/journal").map((item) => (
             <Link
               key={item.href}
               href={item.href}

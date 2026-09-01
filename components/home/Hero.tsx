@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Parallax } from "@/components/motion/Parallax";
 import { AmbientVideo } from "@/components/motion/AmbientVideo";
-import { site } from "@/content/site";
 import { events } from "@/lib/analytics";
 import { hero } from "@/content/home";
 
@@ -56,11 +55,16 @@ export function Hero() {
           className="hero-rise mt-10 flex flex-wrap gap-4"
           style={{ "--rise-delay": "420ms" } as React.CSSProperties}
         >
-          <Button href="/enquire" magnetic event={events.heroCta}>
-            {site.cta.primary}
+          <Button
+            href={hero.primaryHref}
+            magnetic
+            event={events.heroCta}
+            eventProps={{ campaign: "eascr2027" }}
+          >
+            {hero.primaryCta}
           </Button>
-          <Button href="/the-cars" variant="ghost-dark">
-            {site.cta.secondary}
+          <Button href={hero.secondaryHref} variant="ghost-dark">
+            {hero.secondaryCta}
           </Button>
         </div>
       </div>

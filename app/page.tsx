@@ -13,7 +13,6 @@ import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import {
   ask,
-  campaign,
   car,
   credibility,
   driveSequence,
@@ -34,28 +33,6 @@ export default function HomePage() {
   return (
     <Page path="/">
       <Hero />
-
-      {/* The live campaign strip — one line, one destination */}
-      <Section className="bg-murram text-chalk">
-        <Container className="flex flex-col items-start justify-between gap-4 py-6 lg:flex-row lg:items-center">
-          <div>
-            <p className="data-mono text-data-s font-semibold tracking-[0.14em] text-sodium">
-              {campaign.eyebrow}
-            </p>
-            <p className="display-wide mt-1 text-h3 leading-none">{campaign.title}</p>
-            <p className="data-mono mt-2 text-[11px] text-chalk/60">{campaign.note}</p>
-          </div>
-          <Button
-            href={campaign.href}
-            magnetic
-            event="campaign_cta_click"
-            eventProps={{ campaign: "eascr2027" }}
-            className="shrink-0"
-          >
-            {campaign.cta}
-          </Button>
-        </Container>
-      </Section>
 
       {/* 2 — The proposition, three lines, room to breathe */}
       <Section roadbook="THE DEAL" className="py-24 sm:py-32">
@@ -93,31 +70,19 @@ export default function HomePage() {
       {/* 4 — The drive: pinned horizontal sequence */}
       <DriveSequence {...driveSequence} />
 
-      {/* 5 — Choose your route in: the three programmes */}
-      <Section roadbook="THE ROUTES" className="py-24 sm:py-32">
-        <Container>
-          <SectionHeading instruction={routesIn.instruction} title={routesIn.title} />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {routesIn.items.map((route, i) => (
-              <Reveal key={route.name} delay={i * 100}>
-                <Link
-                  href={route.href}
-                  className="group flex h-full flex-col border-t-2 border-murram pt-5 transition-colors"
-                >
-                  <p className="data-mono text-data-s font-medium text-murram">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="display-wide mt-2 text-h3 group-hover:text-murram">
-                    {route.name}
-                  </h3>
-                  <p className="mt-3 flex-1 text-data text-night/75">{route.body}</p>
-                  <p className="data-mono mt-5 text-data-s text-murram underline-offset-4 group-hover:underline">
-                    THE DETAIL →
-                  </p>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+      {/* The other routes in — one quiet line, detail lives on /the-drive */}
+      <Section className="border-b rule">
+        <Container className="flex flex-wrap items-baseline gap-x-6 gap-y-2 py-6">
+          <p className="text-data font-semibold text-night/70">{routesIn.line}</p>
+          {routesIn.items.slice(1).map((route) => (
+            <Link
+              key={route.name}
+              href={route.href}
+              className="data-mono text-data text-murram underline-offset-4 hover:underline"
+            >
+              {route.name} →
+            </Link>
+          ))}
         </Container>
       </Section>
 
@@ -277,8 +242,13 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={280}>
             <div className="mt-10">
-              <Button href="/enquire" magnetic event="ask_cta_click">
-                {site.cta.primary}
+              <Button
+                href={ask.href}
+                magnetic
+                event="ask_cta_click"
+                eventProps={{ campaign: "eascr2027" }}
+              >
+                {ask.cta}
               </Button>
             </div>
           </Reveal>

@@ -115,16 +115,16 @@ export function DriveSequence({ instruction, title, lead, cards }: Props) {
         ))}
         {/* End card: the ask, inside the sequence */}
         <article className="flex w-[82vw] max-w-[520px] shrink-0 snap-start flex-col items-start justify-center border border-sodium/60 bg-night-2 p-8 sm:w-[52vw] lg:w-[36vw]">
-          <p className="data-mono text-data-s text-sodium">FINISH CONTROL</p>
+          <p className="data-mono text-data-s text-sodium">FINISH CONTROL · EASCR 2027</p>
           <h3 className="display-wide mt-2 text-h3">Your name on the door</h3>
           <p className="mt-3 text-data text-chalk/75">
             The full programme, in writing, after one call.
           </p>
           <a
-            href="/enquire"
+            href="/enquire?e=eascr2027"
             className="display-cond mt-6 bg-sodium px-6 py-3.5 text-data-s tracking-[0.16em] text-night transition-colors hover:bg-chalk"
           >
-            Take a seat
+            Apply for the seat
           </a>
         </article>
       </div>
