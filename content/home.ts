@@ -48,7 +48,7 @@ export const driveSequence = {
       tc: "TC3",
       title: "Scrutineering",
       body: "Our paperwork, our queue, our problem. You sign where we point and shake the hands worth shaking.",
-      image: images.drive03Scrutineering,
+      image: images.drive03ReadyToStart,
     },
     {
       tc: "TC4",
@@ -162,7 +162,7 @@ export const ask = {
     seats: TODO("number of seats available"),
     event: TODO("next event name and date"),
   },
-  image: images.askServiceParkNight,
+  image: images.askMurramRoadAerial,
 };
 
 export const marqueeLine =

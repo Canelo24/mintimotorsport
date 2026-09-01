@@ -84,6 +84,22 @@ unless marked otherwise.
     removed, docs updated. Worth one final confirmation with Joey that "family-run"
     remains accurate wording.
 
+## Media drop 1 (2026-09-01)
+23. **Hero film built** from three clips (aerial → dust approach → dust-wall pass), 13s,
+    1600px, 2.5MB H.264, muted/looping. Rendered only when context allows (no reduced
+    motion, no Save-Data, no 2g/3g, ≥768px) — everyone else keeps the jump still. Same
+    gating for the 0.5MB crew-at-service loop behind "the ask".
+24. **Maasai herder and livestock clips not used** (FLS_4800, FLS_4847). Beautiful footage,
+    but §3 explicitly rejects safari-tourism styling; without a rally-context frame (car
+    passing stock on a stage) they read as tourism B-roll. Kept in the release archive for
+    a future journal piece about sharing the road, where context makes them honest.
+25. **The competition car in this drop is a Safari-prepared 911, not an Escort** — so its
+    imagery is used on home/drive/team/journal (event and service context) and kept OUT of
+    The Cars page and Escort-labelled slots, which stay on placeholders until MST Escort
+    photography exists. Alt text names what is visible, no more.
+26. **Originals live in the GitHub release** (`media-drop-1`), not in git history — the repo
+    carries only web-sized outputs. Re-processing starts from the release download.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

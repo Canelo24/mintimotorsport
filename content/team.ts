@@ -37,5 +37,5 @@ export const crew = {
   title: "The 2am department",
   body: "Rallies are won between midnight and scrutineering. The service crew — chief mechanic, fabricator, electrics, logistics — is the part of the programme you'll be gladdest you paid for and the part we're proudest of. Names and faces will sit here once the crew sheet is confirmed for the season.",
   namesTodo: TODO("crew names, roles and photos for the current season"),
-  image: images.teamServicePark2am,
+  image: images.teamCrewService,
 };

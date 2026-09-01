@@ -64,6 +64,22 @@ Higher-resolution exports welcome (hero is 1320px wide — serviceable, but a 24
 of the jump shot would be sharper on large screens; re-run the ingest script after
 replacing the file in `assets-src/`).
 
+## Media drop 1 — RECEIVED 2026-09-01 and wired in
+18 files via GitHub release `media-drop-1` (the release doubles as the originals archive —
+4K MP4s and CR3 RAWs stay there, only web-sized outputs live in the repo).
+
+**Video (10 × 4K):** hero film loop cut from DJI_0170 (aerial) + C0139 (dust approach) +
+FLS_4774 (dust-wall pass) → `public/video/hero-loop.mp4` (13s, 2.5MB). Crew-at-service
+ambient from FLS_4778 → `public/video/service-loop.mp4` (6s, 0.5MB), behind "the ask".
+FLS_4788 (wheel change) and FLS_4781 (crew) used as 4K frame-grab stills. FLS_4800/4847
+(Maasai herder, livestock) deliberately not used — see DECISIONS.md.
+
+**Stills:** FLS_4770 → the-event · FLS_4685 → shakedown · FLS_4741 → arrival ·
+FLS_4732 (gauges) → The Drive hero · FLS_4871 (driver strapped in) → TC3 ·
+FLS_4701 (engine) → workshop bay · DJI_0154/0155 (aerials) → journal cover + "the ask".
+
+**Still to confirm:** photographer credit and usage rights for the whole drop.
+
 ## Also wanted (no slot yet — future)
 - 10–20s hero film (muted, no audio dependence): car through fesh-fesh, one pass, locked-off
   or slow tracking. Poster frame = the P1 hero still. Will slot behind the home hero with a

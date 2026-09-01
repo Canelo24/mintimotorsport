@@ -38,18 +38,18 @@ const IMAGES = [
   // --- Home
   // REAL (client-supplied): airborne Safari car over a murram crest.
   { name: "hero-safari-jump-murram-1320x1132", w: 1320, h: 1132, scheme: "murram", alt: "Safari rally car, competition number 26, airborne over a murram crest, red dust trailing, East African bush behind" },
-  { name: "drive-01-arrival-nairobi-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Driver arriving at the Minti workshop gate in Nairobi, shaking hands with the crew, Escort visible in the bay behind" },
-  { name: "drive-02-shakedown-test-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "Escort mid-corner on a private murram test stage, driver on an early shakedown run, shallow evening light" },
-  { name: "drive-03-scrutineering-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Scrutineering bay: officials checking the cage and extinguisher plumbing, crew standing by with the time card" },
-  { name: "drive-04-the-event-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "Competition: the Escort flat over a crest, roof vents open, competition numbers on the doors, crowd of spectators at safe distance" },
+  { name: "drive-01-arrival-nairobi-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "The Safari-prepared 911 among the support vehicles at the base on arrival day" }, // REAL
+  { name: "drive-02-shakedown-test-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "The Safari car at speed in side profile on a test road, driver visible at the wheel" }, // REAL
+  { name: "drive-03-ready-to-start-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Driver helmeted and strapped in behind the roll cage, waiting for the off" }, // REAL
+  { name: "drive-04-the-event-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "The competition car on murram between the thorn trees, dust rising behind" }, // REAL
   { name: "drive-05-finish-ramp-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Driver and co-driver on the finish ramp, dust-caked car, champagne held not sprayed, crew gathered below" },
   { name: "car-escort-mk2-profile-2400x1500", w: 2400, h: 1500, scheme: "dust", alt: "Full side profile of a Safari-spec Escort Mk2 in the workshop, sump guard and raised suspension visible, studio-clean light" },
   { name: "people-joey-ghose-900x1125", w: 900, h: 1125, scheme: "night", alt: "Joey Ghose, portrait in the Nairobi workshop, arms crossed, service tools behind — direct, unposed" },
   { name: "people-crew-chief-900x1125", w: 900, h: 1125, scheme: "night", alt: "Crew chief portrait at the service bench, torque wrench in hand, floodlit from above" },
   { name: "people-workshop-nairobi-900x1125", w: 900, h: 1125, scheme: "night", alt: "The Nairobi workshop at night: two Escorts on stands, parts trolleys, sodium floodlights" },
-  { name: "ask-service-park-night-2400x1200", w: 2400, h: 1200, scheme: "night", alt: "Service park at 2am: crew under floodlights around a raised Escort, steam from tea mugs, spares laid out on tarpaulin" },
+  { name: "ask-murram-road-aerial-2400x1200", w: 2400, h: 1200, scheme: "night", alt: "Aerial view of a murram road running dead straight through the bush to the horizon" }, // REAL
   // --- The Drive
-  { name: "drive-hero-cockpit-2400x1350", w: 2400, h: 1350, scheme: "night", alt: "Cockpit view over the co-driver's shoulder: roadbook open, trip meter glowing, murram road ahead through the screen" },
+  { name: "drive-hero-cockpit-2400x1350", w: 2400, h: 1350, scheme: "night", alt: "Period cockpit gauges up close — speedometer sweep and tachometer needle of the Safari car" }, // REAL
   // --- The Cars
   // REAL (client-supplied): red Escort Mk1 on a mountain pass.
   { name: "cars-mk1-mountain-road-1299x1047", w: 1299, h: 1047, scheme: "dust", alt: "Red Ford Escort Mk1 rally build on a wet mountain pass, gold wheels, roll cage visible through the glass" },
@@ -58,8 +58,8 @@ const IMAGES = [
   { name: "cars-cockpit-detail-1200x1500", w: 1200, h: 1500, scheme: "night", alt: "Cockpit detail: hydraulic handbrake, gear lever, trip computer, roadbook holder — everything within reach" },
   // --- The Team
   { name: "team-joey-ghose-workshop-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Joey Ghose at the workshop door, relaxed, an Escort visible in the bay behind" },
-  { name: "team-service-park-2am-2400x1350", w: 2400, h: 1350, scheme: "night", alt: "Wide shot of the full Minti service crew mid-service at night — wheels off, four people on the car, one on the clock" },
-  { name: "team-workshop-bay-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Daylight workshop bay: engine on a stand, parts shelving, clean floor, Kenyan daylight through the roller door" },
+  { name: "team-crew-service-2400x1350", w: 2400, h: 1350, scheme: "night", alt: "Minti crew in team shirts around the car at service" }, // REAL
+  { name: "team-workshop-bay-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Freshly built air-cooled engine in the bay, twin carburettors, spotless" }, // REAL
   // --- Heritage
   // REAL (client-supplied): archive B&W of a Minti-liveried crew at speed.
   { name: "heritage-minti-stage-bw-1320x868", w: 1320, h: 868, scheme: "night", alt: "Archive black-and-white photograph: Minti-liveried classic rally saloon at speed on an East African stage, panned through thorn scrub" },
@@ -67,9 +67,9 @@ const IMAGES = [
   { name: "heritage-tundo-r5-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "Carl Tundo's VW R5 flat through a village lined section, a crew Minti ran" },
   { name: "heritage-wahome-khan-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Maxine Wahome and Safina Khan with their rally car before a start — the all-Kenyan ladies crew Minti introduced to classic rallying" },
   // --- Journal covers
-  { name: "journal-service-park-craft-1600x1000", w: 1600, h: 1000, scheme: "night", alt: "Hands re-torquing a suspension bolt under floodlight, service clock visible" },
+  { name: "journal-service-park-craft-1600x1000", w: 1600, h: 1000, scheme: "night", alt: "Gloved hands on the wheel nuts mid wheel-change, close up" }, // REAL
   { name: "journal-why-the-escort-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Escort Mk1 and Mk2 parked nose to tail outside the workshop" },
-  { name: "journal-reading-the-road-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "Open roadbook page with tulip diagrams, pencil notes, and a dusty thumb" },
+  { name: "journal-reading-the-road-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "Aerial of a murram road cutting through acacia scrub" }, // REAL
   // --- Contact
   { name: "contact-workshop-gate-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "The Minti workshop gate in Nairobi, sign visible, gravel apron" },
   // --- OG

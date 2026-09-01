@@ -1,14 +1,15 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Parallax } from "@/components/motion/Parallax";
+import { AmbientVideo } from "@/components/motion/AmbientVideo";
 import { site } from "@/content/site";
 import { events } from "@/lib/analytics";
 import { hero } from "@/content/home";
 
 /**
- * Home hero: one commanding still, one headline that names the offer,
- * one primary CTA. No carousel. First-paint orchestration is CSS-only
- * (hero-rise), runs once, and is killed by prefers-reduced-motion.
+ * Home hero: the film loop where context allows (muted, no controls), the
+ * jump still everywhere else — reduced motion, Save-Data, slow connections
+ * and small screens all get the photograph. One headline, one primary CTA.
  */
 export function Hero() {
   return (
@@ -24,6 +25,7 @@ export function Hero() {
           blurDataURL={hero.image.blurDataURL}
           className="object-cover"
         />
+        <AmbientVideo src="/video/hero-loop.mp4" className="absolute inset-0" />
       </Parallax>
       {/* Legibility gradient — night from the base, like dusk coming in */}
       <div

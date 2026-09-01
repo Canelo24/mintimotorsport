@@ -5,6 +5,7 @@ import { Hero } from "@/components/home/Hero";
 import { DriveSequence } from "@/components/home/DriveSequence";
 import { Marquee } from "@/components/motion/Marquee";
 import { Reveal } from "@/components/motion/Reveal";
+import { AmbientVideo } from "@/components/motion/AmbientVideo";
 import { Button } from "@/components/ui/Button";
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
 import { Todo } from "@/components/ui/Todo";
@@ -231,6 +232,12 @@ export default function HomePage() {
           blurDataURL={ask.image.blurDataURL}
           className="object-cover opacity-40"
           aria-hidden="true"
+        />
+        {/* Crew-at-service ambient loop over the aerial still, context-gated */}
+        <AmbientVideo
+          lazy
+          src="/video/service-loop.mp4"
+          className="absolute inset-0 opacity-35"
         />
         <Container className="relative py-28 sm:py-40">
           <Reveal>
