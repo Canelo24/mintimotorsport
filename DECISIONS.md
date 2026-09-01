@@ -86,9 +86,10 @@ unless marked otherwise.
 
 ## Media drop 1 (2026-09-01)
 23. **Hero film built** from three clips (aerial → dust approach → dust-wall pass), 13s,
-    1600px, 2.5MB H.264, muted/looping. Rendered only when context allows (no reduced
-    motion, no Save-Data, no 2g/3g, ≥768px) — everyone else keeps the jump still. Same
-    gating for the 0.5MB crew-at-service loop behind "the ask".
+    1600px, 2.5MB H.264 + WebM, muted/looping. Amended per client (round 4): mobile now
+    plays a dedicated sub-1MB 960px rendition rather than falling back to the still; the
+    remaining gates are reduced motion, Save-Data and 2g/3g. Same gating for the 0.5MB
+    crew-at-service loop behind "the ask".
 24. **Maasai herder and livestock clips not used** (FLS_4800, FLS_4847). Beautiful footage,
     but §3 explicitly rejects safari-tourism styling; without a rally-context frame (car
     passing stock on a stage) they read as tourism B-roll. Kept in the release archive for

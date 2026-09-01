@@ -7,9 +7,9 @@ import { events } from "@/lib/analytics";
 import { hero } from "@/content/home";
 
 /**
- * Home hero: the film loop where context allows (muted, no controls), the
- * jump still everywhere else — reduced motion, Save-Data, slow connections
- * and small screens all get the photograph. One headline, one primary CTA.
+ * Home hero: the film loop where context allows (muted, no controls) — a
+ * sub-1MB rendition on phones — with the jump still beneath as the fallback
+ * for reduced motion, Save-Data and slow connections. One headline, one CTA.
  */
 export function Hero() {
   return (
@@ -25,7 +25,11 @@ export function Hero() {
           blurDataURL={hero.image.blurDataURL}
           className="object-cover"
         />
-        <AmbientVideo src="/video/hero-loop.mp4" className="absolute inset-0" />
+        <AmbientVideo
+          src="/video/hero-loop.mp4"
+          mobileSrc="/video/hero-loop-mobile.mp4"
+          className="absolute inset-0"
+        />
       </Parallax>
       {/* Legibility gradient — night from the base, like dusk coming in */}
       <div
