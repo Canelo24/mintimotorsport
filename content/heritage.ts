@@ -8,17 +8,17 @@ import { images } from "./images.generated";
  */
 
 export const heritageHero = {
-  kicker: "SS5 — HERITAGE",
+  kicker: "SS5 · HERITAGE",
   headline: "We've stood in this dust before.",
-  sub: "The record, in the correct tense: what the family built, the event it stewarded, and the crews it has run.",
+  sub: "The record, in the correct tense. What the family built, the event it stewarded, and the crews it has run.",
   image: images.heritageMintiStageBw,
 };
 
 export const stewardship = {
   title: "The Safari Classic years",
   body: [
-    "Minti previously acquired a controlling stake in East African Safari Classic Rally Ltd and took on the stewardship of one of rallying's great events — the entries, the route, the safety plan, the thousand quiet decisions that make a 4,000-kilometre-class event happen at all.",
-    "That chapter has closed: the rally is now independently run, and entering it with Minti confers no special standing with the organiser — nor should it. What the years left behind is harder to buy: the operational knowledge of what this event does to cars, crews and schedules, learned from the inside.",
+    "Minti previously held a controlling stake in East African Safari Classic Rally Ltd and took on the stewardship of one of rallying's great events. The entries, the route, the safety plan, and the thousand quiet decisions that make an event of that scale happen at all.",
+    "That chapter has closed. The rally is independently run today, and entering with Minti gives you no special standing with the organiser, nor should it. What those years left behind is harder to buy. We know what this event does to cars, crews and schedules, because we learned it from the inside.",
   ],
   years: TODO("years of the EASCR controlling stake (from–to)"),
 };
@@ -26,43 +26,40 @@ export const stewardship = {
 export const crews = {
   title: "Crews we have run",
   intro:
-    "Talent we have backed and entries we have run — listed in the past tense, because that's what a record is.",
+    "Talent we have backed and entries we have run. Listed in the past tense, because that is what a record is.",
   entries: [
     {
       name: "Ian Duncan",
       car: "Nissan 240RS",
       years: TODO("Duncan years"),
-      body: "One of Kenya's greats. We ran his 240RS — a crowd's favourite and a mechanic's education.",
-      image: images.heritageDuncan240rs,
+      body: "One of Kenya's greats. We ran his 240RS, a crowd favourite and a mechanic's education.",
     },
     {
       name: "Carl “Flash” Tundo",
       car: "VW R5",
       years: TODO("Tundo years"),
-      body: "Multiple Safari winner. Running a crew at Tundo's pace teaches a service park what 'ready' actually means.",
-      image: images.heritageTundoR5,
+      body: "Multiple Safari winner. Running a crew at Tundo's pace teaches a service park what ready actually means.",
     },
     {
       name: "Maxine Wahome & Safina Khan",
       car: TODO("Wahome/Khan car"),
       years: TODO("Wahome/Khan year"),
-      body: "An all-Kenyan ladies crew we introduced to classic rallying — the sport's future arriving through its history.",
-      image: images.heritageWahomeKhan,
+      body: "An all-Kenyan ladies crew we brought into classic rallying. The sport's future arriving through its history.",
     },
   ],
 };
 
 export const timeline = {
   title: "The long road, dated",
-  note: "Exact years await the family's sign-off — the order is right, the dates will be.",
+  note: "Exact years await sign-off from the family. The order is right and the dates will follow.",
   entries: [
     { year: TODO("year"), text: "Joey Ghose founds Minti Motorsport. UK-registered, family-run, operational roots in Nairobi." },
     { year: TODO("year"), text: "First entries run under the Minti banner in East African classic rallying." },
-    { year: TODO("years"), text: "Controlling stake in East African Safari Classic Rally Ltd — the stewardship years." },
-    { year: TODO("year"), text: "Crews run: Ian Duncan (Nissan 240RS); Carl “Flash” Tundo (VW R5)." },
-    { year: TODO("year"), text: "Maxine Wahome and Safina Khan introduced to classic rallying — the all-Kenyan ladies crew." },
+    { year: TODO("years"), text: "Controlling stake in East African Safari Classic Rally Ltd. The stewardship years." },
+    { year: TODO("year"), text: "Crews run: Ian Duncan in the Nissan 240RS, Carl “Flash” Tundo in the VW R5." },
+    { year: TODO("year"), text: "Maxine Wahome and Safina Khan brought into classic rallying, an all-Kenyan crew." },
     { year: TODO("year"), text: "Stake in the rally organisation passes on; the event continues independently run." },
     { year: TODO("year"), text: "Exclusive regional partnership with MST Cars announced: new and original Escort Mk1/Mk2, Safari spec." },
-    { year: "NOW", text: "The arrive-and-drive programme: a small number of seats, run properly, from Nairobi." },
+    { year: "NOW", text: "The arrive-and-drive programme. A small number of seats, run properly, from Nairobi." },
   ],
 };

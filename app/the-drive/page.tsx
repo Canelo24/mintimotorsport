@@ -20,9 +20,10 @@ import {
   programmes,
   timeline,
 } from "@/content/drive";
+import { eascr2027 } from "@/content/eascr2027";
 
 export const metadata = buildMetadata({
-  title: "The Drive — the arrive-and-drive programme",
+  title: "The Drive · the arrive-and-drive programme",
   description:
     "What a Minti Motorsport seat includes, what's expected of you, package tiers and the honest answers: safety, licensing, insurance, and what happens when the road wins.",
   path: "/the-drive",
@@ -112,10 +113,77 @@ export default function TheDrivePage() {
           <Reveal delay={100}>
             <p className="mt-12 max-w-2xl text-data text-night/60">
               Everything below describes <strong className="text-night/80">Arrive &amp; Drive</strong> in
-              full — the shape of the other programmes follows the same standard, priced and
-              planned per car on the first call.
+              full. The other programmes are built to the same standard and priced per car on
+              the first call.
             </p>
           </Reveal>
+        </Container>
+      </Section>
+
+      {/* The 2027 package, from the client's own sheet: price, contents, spec */}
+      <Section roadbook="THE 2027 SEAT" dark className="py-24">
+        <Container>
+          <p className="data-mono text-data font-semibold tracking-[0.14em] text-sodium">
+            SS2/01 · {eascr2027.eyebrow}
+          </p>
+          <h2 className="display-wide mt-3 max-w-4xl text-h1">
+            {eascr2027.event} {eascr2027.year}
+          </h2>
+          <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1fr]">
+            <div>
+              <Reveal>
+                <p className="display-wide text-h2 text-sodium">{eascr2027.price}</p>
+                <p className="data-mono mt-1 text-data-s tracking-[0.16em] text-grease">
+                  {eascr2027.priceLabel}
+                </p>
+                <p className="mt-5 max-w-xl text-body text-chalk/85">{eascr2027.intro}</p>
+              </Reveal>
+              <Reveal delay={120}>
+                <p className="display-cond mt-10 text-data-s tracking-[0.2em] text-grease">
+                  THE HIRE COST COVERS
+                </p>
+                <ul className="mt-4 divide-y divide-chalk/10 border-y border-chalk/10">
+                  {eascr2027.includes.map((item) => (
+                    <li key={item} className="flex gap-3 py-2.5 text-data text-chalk/85">
+                      <span className="text-sodium" aria-hidden="true">·</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+              <Reveal delay={180}>
+                <div className="mt-8">
+                  <Button
+                    href={eascr2027.applyHref}
+                    magnetic
+                    event="campaign_cta_click"
+                    eventProps={{ campaign: "eascr2027", from: "the-drive-package" }}
+                  >
+                    {eascr2027.applyCta}
+                  </Button>
+                </div>
+                <p className="data-mono mt-5 max-w-md text-[11px] leading-relaxed text-grease">
+                  {eascr2027.organiserNote}
+                </p>
+              </Reveal>
+            </div>
+            <Reveal delay={140}>
+              <p className="display-cond text-data-s tracking-[0.2em] text-grease">
+                THE CAR, AS BUILT
+              </p>
+              <dl className="mt-4 divide-y divide-chalk/10 border-y border-chalk/10">
+                {eascr2027.spec.map((row) => (
+                  <div key={row.k} className="grid grid-cols-[120px_1fr] gap-4 py-2.5">
+                    <dt className="data-mono text-data-s text-sodium">{row.k}</dt>
+                    <dd className="text-data text-chalk/85">{row.v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="data-mono mt-4 text-[11px] text-grease">
+                Damper, brake, gearbox and livery upgrades are available. Ask on the call.
+              </p>
+            </Reveal>
+          </div>
         </Container>
       </Section>
 
@@ -123,7 +191,7 @@ export default function TheDrivePage() {
       <Section roadbook="INCLUDED" className="py-24 pt-0">
         <Container>
           <SectionHeading
-            instruction="SS2/01 — ARRIVE & DRIVE, IN FULL"
+            instruction="SS2/02 · ARRIVE & DRIVE, IN FULL"
             title="What's in, what's not"
             lead="Plainly, before any call. The agreement you eventually sign says the same things in longer sentences."
           />
@@ -148,7 +216,7 @@ export default function TheDrivePage() {
               <ul className="mt-5 space-y-4">
                 {included.no.map((item) => (
                   <li key={item} className="flex gap-3 text-body text-night/70">
-                    <span className="data-mono mt-0.5 text-grease" aria-hidden="true">—</span>
+                    <span className="data-mono mt-0.5 text-grease" aria-hidden="true">·</span>
                     {item}
                   </li>
                 ))}
@@ -161,7 +229,7 @@ export default function TheDrivePage() {
       {/* Timeline */}
       <Section roadbook="TIMELINE" dark className="py-24">
         <Container>
-          <SectionHeading dark instruction="SS2/02 — THE SCHEDULE" title={timeline.title} />
+          <SectionHeading dark instruction="SS2/03 · THE SCHEDULE" title={timeline.title} />
           <ol className="mt-12 divide-y rule border-y">
             {timeline.steps.map((step, i) => (
               <Reveal key={i} as="li" delay={i * 60}>
@@ -182,7 +250,7 @@ export default function TheDrivePage() {
       <Section roadbook="AM I READY" className="py-24">
         <Container>
           <SectionHeading
-            instruction="SS2/03 — THE DRIVER"
+            instruction="SS2/04 · THE DRIVER"
             title={experience.title}
             lead={experience.lead}
           />
@@ -219,7 +287,7 @@ export default function TheDrivePage() {
         <Container>
           <SectionHeading
             dark
-            instruction="SS2/04 — THE PACKAGES"
+            instruction="SS2/05 · THE PACKAGES"
             title="Three ways in"
             lead={packages.note}
           />
@@ -266,7 +334,7 @@ export default function TheDrivePage() {
       <Section roadbook="STRAIGHT ANSWERS" className="py-24">
         <Container>
           <SectionHeading
-            instruction="SS2/05 — THE QUESTIONS"
+            instruction="SS2/06 · THE QUESTIONS"
             title="Asked every time, answered straight"
           />
           <div className="mt-12">

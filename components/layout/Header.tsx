@@ -55,7 +55,7 @@ export function Header() {
         <Link
           href="/"
           className="wordmark text-lg leading-none"
-          aria-label="Minti Motorsport — home"
+          aria-label="Minti Motorsport home"
         >
           MINTI<span className="text-sodium">·</span>MOTORSPORT
         </Link>

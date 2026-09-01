@@ -22,9 +22,10 @@ import {
   proposition,
   routesIn,
 } from "@/content/home";
+import { eascr2027 } from "@/content/eascr2027";
 
 export const metadata = buildMetadata({
-  title: "Minti Motorsport — A seat in the Safari",
+  title: "Minti Motorsport · A seat in the Safari",
   description: site.description,
   path: "/",
 });
@@ -34,7 +35,68 @@ export default function HomePage() {
     <Page path="/">
       <Hero />
 
-      {/* 2 — The proposition, three lines, room to breathe */}
+      {/* 2 — The 2027 seat. The product, in full, straight after the film. */}
+      <Section roadbook="THE 2027 SEAT" dark className="py-24 sm:py-28">
+        <Container>
+          <p className="data-mono text-data font-semibold tracking-[0.14em] text-sodium">
+            SS1/02 · {eascr2027.eyebrow}
+          </p>
+          <h2 className="display-wide mt-3 max-w-4xl text-h1">
+            {eascr2027.event} {eascr2027.year}
+          </h2>
+          <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_1fr]">
+            <div>
+              <Reveal>
+                <p className="display-wide text-h2 text-sodium">{eascr2027.price}</p>
+                <p className="data-mono mt-1 text-data-s tracking-[0.16em] text-grease">
+                  {eascr2027.priceLabel}
+                </p>
+              </Reveal>
+              <Reveal delay={100}>
+                <p className="mt-6 max-w-xl text-body text-chalk/85">{eascr2027.intro}</p>
+              </Reveal>
+              <Reveal delay={160}>
+                <div className="mt-8 flex flex-wrap items-center gap-5">
+                  <Button
+                    href={eascr2027.applyHref}
+                    magnetic
+                    event="campaign_cta_click"
+                    eventProps={{ campaign: "eascr2027", from: "home-product" }}
+                  >
+                    {eascr2027.applyCta}
+                  </Button>
+                  <Link
+                    href="/the-drive#arrive-and-drive"
+                    className="data-mono text-data text-chalk/70 underline-offset-4 hover:text-sodium hover:underline"
+                  >
+                    Full spec and detail →
+                  </Link>
+                </div>
+              </Reveal>
+              <Reveal delay={220}>
+                <p className="data-mono mt-6 max-w-md text-[11px] leading-relaxed text-grease">
+                  {eascr2027.organiserNote}
+                </p>
+              </Reveal>
+            </div>
+            <Reveal delay={140}>
+              <p className="display-cond text-data-s tracking-[0.2em] text-grease">
+                THE HIRE COST COVERS
+              </p>
+              <ul className="mt-4 divide-y divide-chalk/10 border-y border-chalk/10">
+                {eascr2027.includes.map((item) => (
+                  <li key={item} className="flex gap-3 py-2.5 text-data text-chalk/85">
+                    <span className="text-sodium" aria-hidden="true">·</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 3 — The proposition, three lines, room to breathe */}
       <Section roadbook="THE DEAL" className="py-24 sm:py-32">
         <Container>
           <div className="max-w-3xl space-y-6">
@@ -49,7 +111,7 @@ export default function HomePage() {
 
       {/* 3 — Credibility strip: mono facts, no logo row */}
       <Section className="border-y rule">
-        <Container className="grid grid-cols-2 divide-x rule md:grid-cols-5">
+        <Container className="grid grid-cols-1 divide-y rule sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {credibility.map((item, i) => (
             <Reveal
               key={item.label}
@@ -145,8 +207,24 @@ export default function HomePage() {
             lead={people.lead}
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            {/* Joey leads, set in type until his portrait is shot */}
+            <Reveal as="figure">
+              <div className="flex aspect-[4/5] flex-col justify-between bg-night p-6 text-chalk">
+                <p className="data-mono text-data-s text-sodium">01</p>
+                <p className="display-wide text-h2 leading-none">
+                  Joey
+                  <br />
+                  Ghose
+                </p>
+              </div>
+              <figcaption className="mt-4">
+                <p className="display-wide text-lead">{people.joey.name}</p>
+                <p className="data-mono mt-0.5 text-data-s text-murram">{people.joey.role}</p>
+                <p className="mt-2 text-data text-night/75">{people.joey.body}</p>
+              </figcaption>
+            </Reveal>
             {people.cards.map((person, i) => (
-              <Reveal key={person.role} delay={i * 100} as="figure">
+              <Reveal key={person.role} delay={(i + 1) * 100} as="figure">
                 <div className="relative aspect-[4/5]">
                   <Image
                     src={person.image.src}
@@ -159,9 +237,7 @@ export default function HomePage() {
                   />
                 </div>
                 <figcaption className="mt-4">
-                  <p className="display-wide text-lead">
-                    <Todo value={person.name} />
-                  </p>
+                  <p className="display-wide text-lead">{person.name}</p>
                   <p className="data-mono mt-0.5 text-data-s text-murram">{person.role}</p>
                   <p className="mt-2 text-data text-night/75">{person.body}</p>
                 </figcaption>

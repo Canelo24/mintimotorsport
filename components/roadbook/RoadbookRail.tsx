@@ -97,7 +97,7 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
       {/* Desktop: the roadbook column */}
       <aside
         className="fixed inset-y-0 left-0 z-[60] hidden w-rail flex-col border-r rule bg-feshfesh text-night lg:flex"
-        aria-label="Roadbook — page sections"
+        aria-label="Roadbook page sections"
       >
         {/* continuous distance line on the right edge */}
         <div className="absolute inset-y-0 right-0 w-[2px] bg-night/10" aria-hidden="true">

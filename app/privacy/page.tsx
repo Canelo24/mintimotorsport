@@ -19,11 +19,11 @@ export default function PrivacyPage() {
         },
         {
           h: "What we do with it",
-          p: "Respond to your enquiry, prepare a proposal if you ask for one, and — only if you joined the registry of interest — write occasionally. Budget indications are treated as confidential and shared with nobody outside the team.",
+          p: "We respond to your enquiry, prepare a proposal if you ask for one, and write occasionally if you joined the registry of interest. Budget indications are treated as confidential and shared with nobody outside the team.",
         },
         {
           h: "Your rights",
-          p: "Ask what we hold, ask for a copy, ask for deletion — by email, no forms, actioned promptly. UK GDPR applies to our processing as a UK-registered company.",
+          p: "Ask what we hold, ask for a copy, or ask for deletion. One email, no forms, actioned promptly. UK GDPR applies to our processing as a UK-registered company.",
         },
       ]}
     />

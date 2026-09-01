@@ -4,9 +4,9 @@ import { EnquiryWizard } from "@/components/enquire/EnquiryWizard";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Take a seat — enquire",
+  title: "Take a seat · enquire",
   description:
-    "Five short questions, then a call with the team. No forms fifteen fields long, no obligation — a conversation about a seat in the Safari.",
+    "Five short questions, then a call with the team. No fifteen-field forms and no obligation. Just a conversation about a seat in the Safari.",
   path: "/enquire",
 });
 
@@ -20,12 +20,12 @@ export default function EnquirePage() {
       <Section roadbook="FINISH CONTROL" dark className="min-h-screen pb-28 pt-36">
         <Container className="max-w-3xl">
           <p className="data-mono text-data font-medium text-sodium">
-            FIN — FINISH CONTROL · FIVE QUESTIONS, THEN A CALL
+            FIN · FINISH CONTROL · FIVE QUESTIONS, THEN A CALL
           </p>
           <h1 className="display-wide mt-4 text-h1">Take a seat.</h1>
           <p className="mt-5 max-w-xl text-lead text-chalk/80">
-            One question per screen, most of a minute in total. Your answers go to the team, not
-            into a database purgatory.
+            One question per screen, about a minute in total. Your answers go to the team and
+            get read the same day.
           </p>
           <div className="mt-14">
             <EnquiryWizard />

@@ -9,7 +9,7 @@ import { site } from "@/content/site";
 import { buildProcess, carsHero, models, otherMachinery, partnership } from "@/content/cars";
 
 export const metadata = buildMetadata({
-  title: "The Cars — MST Escort Mk1 and Mk2, Safari spec",
+  title: "The Cars · MST Escort Mk1 and Mk2, Safari spec",
   description:
     "New and original Ford Escort Mk1 and Mk2 built to Safari specification by MST Cars, under Minti Motorsport's exclusive regional partnership.",
   path: "/the-cars",
@@ -92,7 +92,7 @@ export default function TheCarsPage() {
       <Section roadbook="THE BUILD" className="py-24">
         <Container>
           <SectionHeading
-            instruction="SS3/03 — SAFARI SPECIFICATION"
+            instruction="SS3/03 · SAFARI SPECIFICATION"
             title={buildProcess.title}
             lead={buildProcess.intro}
           />

@@ -51,7 +51,7 @@ const steps: ChoiceStep[] = [
     field: "experience",
     tc: "TC3",
     title: "Your experience",
-    hint: "There is no wrong answer here — it changes the programme, not the welcome.",
+    hint: "There is no wrong answer here. It changes the programme, not the welcome.",
     options: experienceOptions,
   },
   {
@@ -59,7 +59,7 @@ const steps: ChoiceStep[] = [
     field: "budget",
     tc: "TC4",
     title: "Indicative budget",
-    hint: "Indicative and confidential. It helps us propose the right programme first time — nothing is priced or promised from this.",
+    hint: "Indicative and confidential. It helps us propose the right programme first time. Nothing is priced or promised off the back of it.",
     optional: true,
     options: budgetOptions,
   },
@@ -165,7 +165,7 @@ export function EnquiryWizard() {
         setPhase(site.bookingUrl ? "booking" : "done");
         window.scrollTo({ top: 0 });
       } else {
-        setServerError(res.error ?? "Something went wrong — try again, or email us directly.");
+        setServerError(res.error ?? "Something went wrong. Try again, or ring the official line.");
       }
     },
     () => setServerError(undefined),
@@ -176,17 +176,17 @@ export function EnquiryWizard() {
   if (phase === "done" || phase === "booking") {
     return (
       <div className="border rule bg-night-2 p-8 sm:p-12" role="status">
-        <p className="data-mono text-data font-medium text-sodium">FINISH CONTROL — TIME CARD STAMPED</p>
+        <p className="data-mono text-data font-medium text-sodium">FINISH CONTROL · TIME CARD STAMPED</p>
         <h2 className="display-wide mt-4 text-h2 text-chalk">Received. Properly.</h2>
         <div className="mt-6 max-w-xl space-y-4 text-body text-chalk/80">
           <p>
-            Your enquiry goes straight to the <strong className="text-chalk">Minti Motorsport desk</strong> —
+            Your enquiry goes straight to the <strong className="text-chalk">Minti Motorsport desk</strong>,
             and Joey Ghose sees every serious one himself.
           </p>
           <p>
             You&apos;ll hear back within{" "}
-            <span className="data-mono text-sodium">two working days</span> — from a named person,
-            not a mailbox.
+            <span className="data-mono text-sodium">two working days</span>, from a real person
+            rather than a mailbox.
           </p>
         </div>
 
@@ -194,8 +194,8 @@ export function EnquiryWizard() {
           <div className="mt-10 border-t rule pt-8">
             <h3 className="display-wide text-h3 text-chalk">Skip the queue</h3>
             <p className="mt-2 max-w-xl text-data text-chalk/70">
-              If you&apos;d rather put a time in the diary now, book the call directly. Entirely
-              optional — the reply comes either way.
+              If you&apos;d rather put a time in the diary now, book the call directly. It is
+              optional. The reply comes either way.
             </p>
             <div className="mt-5 flex flex-wrap gap-4">
               <a
@@ -212,7 +212,7 @@ export function EnquiryWizard() {
                 onClick={() => setPhase("done")}
                 className="display-cond border border-chalk/40 px-6 py-3.5 text-data-s tracking-[0.16em] text-chalk hover:border-sodium hover:text-sodium"
               >
-                No need — I&apos;ll wait for the reply
+                No need, I&apos;ll wait for the reply
               </button>
             </div>
           </div>
@@ -305,7 +305,7 @@ export function EnquiryWizard() {
             </div>
             {errors[current.field] ? (
               <p role="alert" className="data-mono mt-4 text-data-s text-sodium">
-                Pick one to carry on — you can change it on the call.
+                Pick one to carry on. You can change it on the call.
               </p>
             ) : null}
           </fieldset>

@@ -9,9 +9,9 @@ import { site } from "@/content/site";
 import { crews, heritageHero, stewardship, timeline } from "@/content/heritage";
 
 export const metadata = buildMetadata({
-  title: "Heritage — the Safari Classic years and the crews we have run",
+  title: "Heritage · the Safari Classic years and the crews we have run",
   description:
-    "Minti Motorsport's record: past stewardship of the East African Safari Classic Rally organisation and the crews the family has backed — Duncan, Tundo, Wahome and Khan.",
+    "Minti Motorsport's record: past stewardship of the East African Safari Classic Rally organisation, and the crews the family has backed. Duncan, Tundo, Wahome and Khan.",
   path: "/heritage",
 });
 
@@ -45,7 +45,7 @@ export default function HeritagePage() {
       {/* Stewardship — past tense, explicitly */}
       <Section roadbook="STEWARDSHIP" className="py-24">
         <Container>
-          <SectionHeading instruction="SS5/01 — THE SAFARI CLASSIC YEARS" title={stewardship.title} />
+          <SectionHeading instruction="SS5/01 · THE SAFARI CLASSIC YEARS" title={stewardship.title} />
           <div className="mt-10 grid gap-10 lg:grid-cols-[1.5fr_1fr]">
             <div className="space-y-5">
               {stewardship.body.map((p, i) => (
@@ -71,28 +71,23 @@ export default function HeritagePage() {
       {/* Crews we have run */}
       <Section roadbook="CREWS RUN" dark className="py-24">
         <Container>
-          <SectionHeading dark instruction="SS5/02 — THE DRIVERS" title={crews.title} lead={crews.intro} />
+          <SectionHeading dark instruction="SS5/02 · THE DRIVERS" title={crews.title} lead={crews.intro} />
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {crews.entries.map((entry, i) => (
-              <Reveal key={entry.name} delay={i * 100} as="figure" className="border rule bg-night-2">
-                <div className="relative aspect-[8/5]">
-                  <Image
-                    src={entry.image.src}
-                    alt={entry.image.alt}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                    placeholder="blur"
-                    blurDataURL={entry.image.blurDataURL}
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="p-6">
-                  <p className="display-wide text-lead">{entry.name}</p>
-                  <p className="data-mono mt-1 text-data-s text-sodium">
+              <Reveal
+                key={entry.name}
+                delay={i * 100}
+                as="figure"
+                className="flex flex-col justify-between border-t-2 border-sodium bg-night-2 p-7"
+              >
+                <div>
+                  <p className="data-mono text-data-s text-grease">{String(i + 1).padStart(2, "0")}</p>
+                  <p className="display-wide mt-3 text-h2 leading-none">{entry.name}</p>
+                  <p className="data-mono mt-3 text-data-s text-sodium">
                     <Todo value={entry.car} /> · <Todo value={entry.years} />
                   </p>
-                  <p className="mt-3 text-data text-chalk/75">{entry.body}</p>
-                </figcaption>
+                </div>
+                <p className="mt-6 text-data text-chalk/75">{entry.body}</p>
               </Reveal>
             ))}
           </div>
@@ -102,7 +97,7 @@ export default function HeritagePage() {
       {/* Timeline */}
       <Section roadbook="TIMELINE" className="py-24">
         <Container>
-          <SectionHeading instruction="SS5/03 — DATED" title={timeline.title} lead={timeline.note} />
+          <SectionHeading instruction="SS5/03 · DATED" title={timeline.title} lead={timeline.note} />
           <ol className="mt-12 border-l-2 border-murram/40 pl-8">
             {timeline.entries.map((entry, i) => (
               <Reveal key={i} as="li" delay={i * 60} className="relative pb-10 last:pb-0">

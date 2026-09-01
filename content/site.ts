@@ -38,7 +38,7 @@ export const site = {
   name: "Minti Motorsport",
   tagline: "A seat in the Safari. Built, crewed and run from Nairobi.",
   description:
-    "Minti Motorsport runs fully-supported seats on East African rallies: MST-built Safari-spec Ford Escorts, a Nairobi service crew, and the logistics to get a driver from first call to finish ramp.",
+    "Minti Motorsport runs fully supported seats on East African rallies. MST-built Safari-spec Ford Escorts, a Nairobi service crew, and everything handled from first call to finish ramp.",
   // Production domain — set before launch. Used for canonical URLs, sitemap, OG.
   url: resolveSiteUrl(),
 
@@ -58,7 +58,7 @@ export const site = {
      * line leads — no personal name attached; Joey Ghose is the named
      * secondary contact. Env vars override the defaults.
      */
-    officialLabel: "Minti Motorsport — official line",
+    officialLabel: "Minti Motorsport official line",
     email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
     phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE) ?? "+254 799 839012",
     whatsapp: env(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER) ?? "254799839012", // digits only, intl format

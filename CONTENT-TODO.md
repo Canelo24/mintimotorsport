@@ -21,7 +21,7 @@ named source.
 |---|---|---|
 | Years operating in East Africa | Credibility strip numeral | Joey |
 | Crews run to date | Credibility strip numeral | Joey |
-| Engine / gearbox / suspension spec lines | Car section spec block | MST / Joey |
+| ~~Engine / gearbox / suspension spec~~ | **DONE**, from the client package sheet (BDG 2.0, Hollinger ZF, Reiger) | — |
 | Crew chief name | People card (photo too — see ASSETS-NEEDED) | Joey |
 | Heritage years ×5 | Founding, EASCR stake, Duncan/Tundo, Wahome/Khan, MST announcement | Joey |
 | Seats available | "The ask" scarcity line — real number only (event now named: EASCR 2027) | Joey |
@@ -32,7 +32,7 @@ named source.
 |---|---|---|
 | Licensing window (months before event) | Timeline row | Joey |
 | Build window (months before event) | Timeline row | Joey |
-| "From" price — The Finish / The Result / The Programme | Three package tiers | Joey |
+| "From" price, The Finish / The Result / The Programme | Three package tiers (2027 seat now priced publicly: US$250,000 per client sheet) | Joey |
 | Budget band boundaries | Enquiry step 4 bands (currently £100k/£250k splits as a starting point) | Joey |
 | Response SLA | Confirmation promises "two working days" — confirm or change | Joey |
 | Entrant brief PDF | The "request the brief" flow captures emails now; pack is sent manually until a PDF exists | Joey |
@@ -41,7 +41,7 @@ named source.
 | Item | Needed | From |
 |---|---|---|
 | Mk1 engine / gearbox / weight | Spec table | MST |
-| Mk2 engine / gearbox / weight | Spec table | MST |
+| ~~Mk2 spec~~ | **DONE**, from the client package sheet | — |
 | MST trademark disclaimer | Exact partner-mandated wording | MST |
 
 ## The Team (`content/team.ts`)

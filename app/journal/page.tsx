@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getJournalPosts } from "@/lib/journal";
 
 export const metadata = buildMetadata({
-  title: "Journal — build diaries, event reports, service-park craft",
+  title: "Journal · build diaries, event reports, service-park craft",
   description:
     "Notes from the workshop and the service park: build diaries, event reports and the craft of East African rallying.",
   path: "/journal",
@@ -25,7 +25,7 @@ export default function JournalPage() {
     <Page path="/journal">
       <Section roadbook="THE NOTES" className="pb-24 pt-36">
         <Container>
-          <p className="hero-rise data-mono text-data font-medium text-murram">SS6 — JOURNAL</p>
+          <p className="hero-rise data-mono text-data font-medium text-murram">SS6 · JOURNAL</p>
           <h1 className="hero-rise display-wide mt-4 text-h1" style={{ "--rise-delay": "120ms" } as React.CSSProperties}>
             Notes from the road.
           </h1>

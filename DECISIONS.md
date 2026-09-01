@@ -132,6 +132,22 @@ unless marked otherwise.
     links). Header nav drops Journal (kept in footer + mobile menu). Every remaining CTA on
     home targets the 2027 application. The removed detail all still lives on its own pages.
 
+## Client feedback round 6 (2026-09-01), package sheet applied
+32. **US$250,000 hire cost published.** The client's package sheet ("Minti Rally Sport,
+    Arrive & Drive Package, EASCR 2027") states the hire cost and full contents, and the
+    client asked for the sheet to drive the 2027 sell. This supersedes the original brief's
+    no-public-pricing rule for this one product. The price, inclusions and technical spec
+    now anchor a product block on home and a full package section on The Drive; enquiry
+    budget bands are re-anchored to the price. Note: the sheet is headed "Minti Rally
+    Sport" while the site says Minti Motorsport; flag for the client to confirm naming.
+33. **Zero placeholder images remain on the site.** The Mk2 photo embedded in the package
+    sheet fills the Mk2 slot; further 4K frame grabs cover finish/build/cockpit/crew slots;
+    Joey's card and the heritage crew cards are set in type until portraits exist; unused
+    placeholder slots were deleted. Batch 2 photography will upgrade reused frames.
+34. **Voice pass.** Em dashes removed from all user-facing copy (roadbook labels now use
+    the middle dot, prose rewritten into plain sentences); journal essays rewritten; the
+    showier constructions toned down per the client's "too AI" note.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

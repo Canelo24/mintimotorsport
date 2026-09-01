@@ -7,7 +7,7 @@ type MarqueeProps = {
  * CSS animation; static under prefers-reduced-motion.
  */
 export function Marquee({ text }: MarqueeProps) {
-  const line = `${text} — `;
+  const line = `${text} · `;
   return (
     <div
       className="overflow-hidden border-y rule bg-murram py-4 text-feshfesh"

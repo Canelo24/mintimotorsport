@@ -5,12 +5,12 @@ export default function NotFound() {
     <main id="main" className="flex min-h-screen items-center bg-night text-chalk lg:pl-rail">
       <div className="mx-auto w-full max-w-6xl px-5 py-32 sm:px-8">
         <p className="data-mono text-data font-medium text-sodium">
-          OFF ROUTE — CONTROL NOT FOUND (404)
+          OFF ROUTE · CONTROL NOT FOUND (404)
         </p>
         <h1 className="display-wide mt-4 text-h1">Wrong slot, wrong page.</h1>
         <p className="mt-6 max-w-xl text-lead text-chalk/80">
-          This control doesn&apos;t exist on the roadbook. Rejoin at the last passage control and
-          carry on — no penalty applied.
+          This control does not exist on the roadbook. Rejoin at the last passage control
+          and carry on. No penalty applied.
         </p>
         <Link
           href="/"

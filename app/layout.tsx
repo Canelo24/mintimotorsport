@@ -11,8 +11,8 @@ import { organizationJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — A seat in the Safari`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} · A seat in the Safari`,
+    template: `%s · ${site.name}`,
   },
   description: site.description,
 };

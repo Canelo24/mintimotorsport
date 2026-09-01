@@ -9,7 +9,7 @@ import { site } from "@/content/site";
 import { base, crew, familyPhoto, ghose, teamHero } from "@/content/team";
 
 export const metadata = buildMetadata({
-  title: "The Team — Joey Ghose and the Nairobi crew",
+  title: "The Team · Joey Ghose and the Nairobi crew",
   description:
     "Founded and run by Joey Ghose. UK-registered, family-run, operated from Nairobi by a crew that has made a career of finishing rallies.",
   path: "/the-team",
@@ -57,7 +57,7 @@ export default function TheTeamPage() {
       {/* Nairobi base */}
       <Section roadbook="HOME GROUND" dark className="py-24">
         <Container>
-          <SectionHeading dark instruction="SS4/02 — THE BASE" title={base.title} />
+          <SectionHeading dark instruction="SS4/02 · THE BASE" title={base.title} />
           <div className="mt-12 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
             <div>
               <Reveal wipe>
@@ -99,7 +99,7 @@ export default function TheTeamPage() {
       {/* The crew */}
       <Section roadbook="THE CREW" className="py-24">
         <Container>
-          <SectionHeading instruction="SS4/03 — SERVICE" title={crew.title} lead={crew.body} />
+          <SectionHeading instruction="SS4/03 · SERVICE" title={crew.title} lead={crew.body} />
           <Reveal wipe className="mt-12">
             <Image
               src={crew.image.src}

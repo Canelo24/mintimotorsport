@@ -9,7 +9,7 @@ import { site } from "@/content/site";
 import { images } from "@/content/images.generated";
 
 export const metadata = buildMetadata({
-  title: "Contact — Nairobi workshop, direct lines",
+  title: "Contact · Nairobi workshop, direct lines",
   description:
     "Reach Minti Motorsport directly: the Nairobi workshop, driver enquiries, partner and media contact.",
   path: "/contact",
@@ -22,13 +22,13 @@ export default function ContactPage() {
     <Page path="/contact">
       <Section roadbook="THE LINES" className="pb-24 pt-36">
         <Container>
-          <p className="hero-rise data-mono text-data font-medium text-murram">SS7 — CONTACT</p>
+          <p className="hero-rise data-mono text-data font-medium text-murram">SS7 · CONTACT</p>
           <h1 className="hero-rise display-wide mt-4 text-h1" style={{ "--rise-delay": "120ms" } as React.CSSProperties}>
             Talk to a person.
           </h1>
           <p className="hero-rise mt-6 max-w-2xl text-lead text-night/80" style={{ "--rise-delay": "240ms" } as React.CSSProperties}>
-            Serious about a seat? The fastest route is the enquiry — it lands with the team directly.
-            Everything else, use the lines below.
+            Serious about a seat? The fastest route is the enquiry, which lands with the team
+            directly. For everything else, use the lines below.
           </p>
 
           <div className="mt-14 grid gap-10 lg:grid-cols-2">
@@ -82,8 +82,8 @@ export default function ContactPage() {
                 <p className="data-mono text-data-s font-medium text-grease">THEN, WHEN IT MATTERS</p>
                 <h2 className="display-wide mt-1 text-h3">Joey Ghose</h2>
                 <p className="mt-2 text-body text-night/80">
-                  Founder &amp; team principal. The official line reaches the team fastest; the
-                  conversations that decide a programme end up with Joey.
+                  Founder and team principal. The official line reaches the team fastest, and
+                  the conversations that decide a programme end up with Joey.
                 </p>
               </Reveal>
 
@@ -101,7 +101,7 @@ export default function ContactPage() {
                 <h2 className="display-wide text-h3">Partners & media</h2>
                 <p className="mt-2 text-body text-night/80">
                   Sponsorship, hospitality and media programmes are built per event. Start with the
-                  enquiry and pick <em>“Sponsor or partner”</em> — it routes to the same desk,
+                  enquiry and pick <em>“Sponsor or partner”</em>. It reaches the same desk,
                   faster.
                 </p>
               </Reveal>
@@ -110,13 +110,13 @@ export default function ContactPage() {
             <div>
               <Reveal wipe>
                 <Image
-                  src={images.contactWorkshopGate.src}
-                  alt={images.contactWorkshopGate.alt}
-                  width={images.contactWorkshopGate.width}
-                  height={images.contactWorkshopGate.height}
+                  src={images.journalReadingTheRoad.src}
+                  alt={images.journalReadingTheRoad.alt}
+                  width={images.journalReadingTheRoad.width}
+                  height={images.journalReadingTheRoad.height}
                   sizes="(min-width: 1024px) 45vw, 100vw"
                   placeholder="blur"
-                  blurDataURL={images.contactWorkshopGate.blurDataURL}
+                  blurDataURL={images.journalReadingTheRoad.blurDataURL}
                   className="w-full"
                 />
               </Reveal>

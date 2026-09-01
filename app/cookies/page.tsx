@@ -19,7 +19,7 @@ export default function CookiesPage() {
         },
         {
           h: "Analytics",
-          p: "Where Plausible is configured it runs without cookies. Where GA4 is configured it loads only after you explicitly allow it via the consent banner — declining stores nothing except your 'no'.",
+          p: "Where Plausible is configured it runs without cookies. Where GA4 is configured it loads only after you allow it via the consent banner. Declining stores nothing except your answer.",
         },
       ]}
     />

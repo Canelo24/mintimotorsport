@@ -10,7 +10,7 @@ export const purposeOptions = [
 ] as const;
 
 export const eventOptions = [
-  { value: "eascr-2027", label: "East African Safari Classic 2027", detail: "Arrive & Drive — applications open now" },
+  { value: "eascr-2027", label: "East African Safari Classic 2027", detail: "Arrive & Drive, applications open now" },
   { value: "future", label: "A future edition", detail: "Planning one to three years out" },
   { value: "advise", label: "Not sure yet — advise me", detail: "We'll recommend the right event and year" },
 ] as const;
@@ -24,13 +24,13 @@ export const experienceOptions = [
 
 /**
  * Budget bands are indicative and confidential — a qualification aid, not a
- * price list. Band boundaries await client sign-off: {{TODO: confirm budget
- * bands with Joey}} (also listed in CONTENT-TODO.md).
+ * price list. The 2027 hire cost (US$250,000) is public per the client's
+ * package sheet; the bands are anchored to it.
  */
 export const budgetOptions = [
-  { value: "band-1", label: "Up to £100,000", detail: "" },
-  { value: "band-2", label: "£100,000 – £250,000", detail: "" },
-  { value: "band-3", label: "Above £250,000", detail: "" },
+  { value: "band-2027", label: "Around the US$250,000 hire cost", detail: "The 2027 Safari Classic seat" },
+  { value: "band-multi", label: "More than that", detail: "Multi-event or commission programmes" },
+  { value: "band-other", label: "Less than that", detail: "Support programmes and future planning" },
   { value: "discuss", label: "Prefer to discuss", detail: "" },
 ] as const;
 

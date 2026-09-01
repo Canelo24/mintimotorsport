@@ -13,7 +13,7 @@ export function NewsletterForm() {
   if (state === "done") {
     return (
       <p className="data-mono text-data text-sodium" role="status">
-        Noted. You&apos;re on the list — we write rarely and only when there&apos;s
+        Noted, you&apos;re on the list. We write rarely, and only when there is
         something worth reading.
       </p>
     );

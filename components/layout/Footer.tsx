@@ -12,7 +12,7 @@ export function Footer() {
           <div>
             <Image
               src="/brand/minti-logo-black.jpg"
-              alt="Minti Motorsport — Preserving Heritage"
+              alt="Minti Motorsport, Preserving Heritage"
               width={112}
               height={112}
               className="mb-5"
