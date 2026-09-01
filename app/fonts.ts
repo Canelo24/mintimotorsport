@@ -1,11 +1,23 @@
 import localFont from "next/font/local";
 
 /**
- * Three voices, per DESIGN-PLAN.md:
- * - Archivo (variable, wdth 62–125) — display at both width extremes
- * - Source Sans 3 (variable)        — body, 17–19px long-form
- * - IBM Plex Mono                   — everything numeric and factual
+ * Four voices (DESIGN-PLAN.md, revised after client feedback):
+ * - Big Shoulders (variable, opsz+wght) — marquee display: tall, condensed,
+ *   industrial; rally-poster character at scale
+ * - Archivo (variable, wdth 62–125)     — condensed labels + wordmark
+ * - Source Sans 3 (variable)            — body, 17–19px long-form
+ * - IBM Plex Mono                       — everything numeric and factual
  */
+
+export const bigShoulders = localFont({
+  src: "./fonts/big-shoulders-variable.woff2",
+  weight: "100 900",
+  style: "normal",
+  display: "swap",
+  variable: "--font-big-shoulders",
+  adjustFontFallback: false,
+  fallback: ["Arial Narrow", "Impact", "sans-serif"],
+});
 
 export const archivo = localFont({
   src: "./fonts/archivo-variable.woff2",
@@ -46,4 +58,4 @@ export const plexMono = localFont({
   fallback: ["Courier New", "monospace"],
 });
 
-export const fontClassNames = `${archivo.variable} ${sourceSans.variable} ${plexMono.variable}`;
+export const fontClassNames = `${bigShoulders.variable} ${archivo.variable} ${sourceSans.variable} ${plexMono.variable}`;

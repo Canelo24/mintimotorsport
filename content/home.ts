@@ -13,6 +13,15 @@ export const hero = {
   image: images.heroSafariJumpMurram,
 };
 
+/** The live campaign — client-confirmed (2026-09-01). */
+export const campaign = {
+  eyebrow: "NOW TAKING APPLICATIONS",
+  title: "Arrive & Drive — East African Safari Classic 2027",
+  cta: "Apply for the seat",
+  href: "/enquire?e=eascr2027",
+  note: "Entries are granted by the event's organisers; Minti prepares, enters and runs your car.",
+};
+
 export const proposition = [
   "You bring the will to do it.",
   "We bring the car, the crew, and a family that has run this ground for decades.",
@@ -160,7 +169,7 @@ export const ask = {
   body: "We run a small number of cars, and we run them properly. When this event's seats are allocated, the next start is a year away.",
   scarcityLine: {
     seats: TODO("number of seats available"),
-    event: TODO("next event name and date"),
+    event: "EAST AFRICAN SAFARI CLASSIC 2027",
   },
   image: images.askMurramRoadAerial,
 };

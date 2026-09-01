@@ -76,6 +76,25 @@ export default function TheDrivePage() {
                     </p>
                     <h3 className="display-wide mt-1 text-h3">{prog.name}</h3>
                     <p className="mt-2 text-data font-semibold text-night/70">{prog.strap}</p>
+                    {"badge" in prog && prog.badge ? (
+                      <div className="mt-4">
+                        <p className="data-mono inline-block bg-sodium px-2.5 py-1.5 text-[11px] font-semibold text-night">
+                          {prog.badge}
+                        </p>
+                        <div className="mt-3">
+                          <Button
+                            href={prog.applyHref}
+                            event="campaign_cta_click"
+                            eventProps={{ campaign: "eascr2027", from: "the-drive" }}
+                          >
+                            Apply for the seat
+                          </Button>
+                        </div>
+                        <p className="data-mono mt-2 max-w-[240px] text-[10px] leading-relaxed text-grease">
+                          {prog.applyNote}
+                        </p>
+                      </div>
+                    ) : null}
                   </div>
                   <p className="max-w-xl text-body text-night/80">{prog.body}</p>
                   <ul className="space-y-2">

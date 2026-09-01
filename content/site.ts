@@ -53,10 +53,15 @@ export const site = {
   },
 
   contact: {
-    // Gated: rendered only when real values are configured. No invented numbers.
+    /**
+     * Contact hierarchy (client instruction, 2026-09-01): the official Minti
+     * line leads — no personal name attached; Joey Ghose is the named
+     * secondary contact. Env vars override the defaults.
+     */
+    officialLabel: "Minti Motorsport — official line",
     email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
-    phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE),
-    whatsapp: env(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER), // digits only, intl format
+    phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE) ?? "+254 799 839012",
+    whatsapp: env(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER) ?? "254799839012", // digits only, intl format
     emailTodo: TODO("enquiries email address"),
     phoneTodo: TODO("Nairobi office phone with country code"),
     whatsappTodo: TODO("WhatsApp business number"),
@@ -75,7 +80,7 @@ export const site = {
   cta: {
     primary: "Take a seat",
     secondary: "See the car",
-    speak: "Speak to Joey",
+    speak: "Speak to the team",
     pack: "Request the brief",
   },
 

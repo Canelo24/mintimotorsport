@@ -100,6 +100,24 @@ unless marked otherwise.
 26. **Originals live in the GitHub release** (`media-drop-1`), not in git history — the repo
     carries only web-sized outputs. Re-processing starts from the release download.
 
+## Client feedback round 3 (2026-09-01)
+27. **EASCR 2027 campaign added** (client instruction): "Arrive & Drive — East African
+    Safari Classic 2027, applications open" as a murram strip under the home hero, a badge
+    on the Arrive & Drive programme, a named event option in the enquiry, and a deep link
+    (/enquire?e=eascr2027) that arrives pre-qualified at the experience step. Every
+    placement carries "entries are granted by the event's organisers" to preserve the
+    organiser-independence line.
+28. **Contact hierarchy** (client instruction): the official Minti line leads with no
+    personal name attached (+254 799 839012, phone + WhatsApp); Joey Ghose is the named
+    secondary. Site-wide copy moved from "call with Joey" to "call with the team", with
+    Joey kept as the person who sees every serious enquiry. The individual staffing the
+    line is deliberately not named anywhere, per instruction.
+29. **Display face changed to Big Shoulders** (client: "fonts are very boring") — tall
+    condensed industrial variable face for all marquee headings at a larger scale; the
+    Archivo expanded voice survives as the wordmark and condensed labels; body and mono
+    unchanged. Mobile: the roadbook distance chip now sits below the header and only
+    appears once scrolling.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

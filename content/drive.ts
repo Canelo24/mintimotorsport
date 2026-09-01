@@ -17,7 +17,7 @@ export const driveHero = {
 export const programmes = {
   instruction: "SS2/00 — CHOOSE YOUR ROUTE IN",
   title: "Three programmes",
-  lead: "Different starting points, same standard. Every one begins with a call to Joey and ends with a car you trust on a road we know.",
+  lead: "Different starting points, same standard. Every one begins with a call to the team and ends with a car you trust on a road we know.",
   items: [
     {
       id: "arrive-and-drive",
@@ -25,6 +25,9 @@ export const programmes = {
       strap: "Our car, our crew, your name on the door.",
       body: "The flagship: a Safari-spec MST Escort prepared for you, shakedown week, full service crew, entry administration and family logistics. You land in Nairobi; everything after that is handled. The rest of this page describes it in detail.",
       points: ["MST Escort Mk1/Mk2 seat", "Shakedown and coaching week", "Full crew, spares and logistics", "Entry and event administration"],
+      badge: "EAST AFRICAN SAFARI CLASSIC 2027 — APPLICATIONS OPEN",
+      applyHref: "/enquire?e=eascr2027",
+      applyNote: "Entries are granted by the event's organisers; Minti prepares, enters and runs your car.",
     },
     {
       id: "your-car-our-team",
@@ -65,7 +68,7 @@ export const included = {
 export const timeline = {
   title: "First call to finish ramp",
   steps: [
-    { when: "MONTH 0", what: "The call", detail: "Forty minutes with Joey Ghose. What you want, what it costs, whether we're the right fit. No paperwork." },
+    { when: "MONTH 0", what: "The call", detail: "Forty minutes with the team. What you want, what it costs, whether we're the right fit. No paperwork." },
     { when: "MONTH 1", what: "The agreement", detail: "Programme in writing: car, event, dates, inclusions, excess. Deposit secures the car." },
     { when: TODO("months before event — licensing window"), what: "Licence and medical", detail: "We send the checklist and chase the paperwork with you. It is simpler than you expect." },
     { when: TODO("months before event — build window"), what: "The build watch", detail: "Your car's preparation, documented. Photos from the workshop as it happens." },

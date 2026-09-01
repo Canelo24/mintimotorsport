@@ -13,6 +13,7 @@ import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import {
   ask,
+  campaign,
   car,
   credibility,
   driveSequence,
@@ -33,6 +34,28 @@ export default function HomePage() {
   return (
     <Page path="/">
       <Hero />
+
+      {/* The live campaign strip — one line, one destination */}
+      <Section className="bg-murram text-chalk">
+        <Container className="flex flex-col items-start justify-between gap-4 py-6 lg:flex-row lg:items-center">
+          <div>
+            <p className="data-mono text-data-s font-semibold tracking-[0.14em] text-sodium">
+              {campaign.eyebrow}
+            </p>
+            <p className="display-wide mt-1 text-h3 leading-none">{campaign.title}</p>
+            <p className="data-mono mt-2 text-[11px] text-chalk/60">{campaign.note}</p>
+          </div>
+          <Button
+            href={campaign.href}
+            magnetic
+            event="campaign_cta_click"
+            eventProps={{ campaign: "eascr2027" }}
+            className="shrink-0"
+          >
+            {campaign.cta}
+          </Button>
+        </Container>
+      </Section>
 
       {/* 2 — The proposition, three lines, room to breathe */}
       <Section roadbook="THE DEAL" className="py-24 sm:py-32">

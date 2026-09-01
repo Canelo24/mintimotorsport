@@ -108,6 +108,15 @@ export function EnquiryWizard() {
     } catch {
       // corrupted storage is not worth breaking the form over
     }
+    // Campaign deep-link: /enquire?e=eascr2027 arrives pre-qualified —
+    // Arrive & Drive for the Safari Classic 2027, straight to experience.
+    const qs = new URLSearchParams(window.location.search);
+    if (qs.get("e") === "eascr2027") {
+      setValue("purpose", "drive");
+      setValue("event", "eascr-2027");
+      setStep(2);
+      track(events.enquiryStep, { step: "campaign_eascr2027" });
+    }
     restored.current = true;
     track(events.enquiryStarted);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -171,8 +180,8 @@ export function EnquiryWizard() {
         <h2 className="display-wide mt-4 text-h2 text-chalk">Received. Properly.</h2>
         <div className="mt-6 max-w-xl space-y-4 text-body text-chalk/80">
           <p>
-            Your enquiry goes straight to <strong className="text-chalk">Joey Ghose</strong>, who
-            reads every one personally.
+            Your enquiry goes straight to the <strong className="text-chalk">Minti Motorsport desk</strong> —
+            and Joey Ghose sees every serious one himself.
           </p>
           <p>
             You&apos;ll hear back within{" "}

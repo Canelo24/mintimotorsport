@@ -17,7 +17,7 @@ export function Footer() {
               height={112}
               className="mb-5"
             />
-            <p className="display-wide text-h3">
+            <p className="wordmark text-h3">
               MINTI<span className="text-sodium">·</span>MOTORSPORT
             </p>
             <p className="display-cond mt-2 text-data-s tracking-[0.24em] text-sodium">

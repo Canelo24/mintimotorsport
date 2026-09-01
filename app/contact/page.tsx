@@ -27,42 +27,22 @@ export default function ContactPage() {
             Talk to a person.
           </h1>
           <p className="hero-rise mt-6 max-w-2xl text-lead text-night/80" style={{ "--rise-delay": "240ms" } as React.CSSProperties}>
-            Serious about a seat? The fastest route is the enquiry — it lands with Joey directly.
+            Serious about a seat? The fastest route is the enquiry — it lands with the team directly.
             Everything else, use the lines below.
           </p>
 
           <div className="mt-14 grid gap-10 lg:grid-cols-2">
             <div className="space-y-8">
+              {/* Primary: the official line — no personal name attached */}
               <Reveal className="border-t-2 border-murram pt-5">
-                <h2 className="display-wide text-h3">Drivers</h2>
-                <p className="mt-2 text-body text-night/80">
-                  Five questions, then a call. The enquiry page is the front of the queue.
-                </p>
-                <div className="mt-5">
-                  <Button href="/enquire">{site.cta.primary}</Button>
-                </div>
-              </Reveal>
-
-              <Reveal delay={100} className="border-t-2 border-night/20 pt-5">
-                <h2 className="display-wide text-h3">Direct</h2>
+                <p className="data-mono text-data-s font-medium text-murram">PRIMARY CONTACT</p>
+                <h2 className="display-wide mt-1 text-h3">{site.contact.officialLabel}</h2>
                 <dl className="mt-4 space-y-3">
-                  <div className="flex flex-wrap justify-between gap-2">
-                    <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">EMAIL</dt>
-                    <dd className="data-mono text-data">
-                      {site.contact.email ? (
-                        <a href={`mailto:${site.contact.email}`} className="hover:text-murram">
-                          {site.contact.email}
-                        </a>
-                      ) : (
-                        <Todo value={site.contact.emailTodo} />
-                      )}
-                    </dd>
-                  </div>
                   <div className="flex flex-wrap justify-between gap-2">
                     <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">PHONE</dt>
                     <dd className="data-mono text-data">
                       {site.contact.phone ? (
-                        <a href={`tel:${site.contact.phone}`} className="hover:text-murram">
+                        <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="hover:text-murram">
                           {site.contact.phone}
                         </a>
                       ) : (
@@ -75,17 +55,49 @@ export default function ContactPage() {
                     <dd className="data-mono text-data">
                       {whatsappHref ? (
                         <a href={whatsappHref} className="hover:text-murram">
-                          Message the workshop
+                          Message the team
                         </a>
                       ) : (
                         <Todo value={site.contact.whatsappTodo} />
                       )}
                     </dd>
                   </div>
+                  <div className="flex flex-wrap justify-between gap-2">
+                    <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">EMAIL</dt>
+                    <dd className="data-mono text-data">
+                      {site.contact.email ? (
+                        <a href={`mailto:${site.contact.email}`} className="hover:text-murram">
+                          {site.contact.email}
+                        </a>
+                      ) : (
+                        <Todo value={site.contact.emailTodo} />
+                      )}
+                    </dd>
+                  </div>
                 </dl>
               </Reveal>
 
-              <Reveal delay={160} className="border-t-2 border-night/20 pt-5">
+              {/* Secondary: Joey */}
+              <Reveal delay={100} className="border-t-2 border-night/20 pt-5">
+                <p className="data-mono text-data-s font-medium text-grease">THEN, WHEN IT MATTERS</p>
+                <h2 className="display-wide mt-1 text-h3">Joey Ghose</h2>
+                <p className="mt-2 text-body text-night/80">
+                  Founder &amp; team principal. The official line reaches the team fastest; the
+                  conversations that decide a programme end up with Joey.
+                </p>
+              </Reveal>
+
+              <Reveal delay={140} className="border-t-2 border-night/20 pt-5">
+                <h2 className="display-wide text-h3">Drivers</h2>
+                <p className="mt-2 text-body text-night/80">
+                  Five questions, then a call. The enquiry page is the front of the queue.
+                </p>
+                <div className="mt-5">
+                  <Button href="/enquire">{site.cta.primary}</Button>
+                </div>
+              </Reveal>
+
+              <Reveal delay={180} className="border-t-2 border-night/20 pt-5">
                 <h2 className="display-wide text-h3">Partners & media</h2>
                 <p className="mt-2 text-body text-night/80">
                   Sponsorship, hospitality and media programmes are built per event. Start with the

@@ -86,10 +86,12 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
         </div>
       </div>
       <div
-        className="data-mono fixed right-2 top-2 z-[60] rounded-sm bg-night/80 px-2 py-0.5 text-[10px] font-medium text-chalk lg:hidden"
+        className={`data-mono fixed right-2 top-[62px] z-[60] rounded-sm bg-night/85 px-2 py-1 text-[10px] font-medium text-sodium transition-opacity duration-300 lg:hidden ${
+          progress > 0.02 && !finished ? "opacity-100" : "opacity-0"
+        }`}
         aria-hidden="true"
       >
-        {stage.code} · {km.toFixed(1)}/{stage.km.toFixed(1)} KM
+        {stage.code} · {km.toFixed(1)} KM
       </div>
 
       {/* Desktop: the roadbook column */}

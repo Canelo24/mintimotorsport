@@ -8,8 +8,8 @@ named source.
 | Item | Needed | From |
 |---|---|---|
 | Enquiries email | Public email address (set `NEXT_PUBLIC_CONTACT_EMAIL`) | Joey |
-| Office phone | Number with country code (set `NEXT_PUBLIC_CONTACT_PHONE`) | Joey |
-| WhatsApp number | Digits, intl format (set `NEXT_PUBLIC_WHATSAPP_NUMBER`) — header button and contact page stay hidden until set | Joey |
+| ~~Office phone~~ | **DONE** — official line +254 799 839012 (client-supplied 2026-09-01; env var overrides) | — |
+| ~~WhatsApp number~~ | **DONE** — same official number; if that line has no WhatsApp, say so and it comes off | — |
 | Booking URL | Calendly/SavvyCal link for the post-enquiry call step (set `NEXT_PUBLIC_BOOKING_URL`) | Joey |
 | Workshop address + exact coordinates | Street address; rail/footer currently show Nairobi city coords | Joey |
 | Social links | Instagram / YouTube / LinkedIn URLs, if wanted | Joey |
@@ -24,7 +24,8 @@ named source.
 | Engine / gearbox / suspension spec lines | Car section spec block | MST / Joey |
 | Crew chief name | People card (photo too — see ASSETS-NEEDED) | Joey |
 | Heritage years ×5 | Founding, EASCR stake, Duncan/Tundo, Wahome/Khan, MST announcement | Joey |
-| Seats available + next event name/date | "The ask" scarcity line — real numbers only | Joey |
+| Seats available | "The ask" scarcity line — real number only (event now named: EASCR 2027) | Joey |
+| EASCR 2027 event dates | Campaign copy currently names the event without dates | Joey |
 
 ## The Drive (`content/drive.ts`, `lib/schemas.ts`)
 | Item | Needed | From |
