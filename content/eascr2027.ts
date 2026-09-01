@@ -11,17 +11,19 @@ export const eascr2027 = {
   title: "The 2027 seat",
   event: "East African Safari Classic Rally",
   year: "2027",
-  price: "US$250,000",
-  priceLabel: "HIRE COST, ALL-IN",
+  // Hire cost is deliberately not published (client instruction, 2026-09-01).
+  // The figure lives in the client package sheet and is given on the call.
+  price: "One all-in hire cost",
+  priceLabel: "PRICED ON APPLICATION",
   intro:
-    "One hire cost covers the whole campaign. A brand new MST Escort Mk2 is built for you in the UK, freighted to Kenya and run by our crew for the full event. There is no equipment list to negotiate and no surprise invoices at the finish.",
+    "A single hire cost covers the whole campaign. A brand new MST Escort Mk2 is built for you in the UK, freighted to Kenya and run by our crew for the full event. No equipment list to negotiate, no surprise invoices at the finish, and the figure is given plainly on the first call.",
   facts: [
     { k: "EVENT", v: "EAST AFRICAN SAFARI CLASSIC RALLY" },
     { k: "YEAR", v: "2027" },
     { k: "FORMAT", v: "ARRIVE & DRIVE" },
     { k: "CAR", v: "NEW MST ESCORT MK2" },
     { k: "ENGINE", v: "BDG 2.0 · 260+ BHP" },
-    { k: "HIRE COST", v: "US$250,000" },
+    { k: "PRICING", v: "ON APPLICATION" },
   ],
   includes: [
     "Full overseas event entry fee",

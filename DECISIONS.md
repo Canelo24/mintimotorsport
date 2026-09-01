@@ -148,6 +148,12 @@ unless marked otherwise.
     the middle dot, prose rewritten into plain sentences); journal essays rewritten; the
     showier constructions toned down per the client's "too AI" note.
 
+35. **Hire cost withdrawn from the site** (client instruction, same day as 32): the
+    figure "might scare people", so the product blocks now read "One all-in hire cost,
+    priced on application" and the intro promises the figure plainly on the first call.
+    The inclusions list and technical spec stay public; the number lives only in the
+    client's package sheet and internal docs. Enquiry budget bands are qualitative again.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

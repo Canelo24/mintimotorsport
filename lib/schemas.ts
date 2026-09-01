@@ -23,14 +23,14 @@ export const experienceOptions = [
 ] as const;
 
 /**
- * Budget bands are indicative and confidential — a qualification aid, not a
- * price list. The 2027 hire cost (US$250,000) is public per the client's
- * package sheet; the bands are anchored to it.
+ * Budget bands are indicative and confidential, a qualification aid rather
+ * than a price list. The hire cost itself is not published on the site
+ * (client instruction); it is given on the first call.
  */
 export const budgetOptions = [
-  { value: "band-2027", label: "Around the US$250,000 hire cost", detail: "The 2027 Safari Classic seat" },
-  { value: "band-multi", label: "More than that", detail: "Multi-event or commission programmes" },
-  { value: "band-other", label: "Less than that", detail: "Support programmes and future planning" },
+  { value: "band-full", label: "Ready for the full campaign budget", detail: "The all-in 2027 arrive-and-drive hire" },
+  { value: "band-multi", label: "More than one event", detail: "Multi-event or commission programmes" },
+  { value: "band-explore", label: "A smaller programme", detail: "Support-only, shared plans, future planning" },
   { value: "discuss", label: "Prefer to discuss", detail: "" },
 ] as const;
 
