@@ -22,7 +22,9 @@ const env = (value: string | undefined): string | null => {
 
 /** Site URL: tolerate blank values, a missing scheme, paths and bad input. */
 const resolveSiteUrl = (): string => {
-  const fallback = "https://mintimotorsport.example.com";
+  // The production domain (Squarespace-registered, served by Vercel).
+  // NEXT_PUBLIC_SITE_URL still overrides when set.
+  const fallback = "https://www.mintimotorsports.com";
   const raw = env(process.env.NEXT_PUBLIC_SITE_URL);
   if (!raw) return fallback;
   const candidate = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
