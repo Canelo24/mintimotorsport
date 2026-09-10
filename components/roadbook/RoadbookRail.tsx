@@ -1,8 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { scrollToEl } from "@/lib/scroll";
 import { tulipCycle, TulipFinish } from "./tulips";
+
+const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 type Stage = { code: string; name: string; km: number };
 
@@ -25,6 +27,58 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
   const [progress, setProgress] = useState(0);
   const raf = useRef(0);
   const sectionsRef = useRef<Section[]>([]);
+  const navRef = useRef<HTMLElement | null>(null);
+  const [labelPx, setLabelPx] = useState(10);
+  const [fitTick, setFitTick] = useState(0);
+
+  useEffect(() => {
+    const bump = () => setFitTick((t) => t + 1);
+    window.addEventListener("resize", bump);
+    document.fonts?.ready.then(bump).catch(() => {});
+    // Late settle checks: early layout can differ (fonts, hydration order).
+    const t1 = setTimeout(bump, 400);
+    const t2 = setTimeout(bump, 1500);
+    return () => {
+      window.removeEventListener("resize", bump);
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+
+  // Label size: as large as fits. Pages differ in section count and label
+  // length, so this can't be static CSS. Solved in ONE pass per trigger, with
+  // the font-dependent part measured off-DOM (canvas): a measure-and-adjust
+  // loop over the live layout feeds on its own intermediate states and
+  // oscillates, so the size must never be derived from a layout it changed.
+  useIsoLayoutEffect(() => {
+    const nav = navRef.current;
+    if (!nav || !sections.length) return;
+    const buttons = Array.from(nav.children) as HTMLElement[];
+    const spans = buttons
+      .map((b) => b.querySelector("span"))
+      .filter(Boolean) as HTMLElement[];
+    if (!spans.length) return;
+    const cs = getComputedStyle(nav);
+    const padding = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    // Split each item into the label extent (scales linearly with font size,
+    // through zero) and the chrome around it (glyph, gap, padding — fixed).
+    // shrink-0 on buttons and spans keeps these natural heights honest even
+    // while the current layout overflows.
+    let chrome = 0;
+    let labelTotal = 0;
+    for (const b of buttons) {
+      const s = b.querySelector("span");
+      const sh = s ? s.getBoundingClientRect().height : 0;
+      labelTotal += sh;
+      chrome += b.offsetHeight - sh;
+    }
+    const currentPx = parseFloat(getComputedStyle(spans[0]).fontSize);
+    if (!currentPx || labelTotal <= 0) return;
+    const slope = labelTotal / currentPx;
+    const room = nav.clientHeight - padding - chrome - 4;
+    const cap = Math.min(12, Math.max(9, window.innerHeight * 0.0135));
+    setLabelPx(Math.max(7, Math.min(cap, Math.floor((room / slope) * 2) / 2)));
+  }, [sections, fitTick]);
 
   const measure = useCallback(() => {
     const els = Array.from(document.querySelectorAll("[data-roadbook]"));
@@ -86,7 +140,7 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
         </div>
       </div>
       <div
-        className={`data-mono fixed right-2 top-[62px] z-[60] rounded-sm bg-night/85 px-2 py-1 text-[10px] font-medium text-sodium transition-opacity duration-300 lg:hidden ${
+        className={`data-mono fixed right-2 top-[62px] z-[60] rounded-sm bg-night/85 px-2 py-1 text-[11px] font-medium text-sodium transition-opacity duration-300 lg:hidden ${
           progress > 0.02 && !finished ? "opacity-100" : "opacity-0"
         }`}
         aria-hidden="true"
@@ -107,14 +161,14 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
           />
         </div>
 
-        <div className="border-b rule px-3 py-4 text-center">
-          <div className="display-wide text-lg leading-none">{stage.code}</div>
-          <div className="data-mono mt-1 text-[10px] text-grease">
+        <div className="border-b rule px-3 py-3 text-center">
+          <div className="display-wide text-xl leading-none">{stage.code}</div>
+          <div className="data-mono mt-1 text-[11px] text-grease">
             {stage.km.toFixed(2)} KM
           </div>
         </div>
 
-        <nav className="flex flex-1 flex-col justify-between overflow-hidden py-5">
+        <nav ref={navRef} className="flex flex-1 flex-col justify-between overflow-hidden py-4">
           {sections.map((s, i) => {
             const isLast = i === sections.length - 1;
             const Glyph = isLast ? TulipFinish : tulipCycle[i % tulipCycle.length];
@@ -126,14 +180,14 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
                 onClick={() => scrollToEl(s.el)}
                 aria-label={`Go to section: ${s.label}`}
                 aria-current={isActive ? "true" : undefined}
-                className={`group flex flex-col items-center gap-1.5 px-2 py-1 transition-colors ${
+                className={`group flex shrink-0 flex-col items-center gap-0.5 px-2 py-0.5 transition-colors ${
                   isActive ? "text-murram" : "text-grease hover:text-night"
                 }`}
               >
                 <Glyph active={isActive} />
                 <span
-                  className="display-cond text-[9px] tracking-[0.18em]"
-                  style={{ writingMode: "vertical-rl" }}
+                  className="display-cond shrink-0 font-medium tracking-[0.15em]"
+                  style={{ writingMode: "vertical-rl", fontSize: `${labelPx}px` }}
                 >
                   {s.label}
                 </span>
@@ -142,15 +196,15 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
           })}
         </nav>
 
-        <div className="border-t rule px-2 py-4 text-center" aria-live="off">
+        <div className="border-t rule px-2 py-3 text-center" aria-live="off">
           <div
-            className={`data-mono text-sm font-semibold tabular-nums ${
+            className={`data-mono text-base font-semibold tabular-nums ${
               finished ? "text-murram" : "text-night"
             }`}
           >
             {km.toFixed(1)}
           </div>
-          <div className="data-mono mt-0.5 text-[10px] text-grease">
+          <div className="data-mono mt-0.5 text-[11px] text-grease">
             {finished ? "FIN" : "KM"}
           </div>
         </div>
