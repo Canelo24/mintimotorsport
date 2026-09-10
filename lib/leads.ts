@@ -7,10 +7,22 @@ import "server-only";
  * silently discarded.
  *
  * Supported destinations (any combination):
- * - LEAD_WEBHOOK_URL   — POST JSON to any endpoint (Zapier/Make/own API)
- * - RESEND_API_KEY + LEAD_TO_EMAIL [+ LEAD_FROM_EMAIL] — email via Resend
+ * - LEAD_WEBHOOK_URL — POST JSON to any endpoint (Zapier/Make/own API)
+ * - RESEND_API_KEY — email via Resend to LEAD_TO_EMAIL
+ *   (defaults to the team inbox, client instruction 2026-09-10)
  * - CRM: see the clearly-marked adapter stub below
  */
+
+/** Where enquiries land. Overridable via LEAD_TO_EMAIL. */
+const DEFAULT_LEAD_TO_EMAIL = "mintimotorsports@gmail.com";
+
+/**
+ * Resend only accepts a from-address on a domain verified in their
+ * dashboard. onboarding@resend.dev works out of the box for mail to the
+ * Resend account's own inbox; set LEAD_FROM_EMAIL to an address on the
+ * site's own domain once that domain is verified in Resend.
+ */
+const DEFAULT_LEAD_FROM_EMAIL = "onboarding@resend.dev";
 
 export type Lead = {
   kind: "enquiry" | "newsletter" | "pack";
@@ -35,7 +47,7 @@ export async function deliverLead(lead: Lead): Promise<{ delivered: boolean }> {
     }
   }
 
-  if (process.env.RESEND_API_KEY && process.env.LEAD_TO_EMAIL) {
+  if (process.env.RESEND_API_KEY) {
     try {
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
@@ -44,8 +56,8 @@ export async function deliverLead(lead: Lead): Promise<{ delivered: boolean }> {
           authorization: `Bearer ${process.env.RESEND_API_KEY}`,
         },
         body: JSON.stringify({
-          from: process.env.LEAD_FROM_EMAIL ?? "leads@mintimotorsport.example.com",
-          to: process.env.LEAD_TO_EMAIL,
+          from: process.env.LEAD_FROM_EMAIL?.trim() || DEFAULT_LEAD_FROM_EMAIL,
+          to: process.env.LEAD_TO_EMAIL?.trim() || DEFAULT_LEAD_TO_EMAIL,
           subject: `[Minti site] New ${lead.kind}`,
           text: JSON.stringify(lead.data, null, 2),
         }),

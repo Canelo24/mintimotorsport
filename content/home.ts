@@ -1,10 +1,9 @@
-import { TODO } from "./site";
 import { images } from "./images.generated";
 
 /**
  * Home page copy. Voice rules (client feedback, 2026-09-01): no em dashes,
  * plain sentences, British, written the way a rally person would say it.
- * Factual gaps carry {{TODO}} markers (see CONTENT-TODO.md).
+ * Dates and contact details confirmed by the client 2026-09-10.
  */
 
 export const hero = {
@@ -92,15 +91,8 @@ export const routesIn = {
 export const car = {
   instruction: "SS1/04 · THE CAR",
   title: "The Escort, done properly",
-  body: "MST build new and original Escorts to Safari specification, and Minti holds the exclusive rights to run them in this region. These are cars made for this event, not adapted to it.",
+  body: "MST build new and original Escorts to Safari specification, and Minti holds the exclusive rights to run them in this region. These are cars made for this event, not adapted to it. Built in the UK, prepared and shaken down in Nairobi, signed off on the roads they race on.",
   image: images.carsMk1MountainRoad,
-  spec: [
-    { k: "BUILD", v: "MST CARS" },
-    { k: "ENGINE", v: "BDG 2.0 · 260+ BHP" },
-    { k: "GEARBOX", v: "HOLLINGER ZF SAFARI" },
-    { k: "DAMPERS", v: "REIGER 4-WAY ADJUSTABLE" },
-    { k: "BRAKES", v: "AP RACING · TILTON" },
-  ],
 };
 
 export const people = {
@@ -111,6 +103,7 @@ export const people = {
     name: "Joey Ghose",
     role: "Founder & team principal",
     body: "Joey built Minti and still runs every driver programme himself. He takes the first call, and he is on the radio when it counts.",
+    image: images.peopleJoeyGhose,
   },
   cards: [
     {
@@ -133,15 +126,15 @@ export const heritageStrip = {
   title: "Heritage, briefly",
   entries: [
     {
-      year: TODO("founding year"),
+      year: "2017",
       text: "Founded by Joey Ghose. UK registered, family run, at home in Nairobi.",
     },
     {
-      year: TODO("EASCR stake years"),
+      year: "FROM 2020",
       text: "Held a controlling stake in East African Safari Classic Rally Ltd and ran the event with pride. It is independently run today.",
     },
     {
-      year: TODO("crew years"),
+      year: "FROM 2017",
       text: "Ran crews including Ian Duncan and Carl Tundo, and brought Maxine Wahome and Safina Khan into classic rallying.",
     },
   ],
@@ -150,10 +143,7 @@ export const heritageStrip = {
 export const ask = {
   headline: "The 2027 start list is short.",
   body: "We will only take on as many drivers as we can run properly. Once the 2027 cars are spoken for, the next chance is years away.",
-  scarcityLine: {
-    seats: TODO("number of seats available"),
-    event: "EAST AFRICAN SAFARI CLASSIC 2027",
-  },
+  scarcityLine: "EAST AFRICAN SAFARI CLASSIC 2027 · APPLICATIONS OPEN",
   cta: "Apply for the seat",
   href: "/enquire?e=eascr2027",
   image: images.askMurramRoadAerial,

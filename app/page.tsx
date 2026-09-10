@@ -69,7 +69,7 @@ export default function HomePage() {
                     href="/the-drive#arrive-and-drive"
                     className="data-mono text-data text-chalk/70 underline-offset-4 hover:text-sodium hover:underline"
                   >
-                    Full spec and detail →
+                    The programme in full →
                   </Link>
                 </div>
               </Reveal>
@@ -169,21 +169,7 @@ export default function HomePage() {
               <Reveal>
                 <p className="text-body text-night/80">{car.body}</p>
               </Reveal>
-              <Reveal delay={120}>
-                <dl className="mt-8 divide-y rule border-y">
-                  {car.spec.map((row) => (
-                    <div key={row.k} className="flex justify-between gap-6 py-3">
-                      <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">
-                        {row.k}
-                      </dt>
-                      <dd className="data-mono text-right text-data">
-                        <Todo value={row.v} />
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </Reveal>
-              <Reveal delay={200}>
+              <Reveal delay={160}>
                 <div className="mt-8">
                   <Button href="/the-cars" variant="ghost-light">
                     {site.cta.secondary}
@@ -207,15 +193,17 @@ export default function HomePage() {
             lead={people.lead}
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            {/* Joey leads, set in type until his portrait is shot */}
             <Reveal as="figure">
-              <div className="flex aspect-[4/5] flex-col justify-between bg-night p-6 text-chalk">
-                <p className="data-mono text-data-s text-sodium">01</p>
-                <p className="display-wide text-h2 leading-none">
-                  Joey
-                  <br />
-                  Ghose
-                </p>
+              <div className="relative aspect-[4/5]">
+                <Image
+                  src={people.joey.image.src}
+                  alt={people.joey.image.alt}
+                  fill
+                  sizes="(min-width: 640px) 33vw, 100vw"
+                  placeholder="blur"
+                  blurDataURL={people.joey.image.blurDataURL}
+                  className="object-cover"
+                />
               </div>
               <figcaption className="mt-4">
                 <p className="display-wide text-lead">{people.joey.name}</p>
@@ -311,10 +299,7 @@ export default function HomePage() {
             <p className="mt-6 max-w-xl text-lead text-chalk/85">{ask.body}</p>
           </Reveal>
           <Reveal delay={200}>
-            <p className="data-mono mt-8 text-data text-sodium">
-              SEATS, NEXT EVENT: <Todo value={ask.scarcityLine.seats} /> ·{" "}
-              <Todo value={ask.scarcityLine.event} />
-            </p>
+            <p className="data-mono mt-8 text-data text-sodium">{ask.scarcityLine}</p>
           </Reveal>
           <Reveal delay={280}>
             <div className="mt-10">

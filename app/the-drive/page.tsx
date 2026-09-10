@@ -120,7 +120,7 @@ export default function TheDrivePage() {
         </Container>
       </Section>
 
-      {/* The 2027 package, from the client's own sheet: price, contents, spec */}
+      {/* The 2027 package, from the client's own sheet: the offer and its contents */}
       <Section roadbook="THE 2027 SEAT" dark className="py-24">
         <Container>
           <p className="data-mono text-data font-semibold tracking-[0.14em] text-sodium">
@@ -129,7 +129,7 @@ export default function TheDrivePage() {
           <h2 className="display-wide mt-3 max-w-4xl text-h1">
             {eascr2027.event} {eascr2027.year}
           </h2>
-          <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_1fr]">
+          <div className="mt-10 grid gap-12 lg:grid-cols-[1.1fr_1fr]">
             <div>
               <Reveal>
                 <p className="display-wide text-h2 text-sodium">{eascr2027.price}</p>
@@ -137,19 +137,6 @@ export default function TheDrivePage() {
                   {eascr2027.priceLabel}
                 </p>
                 <p className="mt-5 max-w-xl text-body text-chalk/85">{eascr2027.intro}</p>
-              </Reveal>
-              <Reveal delay={120}>
-                <p className="display-cond mt-10 text-data-s tracking-[0.2em] text-grease">
-                  THE HIRE COST COVERS
-                </p>
-                <ul className="mt-4 divide-y divide-chalk/10 border-y border-chalk/10">
-                  {eascr2027.includes.map((item) => (
-                    <li key={item} className="flex gap-3 py-2.5 text-data text-chalk/85">
-                      <span className="text-sodium" aria-hidden="true">·</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </Reveal>
               <Reveal delay={180}>
                 <div className="mt-8">
@@ -169,19 +156,16 @@ export default function TheDrivePage() {
             </div>
             <Reveal delay={140}>
               <p className="display-cond text-data-s tracking-[0.2em] text-grease">
-                THE CAR, AS BUILT
+                THE HIRE COST COVERS
               </p>
-              <dl className="mt-4 divide-y divide-chalk/10 border-y border-chalk/10">
-                {eascr2027.spec.map((row) => (
-                  <div key={row.k} className="grid grid-cols-[120px_1fr] gap-4 py-2.5">
-                    <dt className="data-mono text-data-s text-sodium">{row.k}</dt>
-                    <dd className="text-data text-chalk/85">{row.v}</dd>
-                  </div>
+              <ul className="mt-4 divide-y divide-chalk/10 border-y border-chalk/10">
+                {eascr2027.includes.map((item) => (
+                  <li key={item} className="flex gap-3 py-2.5 text-data text-chalk/85">
+                    <span className="text-sodium" aria-hidden="true">·</span>
+                    {item}
+                  </li>
                 ))}
-              </dl>
-              <p className="data-mono mt-4 text-[11px] text-grease">
-                Damper, brake, gearbox and livery upgrades are available. Ask on the call.
-              </p>
+              </ul>
             </Reveal>
           </div>
         </Container>
@@ -311,7 +295,7 @@ export default function TheDrivePage() {
                   ))}
                 </ul>
                 <p className="data-mono mt-8 text-data text-chalk/70">
-                  FROM <Todo value={tier.from} className="text-sodium" />
+                  <span className="text-sodium">PRICED ON APPLICATION</span>
                 </p>
                 <div className="mt-5">
                   <Button

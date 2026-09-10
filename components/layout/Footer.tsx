@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/site";
-import { Todo } from "@/components/ui/Todo";
 import { NewsletterForm } from "./NewsletterForm";
 
 export function Footer() {
@@ -60,30 +59,21 @@ export function Footer() {
             </p>
             <address className="not-italic">
               <p className="data-mono text-data text-chalk/80">
+                {site.base.address}
+                <br />
                 Nairobi, Kenya
                 <br />
                 <span className="text-sodium">{site.base.coords}</span>
               </p>
               <p className="mt-3 text-data text-chalk/60">
-                Workshop address: <Todo value={site.base.coordsTodo} />
-              </p>
-              <p className="mt-3 text-data text-chalk/60">
-                {site.contact.email ? (
-                  <a href={`mailto:${site.contact.email}`} className="hover:text-sodium">
-                    {site.contact.email}
-                  </a>
-                ) : (
-                  <Todo value={site.contact.emailTodo} />
-                )}
+                <a href={`mailto:${site.contact.email}`} className="hover:text-sodium">
+                  {site.contact.email}
+                </a>
               </p>
               <p className="mt-1 text-data text-chalk/60">
-                {site.contact.phone ? (
-                  <a href={`tel:${site.contact.phone}`} className="hover:text-sodium">
-                    {site.contact.phone}
-                  </a>
-                ) : (
-                  <Todo value={site.contact.phoneTodo} />
-                )}
+                <a href={`tel:${site.contact.phone}`} className="hover:text-sodium">
+                  {site.contact.phone}
+                </a>
               </p>
             </address>
             <p className="display-cond mb-2 mt-8 text-data-s tracking-[0.16em] text-grease">
@@ -103,7 +93,7 @@ export function Footer() {
             Kingdom. Operational base: Nairobi, Kenya.
           </p>
           <p className="data-mono text-data-s text-grease">
-            Family-run since <Todo value="{{TODO: founding year}}" />
+            Family-run since {site.founded}
           </p>
         </div>
       </div>

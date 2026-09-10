@@ -52,6 +52,13 @@ export const images = {
     blurDataURL: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAHAAwDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAGxAAAgIDAQAAAAAAAAAAAAAAAAECAwQRIRP/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABYRAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEQMRAD8At2L5db2jPtnBTfAAqsv/2Q==",
     alt: "The crew going over the car at the end of the day, spare wheel out, everyone around the back of the car",
   },
+  "peopleJoeyGhose": {
+    src: "/images/people-joey-ghose-335x419.jpg",
+    width: 335,
+    height: 419,
+    blurDataURL: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAPAAwDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQME/8QAHhAAAgMAAQUAAAAAAAAAAAAAAQMAAgQREhMhIjH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABgRAAIDAAAAAAAAAAAAAAAAAAABESEx/9oADAMBAAIRAxEAPwCJ3vQfYTbnd3lC5H2HbXVLunjxEMjKURUcQyUpYf/Z",
+    alt: "Joey Ghose in the car, eyes up, fastening the strap of his Minti-liveried helmet with JOEY across the chin bar",
+  },
   "peopleCrewAtWork": {
     src: "/images/people-crew-at-work-900x1125.jpg",
     width: 900,
@@ -63,7 +70,7 @@ export const images = {
     src: "/images/people-workshop-nairobi-900x1125.jpg",
     width: 900,
     height: 1125,
-    blurDataURL: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAPAAwDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAgMFBv/EABkQAAMBAQEAAAAAAAAAAAAAAAECEQADBP/EABUBAQEAAAAAAAAAAAAAAAAAAAED/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAECEf/aAAwDAQACEQMRAD8AyoViKMQ6dFEuovxTmYoyT56bjUWU0f/Z",
+    blurDataURL: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAPAAwDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAQUG/8QAGxAAAwACAwAAAAAAAAAAAAAAAAECAxESITH/xAAVAQEBAAAAAAAAAAAAAAAAAAABA//EABgRAAIDAAAAAAAAAAAAAAAAAAABAhES/9oADAMBAAIRAxEAPwDKuLXYrkUKxrWgnEkvAtFsTR//2Q==",
     alt: "Freshly built air-cooled engine in the bay, twin carburettors, spotless",
   },
   "askMurramRoadAerial": {

@@ -1,4 +1,3 @@
-import { TODO } from "./site";
 import { images } from "./images.generated";
 
 /** /the-drive. Answers: what exactly do I get, and what is expected of me? */
@@ -66,8 +65,8 @@ export const timeline = {
   steps: [
     { when: "MONTH 0", what: "The call", detail: "Forty minutes with the team. What you want, what it costs, whether we suit each other. No paperwork." },
     { when: "MONTH 1", what: "The agreement", detail: "The programme in writing: car, event, dates, inclusions, excess. A deposit secures the car." },
-    { when: TODO("months before event, licensing window"), what: "Licence and medical", detail: "We send the checklist and chase the paperwork with you. It is simpler than people expect." },
-    { when: TODO("months before event, build window"), what: "The build", detail: "Your car comes together in the UK and you see it happen. Photos from the shop as the work is done." },
+    { when: "MONTHS AHEAD", what: "Licence and medical", detail: "We send the checklist and chase the paperwork with you. It is simpler than people expect." },
+    { when: "THE BUILD MONTHS", what: "The build", detail: "Your car comes together in the UK and you see it happen. Photos from the shop as the work is done." },
     { when: "EVENT −7 DAYS", what: "Arrival and shakedown", detail: "Land in Nairobi. Seat fitting, systems briefing, then private murram until the car feels like yours." },
     { when: "EVENT", what: "The event", detail: "You drive. We run the service park, the chase cars, the spares, the plan, and the backup plan." },
     { when: "EVENT +1 DAY", what: "The ramp, then dinner", detail: "Time card stamped, car on the truck. Then you decide whether once was enough. Most people don't stop at once." },
@@ -97,25 +96,22 @@ export const family = {
 };
 
 export const packages = {
-  note: "The 2027 Safari Classic seat is priced above. Other events and multi-event programmes are put together around the driver and priced on the first call, always in writing.",
+  note: "Every programme is put together around the driver and priced plainly on the first call, always in writing. No figure on a website decides this; the conversation does.",
   tiers: [
     {
       name: "The Finish",
       who: "A first Safari. One goal: bring you and the car home.",
       includes: ["MST Escort seat", "Standard shakedown programme", "Full crew and logistics", "Co-driver pairing", "Family coordination"],
-      from: TODO("'from' price, The Finish"),
     },
     {
       name: "The Result",
       who: "Licensed and hungry. Built for a competitive placing.",
       includes: ["Everything in The Finish", "Extended test programme", "Senior co-driver", "Data review between legs", "Priority spares strategy"],
-      from: TODO("'from' price, The Result"),
     },
     {
       name: "The Programme",
       who: "Multi-event, brand or family office. A season, not a start.",
       includes: ["Everything in The Result", "Multi-event calendar", "Hospitality and guest programme", "Media and content package", "Partnership branding"],
-      from: TODO("'from' price, The Programme"),
     },
   ],
 };
@@ -153,5 +149,5 @@ export const faqs = [
 
 export const packCta = {
   title: "The brief, in writing",
-  body: "A short pack with the programme outline, the car specification and the timeline. We send it by email and follow up once.",
+  body: "A short pack with the programme outline, what the seat includes and the timeline. We send it by email and follow up once.",
 };

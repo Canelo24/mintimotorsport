@@ -1,4 +1,3 @@
-import { TODO } from "./site";
 import { images } from "./images.generated";
 
 export const carsHero = {
@@ -17,32 +16,23 @@ export const partnership = {
     "MST-built cars are new-build or restored competition machinery to Safari specification. Where a car is a new build rather than an original Ford shell we say so, in the car's papers and in person.",
 };
 
+/**
+ * Technical specification tables were withdrawn from the site on client
+ * instruction (2026-09-10). The build detail lives in the package sheet
+ * and is talked through on the call.
+ */
 export const models = [
   {
     name: "Escort Mk1",
     image: images.carsMk1MountainRoad,
     blurb:
-      "The original shape, the one the Safari made famous. Light, direct, and honest about everything the road is doing.",
-    spec: [
-      { k: "BUILD", v: "MST CARS · NEW / ORIGINAL" },
-      { k: "SPEC", v: "SAFARI · ENDURANCE" },
-      { k: "ENGINE", v: TODO("Mk1 engine specification") },
-      { k: "GEARBOX", v: TODO("Mk1 gearbox specification") },
-      { k: "WEIGHT", v: TODO("Mk1 competition weight") },
-    ],
+      "The original shape, the one the Safari made famous. Light, direct, and honest about everything the road is doing. New and original builds, Safari specification throughout.",
   },
   {
     name: "Escort Mk2",
     image: images.carsMk2GoldMinilites,
     blurb:
-      "The definitive rally Escort. More room, more strength, the same balance. This is the car the 2027 seat is built on.",
-    spec: [
-      { k: "BUILD", v: "MST CARS · NEW GROUP 4 SHELL" },
-      { k: "ENGINE", v: "BDG 2.0 · 260+ BHP · DRY SUMP" },
-      { k: "GEARBOX", v: "HOLLINGER ZF SAFARI" },
-      { k: "AXLE", v: "ATLAS · GRIPPER LSD" },
-      { k: "DAMPERS", v: "REIGER 4-WAY ADJUSTABLE" },
-    ],
+      "The definitive rally Escort. More room, more strength, the same balance. This is the car the 2027 seat is built on, and the full build detail is talked through on the call.",
   },
 ];
 

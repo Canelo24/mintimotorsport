@@ -3,7 +3,6 @@ import { Page } from "@/components/layout/Page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
-import { Todo } from "@/components/ui/Todo";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { crews, heritageHero, stewardship, timeline } from "@/content/heritage";
@@ -56,9 +55,7 @@ export default function HeritagePage() {
             </div>
             <Reveal delay={140} className="self-start border-l-2 border-murram pl-6">
               <p className="display-cond text-[10px] tracking-[0.2em] text-grease">TENURE</p>
-              <p className="data-mono mt-2 text-data">
-                <Todo value={stewardship.years} />
-              </p>
+              <p className="data-mono mt-2 text-data">{stewardship.years}</p>
               <p className="mt-5 text-data text-night/60">
                 Stated plainly because it matters: this is heritage, not a current ownership claim.
                 The event is independently run today.
@@ -83,9 +80,7 @@ export default function HeritagePage() {
                 <div>
                   <p className="data-mono text-data-s text-grease">{String(i + 1).padStart(2, "0")}</p>
                   <p className="display-wide mt-3 text-h2 leading-none">{entry.name}</p>
-                  <p className="data-mono mt-3 text-data-s text-sodium">
-                    <Todo value={entry.car} /> · <Todo value={entry.years} />
-                  </p>
+                  <p className="data-mono mt-3 text-data-s text-sodium">{entry.car}</p>
                 </div>
                 <p className="mt-6 text-data text-chalk/75">{entry.body}</p>
               </Reveal>
@@ -105,9 +100,7 @@ export default function HeritagePage() {
                   className="absolute -left-[41px] top-1 h-3 w-3 rounded-full border-2 border-murram bg-feshfesh"
                   aria-hidden="true"
                 />
-                <p className="data-mono text-data font-medium text-murram">
-                  <Todo value={entry.year} />
-                </p>
+                <p className="data-mono text-data font-medium text-murram">{entry.year}</p>
                 <p className="mt-1.5 max-w-2xl text-body text-night/80">{entry.text}</p>
               </Reveal>
             ))}

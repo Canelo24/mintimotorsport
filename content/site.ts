@@ -43,13 +43,14 @@ export const site = {
   url: resolveSiteUrl(),
 
   founder: "Joey Ghose",
+  founded: "2017",
   registeredIn: "United Kingdom",
   base: {
     city: "Nairobi",
     country: "Kenya",
-    // Nairobi city coordinates — replace with the workshop's own when confirmed.
+    address: "Galleria Business Park, Loita",
+    // Nairobi city coordinates — replace with the workshop's own if wanted.
     coords: "1.2921° S, 36.8219° E",
-    coordsTodo: TODO("exact workshop coordinates and address"),
   },
 
   contact: {
@@ -59,12 +60,9 @@ export const site = {
      * secondary contact. Env vars override the defaults.
      */
     officialLabel: "Minti Motorsport official line",
-    email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
+    email: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL) ?? "mintimotorsports@gmail.com",
     phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE) ?? "+254 799 839012",
     whatsapp: env(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER) ?? "254799839012", // digits only, intl format
-    emailTodo: TODO("enquiries email address"),
-    phoneTodo: TODO("Nairobi office phone with country code"),
-    whatsappTodo: TODO("WhatsApp business number"),
   },
 
   social: {
@@ -92,12 +90,6 @@ export const site = {
     { href: "/journal", label: "Journal" },
     { href: "/contact", label: "Contact" },
   ],
-
-  /** Real scarcity — stated plainly, never faked. Values await client sign-off. */
-  scarcity: {
-    seats: TODO("number of cars available for the next event"),
-    event: TODO("next event name and date"),
-  },
 } as const;
 
 /** Verified facts — the only claims the site may state as fact (brief §9). */
@@ -105,27 +97,29 @@ export const verifiedFacts = {
   ukRegistered: true,
   familyRun: true,
   nairobiBase: true,
+  // Dates supplied by the client, 2026-09-10.
+  founded: "2017",
+  eascrStakeFrom: "2020",
+  crewsRunFrom: "2017",
   mstPartnership:
     "Exclusive regional partnership with MST Cars supplying new and original Ford Escort Mk1 and Mk2 Safari-spec rally cars, built for endurance events.",
   eascrHeritage:
     "Previously acquired a controlling stake in East African Safari Classic Rally Ltd. The event is now independently run.",
+  // Per-crew years are unconfirmed; the site states only "from 2017" for
+  // crews as a whole, so individual year labels are not published.
   crewsRun: [
     {
       name: "Ian Duncan",
       car: "Nissan 240RS",
-      years: TODO("confirm year(s) Ian Duncan ran with Minti support"),
     },
     {
       name: 'Carl "Flash" Tundo',
       car: "VW Polo R5",
       carShort: "VW R5",
-      years: TODO("confirm year(s) Carl Tundo ran with Minti support"),
     },
     {
       name: "Maxine Wahome & Safina Khan",
-      car: TODO("confirm car for the all-Kenyan ladies crew"),
       note: "An all-Kenyan ladies crew introduced to classic rallying.",
-      years: TODO("confirm year Wahome/Khan crew was introduced"),
     },
   ],
 } as const;

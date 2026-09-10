@@ -45,9 +45,24 @@ export default function TheTeamPage() {
           <div className="mt-12 grid gap-10 md:grid-cols-2">
             {ghose.map((person, i) => (
               <Reveal key={person.name} delay={i * 120} className="border-t-2 border-murram pt-5">
-                <h2 className="display-wide text-h3">{person.name}</h2>
-                <p className="data-mono mt-1 text-data-s text-murram">{person.role}</p>
-                <p className="mt-3 text-body text-night/80">{person.body}</p>
+                <div className="flex gap-6">
+                  <div className="relative aspect-[4/5] w-28 shrink-0 sm:w-36">
+                    <Image
+                      src={person.image.src}
+                      alt={person.image.alt}
+                      fill
+                      sizes="144px"
+                      placeholder="blur"
+                      blurDataURL={person.image.blurDataURL}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h2 className="display-wide text-h3">{person.name}</h2>
+                    <p className="data-mono mt-1 text-data-s text-murram">{person.role}</p>
+                    <p className="mt-3 text-body text-night/80">{person.body}</p>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -112,9 +127,6 @@ export default function TheTeamPage() {
               className="w-full"
             />
           </Reveal>
-          <p className="data-mono mt-6 text-data text-grease">
-            <Todo value={crew.namesTodo} />
-          </p>
           <Reveal delay={100}>
             <div className="mt-14">
               <Button href="/enquire" magnetic>

@@ -154,6 +154,31 @@ unless marked otherwise.
     The inclusions list and technical spec stay public; the number lives only in the
     client's package sheet and internal docs. Enquiry budget bands are qualitative again.
 
+## Client go-live round (2026-09-10)
+36. **All remaining TBCs filled from the client's message**: founded 2017; EASCR stake
+    "from 2020" (rendered "FROM 2020" with the past-tense stewardship copy kept intact —
+    worth one confirmation that the stake is indeed no longer held, since "since 2020"
+    could read either way); crews run from 2017; address Galleria Business Park, Loita;
+    site-wide contact email mintimotorsports@gmail.com. Values the client did not supply
+    (seat count, event dates, per-crew years, crew names, Mk1 spec) were removed from
+    display rather than guessed — the site now renders zero TBC chips.
+37. **Dunlop and the technical car specification removed site-wide** (client instruction):
+    the 2027 package spec table, the home car spec rows, and both model spec tables on
+    The Cars are gone; "Forty new Dunlop gravel tyres" is now "Forty new gravel tyres".
+    The inclusions list survives; the build detail lives in the package sheet and is
+    given on the call. Package tiers read "priced on application".
+38. **Joey's portrait wired in** (supplied via the repo): cropped to the 4/5 card,
+    home people section leads with it, and it sits beside his bio on The Team. The
+    original is archived in assets-src/.
+39. **Enquiry auto-send defaults to mintimotorsports@gmail.com**: lib/leads.ts now emails
+    every enquiry there whenever RESEND_API_KEY is set, from onboarding@resend.dev until
+    the site's domain is verified in Resend. Without the key, submissions still log
+    loudly in Vercel function logs. Setup steps are in the README.
+40. **The hire cost stays off the site** (decision 35 stands). The promo graphics supplied
+    with the go-live message do show US$250,000, but the standing instruction is to hide
+    it; if the client now wants the figure public again, it is a one-line change in
+    content/eascr2027.ts.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

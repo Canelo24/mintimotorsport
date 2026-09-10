@@ -64,12 +64,27 @@ exported shapes, and the components don't change. `lib/journal.ts` is the worked
 `lib/leads.ts` is the adapter. Configure any combination in `.env` (see `.env.example`):
 
 - `LEAD_WEBHOOK_URL` — POST JSON anywhere (Zapier/Make/own endpoint)
-- `RESEND_API_KEY` + `LEAD_TO_EMAIL` (+ `LEAD_FROM_EMAIL`) — email via Resend
+- `RESEND_API_KEY` — email via Resend. Enquiries go to `LEAD_TO_EMAIL`
+  (**default `mintimotorsports@gmail.com`**) from `LEAD_FROM_EMAIL` (default
+  `onboarding@resend.dev`, which Resend accepts without domain verification
+  as long as the destination is the Resend account's own inbox — so create
+  the Resend account with the Minti Gmail address, or verify the site's
+  domain in Resend and use an address on it).
 - CRM — fill in the clearly-marked `appendToCrm()` stub in `lib/leads.ts`
 
-With nothing configured, submissions are **logged loudly server-side** and never silently
-discarded — but configure a destination before launch. Spam: honeypot field + sub-4s timing
-check (flagged server-side, bots receive a normal success).
+Setup for launch, step by step:
+
+1. Create a free account at resend.com **using mintimotorsports@gmail.com**.
+2. In Resend: API Keys → Create API Key, copy it.
+3. In Vercel: Project → Settings → Environment Variables → add
+   `RESEND_API_KEY` with that value (Production), then redeploy.
+4. Submit a test enquiry on the live site and check the Minti inbox
+   (and spam folder, the first time).
+
+With nothing configured, submissions are **logged loudly server-side** (Vercel →
+Deployments → Functions logs) and never silently discarded — but configure a destination
+before launch. Spam: honeypot field + sub-4s timing check (flagged server-side, bots
+receive a normal success).
 
 ## Enquiry flow
 

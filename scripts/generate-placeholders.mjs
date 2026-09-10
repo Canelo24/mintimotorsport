@@ -44,6 +44,7 @@ const IMAGES = [
   { name: "drive-03-ready-to-start-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "Driver helmeted and strapped in behind the roll cage, waiting for the off" },
   { name: "drive-04-the-event-1600x1000", w: 1600, h: 1000, scheme: "murram", alt: "The competition car on murram between the thorn trees, dust rising behind" },
   { name: "drive-05-finish-ramp-1600x1000", w: 1600, h: 1000, scheme: "dust", alt: "The crew going over the car at the end of the day, spare wheel out, everyone around the back of the car" },
+  { name: "people-joey-ghose-335x419", w: 335, h: 419, scheme: "night", alt: "Joey Ghose in the car, eyes up, fastening the strap of his Minti-liveried helmet with JOEY across the chin bar" },
   { name: "people-crew-at-work-900x1125", w: 900, h: 1125, scheme: "night", alt: "Minti crew in team shirts working over the car at service" },
   { name: "people-workshop-nairobi-900x1125", w: 900, h: 1125, scheme: "night", alt: "Freshly built air-cooled engine in the bay, twin carburettors, spotless" },
   { name: "ask-murram-road-aerial-2400x1200", w: 2400, h: 1200, scheme: "night", alt: "Aerial view of a murram road running dead straight through the bush to the horizon" },

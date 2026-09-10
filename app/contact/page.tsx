@@ -3,7 +3,6 @@ import { Page } from "@/components/layout/Page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Container, Section } from "@/components/ui/Section";
-import { Todo } from "@/components/ui/Todo";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { images } from "@/content/images.generated";
@@ -41,13 +40,9 @@ export default function ContactPage() {
                   <div className="flex flex-wrap justify-between gap-2">
                     <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">PHONE</dt>
                     <dd className="data-mono text-data">
-                      {site.contact.phone ? (
-                        <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="hover:text-murram">
-                          {site.contact.phone}
-                        </a>
-                      ) : (
-                        <Todo value={site.contact.phoneTodo} />
-                      )}
+                      <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="hover:text-murram">
+                        {site.contact.phone}
+                      </a>
                     </dd>
                   </div>
                   <div className="flex flex-wrap justify-between gap-2">
@@ -57,21 +52,15 @@ export default function ContactPage() {
                         <a href={whatsappHref} className="hover:text-murram">
                           Message the team
                         </a>
-                      ) : (
-                        <Todo value={site.contact.whatsappTodo} />
-                      )}
+                      ) : null}
                     </dd>
                   </div>
                   <div className="flex flex-wrap justify-between gap-2">
                     <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">EMAIL</dt>
                     <dd className="data-mono text-data">
-                      {site.contact.email ? (
-                        <a href={`mailto:${site.contact.email}`} className="hover:text-murram">
-                          {site.contact.email}
-                        </a>
-                      ) : (
-                        <Todo value={site.contact.emailTodo} />
-                      )}
+                      <a href={`mailto:${site.contact.email}`} className="hover:text-murram">
+                        {site.contact.email}
+                      </a>
                     </dd>
                   </div>
                 </dl>
@@ -132,9 +121,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex justify-between gap-6 py-3">
                     <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">ADDRESS</dt>
-                    <dd className="data-mono text-right text-data">
-                      <Todo value={site.base.coordsTodo} />
-                    </dd>
+                    <dd className="data-mono text-right text-data">{site.base.address}</dd>
                   </div>
                   <div className="flex justify-between gap-6 py-3">
                     <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">REGISTERED</dt>

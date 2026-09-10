@@ -3,7 +3,6 @@ import { Page } from "@/components/layout/Page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
-import { Todo } from "@/components/ui/Todo";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { buildProcess, carsHero, models, otherMachinery, partnership } from "@/content/cars";
@@ -39,9 +38,6 @@ export default function TheCarsPage() {
             </Reveal>
             <Reveal delay={140} className="self-end border-l-2 border-murram pl-6">
               <p className="text-data text-night/70">{partnership.disclaimer}</p>
-              <p className="data-mono mt-4 text-data-s text-grease">
-                PARTNER-MANDATED TRADEMARK WORDING: <Todo value="{{TODO: MST trademark disclaimer, once supplied}}" />
-              </p>
             </Reveal>
           </div>
         </Container>
@@ -72,16 +68,6 @@ export default function TheCarsPage() {
               <Reveal delay={120} className="lg:[direction:ltr]">
                 <h2 className="display-wide text-h2">{model.name}</h2>
                 <p className="mt-4 text-body text-chalk/80">{model.blurb}</p>
-                <dl className="mt-8 divide-y rule border-y">
-                  {model.spec.map((row) => (
-                    <div key={row.k} className="flex justify-between gap-6 py-3">
-                      <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">{row.k}</dt>
-                      <dd className="data-mono text-right text-data">
-                        <Todo value={row.v} />
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
               </Reveal>
             </div>
           ))}
