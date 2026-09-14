@@ -3,6 +3,7 @@ import { Page } from "@/components/layout/Page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
+import { StageStrip } from "@/components/ui/StageStrip";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { buildProcess, carsHero, models, otherMachinery, partnership } from "@/content/cars";
@@ -26,10 +27,16 @@ export default function TheCarsPage() {
           <p className="hero-rise mt-6 max-w-2xl text-lead text-night/80" style={{ "--rise-delay": "240ms" } as React.CSSProperties}>
             {carsHero.sub}
           </p>
+          <div className="hero-rise mt-10" style={{ "--rise-delay": "360ms" } as React.CSSProperties}>
+            <StageStrip path="/the-cars" dark={false} />
+          </div>
 
           <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_1fr]">
             <Reveal>
-              <h2 className="display-wide text-h2">{partnership.title}</h2>
+              <p className="data-mono text-data-s font-medium text-murram">
+                SS3/01 · THE PARTNERSHIP
+              </p>
+              <h2 className="display-wide mt-2 text-h2">{partnership.title}</h2>
               <div className="mt-5 space-y-4">
                 {partnership.body.map((p, i) => (
                   <p key={i} className="text-body text-night/85">{p}</p>
@@ -66,7 +73,10 @@ export default function TheCarsPage() {
                 />
               </Reveal>
               <Reveal delay={120} className="lg:[direction:ltr]">
-                <h2 className="display-wide text-h2">{model.name}</h2>
+                <p className="data-mono text-data-s font-medium text-sodium">
+                  SS3/{String(i + 2).padStart(2, "0")} · {model.name.toUpperCase()}
+                </p>
+                <h2 className="display-wide mt-2 text-h2">{model.name}</h2>
                 <p className="mt-4 text-body text-chalk/80">{model.blurb}</p>
               </Reveal>
             </div>
@@ -124,7 +134,10 @@ export default function TheCarsPage() {
 
           <Reveal delay={100}>
             <div className="mt-20 border-t rule pt-10">
-              <h2 className="display-wide text-h3">{otherMachinery.title}</h2>
+              <p className="data-mono text-data-s font-medium text-murram">
+                SS3/04 · BEYOND THE ESCORTS
+              </p>
+              <h2 className="display-wide mt-2 text-h3">{otherMachinery.title}</h2>
               <p className="mt-3 max-w-2xl text-body text-night/80">{otherMachinery.body}</p>
               <div className="mt-8">
                 <Button href="/enquire" magnetic>

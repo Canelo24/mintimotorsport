@@ -87,44 +87,52 @@ export function DriveSequence({ instruction, title, lead, cards }: Props) {
           pinned ? "lg:snap-none lg:overflow-x-visible lg:will-change-transform" : ""
         }`}
       >
+        {/* Image-led cards (client, 2026-09-14): the photograph is the card,
+            with a number, a title and one short line over its lower edge. */}
         {cards.map((card, i) => (
           <article
             key={card.tc}
-            className="w-[82vw] max-w-[520px] shrink-0 snap-start border rule bg-night-2 sm:w-[52vw] lg:w-[36vw]"
+            className="relative w-[78vw] max-w-[440px] shrink-0 snap-start overflow-hidden bg-night-2 sm:w-[46vw] lg:w-[29vw]"
           >
-            <div className="relative aspect-[8/5]">
+            <div className="relative aspect-[3/4]">
               <Image
                 src={card.image.src}
                 alt={card.image.alt}
                 fill
-                sizes="(min-width: 1024px) 36vw, 82vw"
+                sizes="(min-width: 1024px) 29vw, 78vw"
                 placeholder="blur"
                 blurDataURL={card.image.blurDataURL}
                 className="object-cover"
                 loading={i === 0 ? "eager" : "lazy"}
               />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-night via-night/25 to-transparent"
+                aria-hidden="true"
+              />
             </div>
-            <div className="p-6">
-              <p className="data-mono text-data-s font-medium text-sodium">
-                {card.tc} / {String(cards.length).padStart(2, "0")}
+            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+              <p className="data-mono text-lead font-semibold text-sodium">{card.tc}</p>
+              <h3 className="display-wide mt-1 text-h2 uppercase leading-none">{card.title}</h3>
+              <p className="mt-3 max-w-[30ch] text-data leading-relaxed text-chalk/85">
+                {card.body}
               </p>
-              <h3 className="display-wide mt-2 text-h3">{card.title}</h3>
-              <p className="mt-3 text-data leading-relaxed text-chalk/75">{card.body}</p>
             </div>
           </article>
         ))}
         {/* End card: the ask, inside the sequence */}
-        <article className="flex w-[82vw] max-w-[520px] shrink-0 snap-start flex-col items-start justify-center border border-sodium/60 bg-night-2 p-8 sm:w-[52vw] lg:w-[36vw]">
+        <article className="flex w-[78vw] max-w-[440px] shrink-0 snap-start flex-col items-start justify-end border border-sodium/60 bg-night-2 p-6 sm:w-[46vw] sm:p-7 lg:w-[29vw]">
           <p className="data-mono text-data-s text-sodium">FINISH CONTROL · EASCR 2027</p>
-          <h3 className="display-wide mt-2 text-h3">Your name on the door</h3>
+          <h3 className="display-wide mt-2 text-h2 uppercase leading-none">
+            Your name on the door
+          </h3>
           <p className="mt-3 text-data text-chalk/75">
             The full programme, in writing, after one call.
           </p>
           <a
             href="/enquire?e=eascr2027"
-            className="display-cond mt-6 bg-sodium px-6 py-3.5 text-data-s tracking-[0.16em] text-night transition-colors hover:bg-chalk"
+            className="display-cond mt-7 bg-sodium px-7 py-4 text-data tracking-[0.16em] text-night transition-colors hover:bg-chalk"
           >
-            Apply for the seat
+            Take a seat
           </a>
         </article>
       </div>

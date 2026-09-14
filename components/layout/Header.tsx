@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -16,12 +17,20 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const closeRef = useRef<HTMLButtonElement>(null);
+  // Live roadbook distance, broadcast by RoadbookRail — shown as a chip in
+  // the bar itself on mobile so it never overlaps page content.
+  const [roadbook, setRoadbook] = useState<{ code: string; km: number; show: boolean } | null>(null);
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const onRoadbook = (e: Event) => setRoadbook((e as CustomEvent).detail);
+    window.addEventListener("minti:roadbook", onRoadbook);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("minti:roadbook", onRoadbook);
+    };
   }, []);
 
   // Close the menu on navigation; manage focus + scroll lock while open.
@@ -51,14 +60,23 @@ export function Header() {
           : "bg-gradient-to-b from-night/60 to-transparent"
       }`}
     >
-      <div className="flex items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
+      <div className="relative flex items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
         <Link
           href="/"
-          className="wordmark text-lg leading-none"
+          className="wordmark text-base leading-none sm:text-lg"
           aria-label="Minti Motorsport home"
         >
           MINTI<span className="text-sodium">·</span>MOTORSPORT
         </Link>
+
+        <span
+          aria-hidden="true"
+          className={`data-mono absolute right-[72px] top-1/2 hidden -translate-y-1/2 whitespace-nowrap text-[10px] font-semibold tracking-[0.08em] text-sodium transition-opacity duration-300 min-[375px]:block lg:!hidden ${
+            roadbook?.show && !open ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {roadbook ? `${roadbook.code} · ${roadbook.km.toFixed(1)} KM` : ""}
+        </span>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
           {/* Journal stays in the footer and mobile menu; the header keeps only
@@ -129,6 +147,19 @@ export function Header() {
             </Link>
           ))}
         </nav>
+
+        <div
+          className="menu-item flex justify-center pb-6"
+          style={{ "--menu-delay": "380ms" } as React.CSSProperties}
+        >
+          <Image
+            src="/brand/minti-crest.png"
+            alt=""
+            width={826}
+            height={759}
+            className="w-32 opacity-95"
+          />
+        </div>
 
         <div
           className="menu-item px-8 pb-5"

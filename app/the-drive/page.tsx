@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
+import { StageStrip } from "@/components/ui/StageStrip";
 import { Todo } from "@/components/ui/Todo";
 import { StickyEnquiryBar } from "@/components/drive/StickyEnquiryBar";
 import { PackRequest } from "@/components/drive/PackRequest";
@@ -53,6 +54,9 @@ export default function TheDrivePage() {
           <p className="hero-rise mt-6 max-w-2xl text-lead text-chalk/85" style={{ "--rise-delay": "240ms" } as React.CSSProperties}>
             {driveHero.sub}
           </p>
+          <div className="hero-rise mt-10" style={{ "--rise-delay": "360ms" } as React.CSSProperties}>
+            <StageStrip path="/the-drive" />
+          </div>
         </Container>
       </Section>
 
@@ -88,7 +92,7 @@ export default function TheDrivePage() {
                             event="campaign_cta_click"
                             eventProps={{ campaign: "eascr2027", from: "the-drive" }}
                           >
-                            Apply for the seat
+                            {site.cta.primary}
                           </Button>
                         </div>
                         <p className="data-mono mt-2 max-w-[240px] text-[10px] leading-relaxed text-grease">

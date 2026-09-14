@@ -9,8 +9,8 @@ import { images } from "./images.generated";
 export const hero = {
   kicker: "ARRIVE & DRIVE · EAST AFRICAN SAFARI CLASSIC 2027",
   headline: "A seat in the Safari.",
-  sub: "We are taking a small number of drivers to the Safari Classic in 2027. New MST Escort, our crew, everything handled from Nairobi. You drive.",
-  primaryCta: "Apply for the seat",
+  sub: "A small number of drivers. A new MST Escort each. Everything run from Nairobi. You drive.",
+  primaryCta: "Take a seat",
   primaryHref: "/enquire?e=eascr2027",
   secondaryCta: "The full programme",
   secondaryHref: "/the-drive",
@@ -29,39 +29,40 @@ export const credibility = [
   { label: "CAR PARTNER", value: "MST CARS · EXCLUSIVE, REGIONAL" },
 ];
 
+/** Card copy kept deliberately short (client, 2026-09-14): the images carry it. */
 export const driveSequence = {
   instruction: "SS1/03 · HOW THE WEEK RUNS",
   title: "First call to finish ramp",
   lead: "Five stops between deciding to do it and getting it done.",
   cards: [
     {
-      tc: "TC1",
-      title: "Arrival",
-      body: "You land, we collect. The car is ready, the crew knows your name, your kit is laid out on the bench.",
+      tc: "01",
+      title: "Arrive",
+      body: "You land in Nairobi. We collect you.",
       image: images.drive01ArrivalNairobi,
     },
     {
-      tc: "TC2",
+      tc: "02",
       title: "Shakedown",
-      body: "Private murram, no audience. Seat time until the car stops feeling borrowed.",
+      body: "Private murram. Seat time until the car feels yours.",
       image: images.drive02ShakedownTest,
     },
     {
-      tc: "TC3",
+      tc: "03",
       title: "Scrutineering",
-      body: "Our paperwork, our queue, our problem. You sign where we point.",
+      body: "Our paperwork. Our problem.",
       image: images.drive03ReadyToStart,
     },
     {
-      tc: "TC4",
+      tc: "04",
       title: "The event",
-      body: "Service crew, chase cars, spares, and a plan for when the plan changes. You drive the road in front of you.",
+      body: "You drive. We run everything else.",
       image: images.drive04TheEvent,
     },
     {
-      tc: "TC5",
+      tc: "05",
       title: "The finish",
-      body: "Time card stamped, dust still on the paint. Then dinner, and the question of what you do next year.",
+      body: "Time card stamped. Dust still on the paint.",
       image: images.drive05FinishRamp,
     },
   ],
@@ -144,7 +145,7 @@ export const ask = {
   headline: "The 2027 start list is short.",
   body: "We will only take on as many drivers as we can run properly. Once the 2027 cars are spoken for, the next chance is years away.",
   scarcityLine: "EAST AFRICAN SAFARI CLASSIC 2027 · APPLICATIONS OPEN",
-  cta: "Apply for the seat",
+  cta: "Take a seat",
   href: "/enquire?e=eascr2027",
   image: images.askMurramRoadAerial,
 };

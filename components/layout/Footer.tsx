@@ -9,20 +9,15 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
+            {/* The crest sits directly on the footer ground — no boxed logo */}
             <Image
-              src="/brand/minti-logo-black.jpg"
+              src="/brand/minti-crest.png"
               alt="Minti Motorsport, Preserving Heritage"
-              width={112}
-              height={112}
-              className="mb-5"
+              width={826}
+              height={759}
+              className="mb-6 w-60 sm:w-72"
             />
-            <p className="wordmark text-h3">
-              MINTI<span className="text-sodium">·</span>MOTORSPORT
-            </p>
-            <p className="display-cond mt-2 text-data-s tracking-[0.24em] text-sodium">
-              Preserving Heritage
-            </p>
-            <p className="mt-4 max-w-sm text-data text-chalk/70">
+            <p className="max-w-sm text-data text-chalk/70">
               {site.tagline}
             </p>
             <div className="mt-8">

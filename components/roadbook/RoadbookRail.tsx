@@ -104,6 +104,13 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
       const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
       setProgress(p);
       setKm(p * stage.km);
+      // The mobile distance chip renders inside the Header's own bar (so it
+      // can never cover page content or the wordmark) — feed it from here.
+      window.dispatchEvent(
+        new CustomEvent("minti:roadbook", {
+          detail: { code: stage.code, km: p * stage.km, show: p > 0.02 && p <= 0.995 },
+        }),
+      );
       const list = sectionsRef.current;
       const marker = window.scrollY + window.innerHeight * 0.38;
       let idx = 0;
@@ -138,14 +145,6 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
             style={{ transform: `scaleX(${progress})`, transformOrigin: "left" }}
           />
         </div>
-      </div>
-      <div
-        className={`data-mono fixed right-2 top-[62px] z-[60] rounded-sm bg-night/85 px-2 py-1 text-[11px] font-medium text-sodium transition-opacity duration-300 lg:hidden ${
-          progress > 0.02 && !finished ? "opacity-100" : "opacity-0"
-        }`}
-        aria-hidden="true"
-      >
-        {stage.code} · {km.toFixed(1)} KM
       </div>
 
       {/* Desktop: the roadbook column */}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { StageStrip } from "@/components/ui/StageStrip";
 import { Parallax } from "@/components/motion/Parallax";
 import { AmbientVideo } from "@/components/motion/AmbientVideo";
 import { events } from "@/lib/analytics";
@@ -40,7 +41,7 @@ export function Hero() {
           {hero.kicker}
         </p>
         <h1
-          className="hero-rise display-wide mt-4 max-w-4xl text-h1 text-chalk"
+          className="hero-rise display-wide mt-4 max-w-5xl text-marquee text-chalk"
           style={{ "--rise-delay": "180ms" } as React.CSSProperties}
         >
           {hero.headline}
@@ -66,6 +67,12 @@ export function Hero() {
           <Button href={hero.secondaryHref} variant="ghost-dark">
             {hero.secondaryCta}
           </Button>
+        </div>
+        <div
+          className="hero-rise mt-12"
+          style={{ "--rise-delay": "520ms" } as React.CSSProperties}
+        >
+          <StageStrip path="/" />
         </div>
       </div>
     </section>

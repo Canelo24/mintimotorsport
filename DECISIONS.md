@@ -179,6 +179,33 @@ unless marked otherwise.
     it; if the client now wants the figure public again, it is a one-line change in
     content/eascr2027.ts.
 
+## Client design round (2026-09-14) — visual identity pass
+41. **Applied without waiting for the new photo batch** (client notes via Parth): the
+    items below need no new photography; the photo-led passes (cars page hero drama,
+    image swaps) land when the promised batch arrives.
+    - **Crest integrated**: the black logo square was keyed to a transparent crest
+      (white MINTI, gold laurel) that now sits directly on the footer ground, larger,
+      replacing the boxed JPG and the duplicate wordmark/strap; also added to the
+      mobile menu. Fixes "logo looks placed on".
+    - **Drive sequence simplified to the client's own copy** ("01 · ARRIVE / You land
+      in Nairobi. We collect you."): portrait image-led cards, big number + title over
+      the photograph, one short line. Less text, photography carries it.
+    - **Hero scaled up** to the marquee type size with a roadbook data strip (stage ·
+      km · coordinates · ARRIVE & DRIVE) under the CTAs; sub copy cut to four short
+      sentences.
+    - **"Take a seat" is the signature CTA everywhere** (hero, 2027 blocks, sequence
+      end card, programme apply, the ask). "Apply for the seat" retired. Arrive &
+      Drive stays the programme wording in kickers and strips.
+    - **Roadbook data strips on every page hero** (drive/cars/team/heritage/contact):
+      SS identity now visible on mobile too, where the rail is hidden.
+    - **SS kicker consistency**: The Cars sections now carry SS3/01..04 instruction
+      lines like every other page.
+    - **Contact lines are tappable rows** (full-width, bordered, arrow, bold value)
+      instead of plain text pairs.
+    - **Mobile roadbook chip is solid sodium** — it was night-on-night (invisible on
+      dark pages) and translucent over text.
+    - Joey's portrait enlarged on The Team.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

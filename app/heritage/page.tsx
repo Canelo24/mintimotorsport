@@ -3,6 +3,7 @@ import { Page } from "@/components/layout/Page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
+import { StageStrip } from "@/components/ui/StageStrip";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { crews, heritageHero, stewardship, timeline } from "@/content/heritage";
@@ -38,6 +39,9 @@ export default function HeritagePage() {
           <p className="hero-rise mt-6 max-w-2xl text-lead text-chalk/85" style={{ "--rise-delay": "240ms" } as React.CSSProperties}>
             {heritageHero.sub}
           </p>
+          <div className="hero-rise mt-10" style={{ "--rise-delay": "360ms" } as React.CSSProperties}>
+            <StageStrip path="/heritage" />
+          </div>
         </Container>
       </Section>
 

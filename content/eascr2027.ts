@@ -35,7 +35,8 @@ export const eascr2027 = {
     "Accommodation and meals for the whole team",
   ],
   applyHref: "/enquire?e=eascr2027",
-  applyCta: "Apply for the seat",
+  // "Take a seat" is the signature action site-wide (client, 2026-09-14).
+  applyCta: "Take a seat",
   organiserNote:
     "Entry to the event is granted by its organisers. Minti prepares the car, submits the entry and runs your campaign.",
 };

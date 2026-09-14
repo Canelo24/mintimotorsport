@@ -3,6 +3,7 @@ import { Page } from "@/components/layout/Page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
+import { StageStrip } from "@/components/ui/StageStrip";
 import { Todo } from "@/components/ui/Todo";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
@@ -27,6 +28,9 @@ export default function TheTeamPage() {
           <p className="hero-rise mt-6 max-w-2xl text-lead text-night/80" style={{ "--rise-delay": "240ms" } as React.CSSProperties}>
             {teamHero.sub}
           </p>
+          <div className="hero-rise mt-10" style={{ "--rise-delay": "360ms" } as React.CSSProperties}>
+            <StageStrip path="/the-team" dark={false} />
+          </div>
 
           <Reveal wipe className="mt-14">
             <Image
@@ -45,8 +49,8 @@ export default function TheTeamPage() {
           <div className="mt-12 grid gap-10 md:grid-cols-2">
             {ghose.map((person, i) => (
               <Reveal key={person.name} delay={i * 120} className="border-t-2 border-murram pt-5">
-                <div className="flex gap-6">
-                  <div className="relative aspect-[4/5] w-28 shrink-0 sm:w-36">
+                <div className="flex flex-wrap gap-6">
+                  <div className="relative aspect-[4/5] w-36 shrink-0 sm:w-48">
                     <Image
                       src={person.image.src}
                       alt={person.image.alt}

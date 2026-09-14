@@ -3,6 +3,7 @@ import { Page } from "@/components/layout/Page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Container, Section } from "@/components/ui/Section";
+import { StageStrip } from "@/components/ui/StageStrip";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 import { images } from "@/content/images.generated";
@@ -29,41 +30,64 @@ export default function ContactPage() {
             Serious about a seat? The fastest route is the enquiry, which lands with the team
             directly. For everything else, use the lines below.
           </p>
+          <div className="hero-rise mt-10" style={{ "--rise-delay": "360ms" } as React.CSSProperties}>
+            <StageStrip path="/contact" dark={false} />
+          </div>
 
           <div className="mt-14 grid gap-10 lg:grid-cols-2">
             <div className="space-y-8">
-              {/* Primary: the official line — no personal name attached */}
+              {/* Primary: the official line — no personal name attached.
+                  Each line is a full-width tappable row (client feedback:
+                  the plain text didn't read as clickable). */}
               <Reveal className="border-t-2 border-murram pt-5">
                 <p className="data-mono text-data-s font-medium text-murram">PRIMARY CONTACT</p>
                 <h2 className="display-wide mt-1 text-h3">{site.contact.officialLabel}</h2>
-                <dl className="mt-4 space-y-3">
-                  <div className="flex flex-wrap justify-between gap-2">
-                    <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">PHONE</dt>
-                    <dd className="data-mono text-data">
-                      <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="hover:text-murram">
-                        {site.contact.phone}
-                      </a>
-                    </dd>
-                  </div>
-                  <div className="flex flex-wrap justify-between gap-2">
-                    <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">WHATSAPP</dt>
-                    <dd className="data-mono text-data">
-                      {whatsappHref ? (
-                        <a href={whatsappHref} className="hover:text-murram">
-                          Message the team
-                        </a>
-                      ) : null}
-                    </dd>
-                  </div>
-                  <div className="flex flex-wrap justify-between gap-2">
-                    <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">EMAIL</dt>
-                    <dd className="data-mono text-data">
-                      <a href={`mailto:${site.contact.email}`} className="hover:text-murram">
-                        {site.contact.email}
-                      </a>
-                    </dd>
-                  </div>
-                </dl>
+                <div className="mt-5 divide-y rule border-y">
+                  <a
+                    href={`tel:${site.contact.phone.replace(/\s/g, "")}`}
+                    className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-murram"
+                  >
+                    <span className="display-cond text-[10px] tracking-[0.2em] text-grease">
+                      PHONE
+                    </span>
+                    <span className="data-mono flex items-center gap-3 text-data font-semibold">
+                      {site.contact.phone}
+                      <span className="text-sodium transition-transform group-hover:translate-x-1" aria-hidden="true">
+                        →
+                      </span>
+                    </span>
+                  </a>
+                  {whatsappHref ? (
+                    <a
+                      href={whatsappHref}
+                      className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-murram"
+                    >
+                      <span className="display-cond text-[10px] tracking-[0.2em] text-grease">
+                        WHATSAPP
+                      </span>
+                      <span className="data-mono flex items-center gap-3 text-data font-semibold">
+                        Message the team
+                        <span className="text-sodium transition-transform group-hover:translate-x-1" aria-hidden="true">
+                          →
+                        </span>
+                      </span>
+                    </a>
+                  ) : null}
+                  <a
+                    href={`mailto:${site.contact.email}`}
+                    className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-murram"
+                  >
+                    <span className="display-cond text-[10px] tracking-[0.2em] text-grease">
+                      EMAIL
+                    </span>
+                    <span className="data-mono flex items-center gap-3 text-data font-semibold">
+                      {site.contact.email}
+                      <span className="text-sodium transition-transform group-hover:translate-x-1" aria-hidden="true">
+                        →
+                      </span>
+                    </span>
+                  </a>
+                </div>
               </Reveal>
 
               {/* Secondary: Joey */}
