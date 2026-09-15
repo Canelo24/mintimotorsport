@@ -1,12 +1,10 @@
-import Image from "next/image";
 import { Page } from "@/components/layout/Page";
-import { Parallax } from "@/components/motion/Parallax";
 import { Reveal } from "@/components/motion/Reveal";
 import { TulipCrest, TulipFinish, TulipRight, TulipStart } from "@/components/roadbook/tulips";
 import { Chapter } from "@/components/ui/Chapter";
 import { Numeral, NumeralRow } from "@/components/ui/Numeral";
+import { PageHero } from "@/components/ui/PageHero";
 import { Container, Section } from "@/components/ui/Section";
-import { StageStrip } from "@/components/ui/StageStrip";
 import { Statement } from "@/components/ui/Statement";
 import { TakeASeat } from "@/components/ui/TakeASeat";
 import { buildMetadata } from "@/lib/seo";
@@ -27,48 +25,21 @@ export default function HeritagePage() {
   return (
     <Page path="/heritage">
       {/* Hero: the archive pan, black and white */}
-      <Section roadbook="THE RECORD" className="relative flex min-h-[100svh] items-end">
-        <Parallax className="absolute inset-0" amount={0.08}>
-          <Image
-            src={heritageHero.image.src}
-            alt={heritageHero.image.alt}
-            fill
-            priority
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL={heritageHero.image.blurDataURL}
-            className="object-cover"
-            style={{ objectPosition: "55% 50%" }}
-          />
-        </Parallax>
-        <div
-          className="grain absolute inset-0"
-          style={{ "--grain": 0.08 } as React.CSSProperties}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-night via-night/70 to-transparent"
-          aria-hidden="true"
-        />
-        <Container className="relative pb-12 pt-40 sm:pb-16">
-          <p className="hero-rise data-mono text-data font-medium text-sodium">{heritageHero.kicker}</p>
-          <h1
-            className="hero-rise display-wide mt-4 max-w-[12ch] text-h1 text-chalk"
-            style={{ "--rise-delay": "180ms" } as React.CSSProperties}
-          >
-            {heritageHero.headline}
-          </h1>
-          <div
-            className="hero-rise mt-10 hidden justify-end lg:flex"
-            style={{ "--rise-delay": "420ms" } as React.CSSProperties}
-          >
-            <Image src="/brand/minti-crest.png" alt="" width={826} height={549} className="w-36 opacity-90" />
-          </div>
-          <div className="hero-rise mt-12" style={{ "--rise-delay": "520ms" } as React.CSSProperties}>
-            <StageStrip path="/heritage" />
-          </div>
-        </Container>
-      </Section>
+      <PageHero
+        path="/heritage"
+        roadbook="THE RECORD"
+        image={heritageHero.image}
+        position="55% 50%"
+        kicker={heritageHero.kicker}
+        headline={
+          <>
+            We have stood in <span className="em-serif">this dust before.</span>
+          </>
+        }
+        headlineClassName="max-w-[14ch] text-[clamp(3.25rem,2rem+6.5vw,9rem)] leading-[0.9]"
+        grain={0.1}
+        gradient="h-[72%]"
+      />
 
       {/* The record in three numbers */}
       <Section dark className="py-16 lg:py-20">

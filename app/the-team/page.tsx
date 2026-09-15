@@ -1,14 +1,12 @@
-import Image from "next/image";
 import { Page } from "@/components/layout/Page";
-import { Parallax } from "@/components/motion/Parallax";
 import { Reveal } from "@/components/motion/Reveal";
 import { Chapter } from "@/components/ui/Chapter";
 import { Ledger } from "@/components/ui/Ledger";
 import { NumeralRow } from "@/components/ui/Numeral";
+import { PageHero } from "@/components/ui/PageHero";
 import { PhoneRow } from "@/components/ui/PhoneRow";
 import { Plate } from "@/components/ui/Plate";
 import { Container, Section } from "@/components/ui/Section";
-import { StageStrip } from "@/components/ui/StageStrip";
 import { Statement } from "@/components/ui/Statement";
 import { TakeASeat } from "@/components/ui/TakeASeat";
 import { buildMetadata } from "@/lib/seo";
@@ -21,62 +19,24 @@ export const metadata = buildMetadata({
   path: "/the-team",
 });
 
-/** Hero first-paint stagger, in ms. */
-const rise = (ms: number) => ({ "--rise-delay": `${ms}ms` }) as React.CSSProperties;
-
 export default function TheTeamPage() {
   return (
     <Page path="/the-team">
-      {/* SS4 · Hero: the crew, and the line that names the page */}
-      <Section roadbook="THE FAMILY" className="relative flex min-h-[100svh] items-end">
-        <Parallax className="absolute inset-0" amount={0.08}>
-          <Image
-            src={teamHero.image.src}
-            alt={teamHero.image.alt}
-            fill
-            priority
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL={teamHero.image.blurDataURL}
-            className="object-cover"
-            style={{ objectPosition: teamHero.position }}
-          />
-        </Parallax>
-        <div
-          className="grain absolute inset-0"
-          style={{ "--grain": 0.06 } as React.CSSProperties}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-night via-night/60 to-transparent"
-          aria-hidden="true"
-        />
-        <Container className="relative pb-12 pt-40 sm:pb-16">
-          <p className="hero-rise data-mono text-data font-medium text-sodium">{teamHero.kicker}</p>
-          <h1
-            className="hero-rise display-wide mt-4 max-w-[10ch] text-marquee text-chalk"
-            style={rise(180)}
-          >
-            {teamHero.headline}
-          </h1>
-          <p className="hero-rise mt-6 max-w-[40ch] text-lead text-chalk/85" style={rise(300)}>
-            {teamHero.line}
-          </p>
-          {/* No button here: the phone row in the next band is the action. */}
-          <div className="hero-rise mt-10 hidden justify-end lg:flex" style={rise(420)}>
-            <Image
-              src="/brand/minti-crest.png"
-              alt=""
-              width={826}
-              height={549}
-              className="w-36 opacity-90"
-            />
-          </div>
-          <div className="hero-rise mt-12" style={rise(520)}>
-            <StageStrip path="/the-team" />
-          </div>
-        </Container>
-      </Section>
+      {/* SS4 · Hero: the crew, and the line that names the page. No button: the phone row is the action. */}
+      <PageHero
+        path="/the-team"
+        roadbook="THE FAMILY"
+        image={teamHero.image}
+        position={teamHero.position}
+        kicker={teamHero.kicker}
+        headline={
+          <>
+            Names you can <span className="em-serif">phone.</span>
+          </>
+        }
+        headlineClassName="max-w-[10ch] text-marquee"
+        line={teamHero.line}
+      />
 
       {/* SS4/01 · The principal: his picture properly, then the line you can ring */}
       <Section className="py-section">

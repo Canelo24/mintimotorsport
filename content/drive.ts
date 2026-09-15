@@ -23,7 +23,7 @@ export const seat = {
   code: "SS2/01 · APPLICATIONS OPEN",
   title: "The 2027 seat.",
   priceLine: `${eascr2027.price.toUpperCase()} · ${eascr2027.priceLabel}`,
-  body: "One hire cost covers the whole campaign. A brand new MST Escort Mk2 is built for you in the UK, freighted to Kenya and run by our crew for the full event. The figure is given plainly on the first call.",
+  body: "One hire cost covers the whole campaign: a new MST Escort Mk2 built for you in the UK, freighted to Kenya and run by our crew. The figure is given plainly on the first call.",
   plate: {
     image: images.drive04TheEvent,
     caption: "THE EVENT · MURRAM AND THORN",

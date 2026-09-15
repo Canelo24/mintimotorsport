@@ -27,7 +27,7 @@ export default function ContactPage() {
             className="hero-rise display-wide mt-4 text-h1"
             style={{ "--rise-delay": "120ms" } as React.CSSProperties}
           >
-            Talk to a person.
+            Talk to a <span className="em-serif">person.</span>
           </h1>
           <p
             className="hero-rise mt-6 max-w-[40ch] text-lead text-night/80"

@@ -1,25 +1,25 @@
 import Image from "next/image";
 import { Page } from "@/components/layout/Page";
 import { Hero } from "@/components/home/Hero";
-import { DriveSequence } from "@/components/home/DriveSequence";
-import { Marquee } from "@/components/motion/Marquee";
+import { FilmStack } from "@/components/home/FilmStack";
 import { Reveal } from "@/components/motion/Reveal";
+import { StageMap } from "@/components/roadbook/StageMap";
 import { Button } from "@/components/ui/Button";
-import { Chapter } from "@/components/ui/Chapter";
-import { Ledger } from "@/components/ui/Ledger";
+import { Chapter, RoadbookRow } from "@/components/ui/Chapter";
 import { NumeralRow } from "@/components/ui/Numeral";
 import { PhoneRow } from "@/components/ui/PhoneRow";
 import { Plate } from "@/components/ui/Plate";
+import { SeatTicket } from "@/components/ui/SeatTicket";
 import { Container, Section } from "@/components/ui/Section";
 import { Statement } from "@/components/ui/Statement";
 import { TakeASeat } from "@/components/ui/TakeASeat";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
-import { ask, car, deal, driveSequence, heritageStrip, marqueeLine, people, seat } from "@/content/home";
+import { ask, car, heritageStrip, people, route, seat, week } from "@/content/home";
 import { eascr2027 } from "@/content/eascr2027";
 
 export const metadata = buildMetadata({
-  title: "Minti Motorsport · A seat in the Safari",
+  title: "Minti Motorsport · Arrive & Drive · A seat in the Safari",
   description: site.description,
   path: "/",
 });
@@ -29,112 +29,64 @@ export default function HomePage() {
     <Page path="/">
       <Hero />
 
-      {/* 01 · The deal: one statement, three facts */}
-      <Section roadbook="THE DEAL" className="py-section-xl">
+      {/* 01 · The route: one sentence, the map, three facts */}
+      <Section roadbook="THE ROUTE" className="py-section">
         <Container>
-          <Statement eyebrow="SS1/01 · THE DEAL">{deal.statement}</Statement>
-          <NumeralRow items={deal.numerals} size="l" className="mt-16 lg:mt-20" />
+          <div className="flex items-center gap-4">
+            <RoadbookRow code={route.code} number="01" tulip={0} instruction="STRAIGHT ON · THE ROUTE" />
+            <span className="hidden h-px flex-1 rule border-t sm:block" aria-hidden="true" />
+          </div>
+          <div className="mt-14 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
+            <Statement rule={false} className="lg:col-span-5">
+              {route.statement}
+            </Statement>
+            <StageMap current="/" className="mt-12 lg:col-span-7 lg:mt-0" />
+          </div>
+          <NumeralRow items={route.numerals} size="l" className="mt-16 lg:mt-20" />
         </Container>
       </Section>
 
-      {/* 02 · The 2027 seat: the product, sold on numbers and a ledger */}
+      {/* 02 · The 2027 seat: the package as figures over the dials, then the ticket */}
       <Section roadbook="THE 2027 SEAT" id="the-seat" dark className="clip-x py-section">
         <Container>
-          <Chapter dark code={seat.code} number="02" title={seat.title} tulip={1} />
-          <div className="mt-16 lg:mt-20 lg:grid lg:grid-cols-12 lg:gap-10">
-            {/* The board: the package as figures, the period dials behind them */}
-            <div className="lg:order-2 lg:col-span-7">
-              <Reveal wipe>
-                <div className="bleed-x bleed-right relative overflow-hidden bg-night-2">
-                  <Image
-                    src={seat.board.src}
-                    alt=""
-                    fill
-                    sizes="(min-width: 1024px) 60vw, 100vw"
-                    placeholder="blur"
-                    blurDataURL={seat.board.blurDataURL}
-                    className="object-cover opacity-30"
-                    style={{ objectPosition: "50% 50%" }}
-                    aria-hidden="true"
-                  />
-                  <div
-                    className="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-night/10"
-                    aria-hidden="true"
-                  />
-                  <div
-                    className="grain absolute inset-0"
-                    style={{ "--grain": 0.06 } as React.CSSProperties}
-                    aria-hidden="true"
-                  />
-                  <div className="relative px-5 py-10 sm:px-10 sm:py-14 lg:px-14 lg:py-20">
-                    <NumeralRow items={seat.numerals} dark size="l" columns={2} />
-                  </div>
-                </div>
-              </Reveal>
-              <p className="caption mt-3 px-5 text-chalk/55 sm:px-0">{seat.boardCaption}</p>
-            </div>
-            <div className="mt-14 lg:order-1 lg:col-span-5 lg:mt-0">
-              <Reveal>
-                <p className="data-mono text-[11px] tracking-[0.16em] text-sodium">{seat.priceLine}</p>
-                <p className="measure mt-5 text-body text-chalk/85">{seat.line}</p>
-              </Reveal>
-              <Ledger rows={[...eascr2027.includes]} dark className="mt-10" />
-              <Reveal delay={120}>
-                <div className="mt-10">
-                  <Button
-                    href={eascr2027.applyHref}
-                    magnetic
-                    block
-                    event="campaign_cta_click"
-                    eventProps={{ campaign: "eascr2027", from: "home-product" }}
-                  >
-                    {eascr2027.applyCta}
-                  </Button>
-                </div>
-                <p className="data-mono mt-5 max-w-md text-[11px] leading-relaxed text-grease">
+          <Chapter dark code={seat.code} number="02" title={seat.title} tulip={1} instruction="KEEP LEFT · THE 2027 SEAT" />
+        </Container>
+        <div className="relative mt-16 lg:mt-20">
+          <Image
+            src={seat.board.src}
+            alt=""
+            fill
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL={seat.board.blurDataURL}
+            className="object-cover opacity-45"
+            style={{ objectPosition: "50% 50%" }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-night via-night/25 to-night" aria-hidden="true" />
+          <div className="grain absolute inset-0" style={{ "--grain": 0.07 } as React.CSSProperties} aria-hidden="true" />
+          <Container className="relative py-16 lg:py-24">
+            <NumeralRow items={seat.numerals} dark size="l" columns={3} mobileColumns={2} />
+            <p className="caption mt-6 text-chalk/50">{seat.boardCaption}</p>
+          </Container>
+        </div>
+        <Container className="mt-16 lg:grid lg:grid-cols-12 lg:gap-10">
+          <Reveal className="lg:col-span-5">
+            <p className="data-mono text-[11px] tracking-[0.18em] text-sodium">{seat.priceLine}</p>
+            <p className="editorial mt-5 max-w-[24ch] text-[clamp(1.6rem,1.2rem+1.6vw,2.5rem)] text-chalk/90">
+              {seat.line}
+            </p>
+            <p className="data-mono mt-6 text-[11px] tracking-[0.18em] text-chalk/60">{seat.allIn}</p>
+          </Reveal>
+          <div className="mt-12 lg:col-span-7 lg:mt-0">
+            <Reveal delay={120}>
+              <SeatTicket from="home-product" />
+              <div className="mt-6 flex flex-wrap items-baseline justify-between gap-4">
+                <p className="data-mono max-w-md text-[11px] leading-relaxed text-grease">
                   {eascr2027.organiserNote}
                 </p>
-                <div className="mt-6">
-                  <Button href={seat.otherRoutes.href} variant="text-dark">
-                    {seat.otherRoutes.label}
-                  </Button>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 03 · The car: one tall plate, one wide plate, two lines */}
-      <Section roadbook="THE CAR" className="clip-x py-section">
-        <Container>
-          <Chapter code={car.code} number="03" title={car.title} tulip={2} />
-          <div className="mt-16 lg:mt-20 lg:grid lg:grid-cols-12 lg:gap-8">
-            <Plate
-              image={car.wide.image}
-              ratio="5/4"
-              mobileRatio="4/5"
-              position="60% 50%"
-              caption={car.wide.caption}
-              className="bleed-x bleed-right lg:order-2 lg:col-span-8 lg:col-start-5 lg:mt-24"
-              sizes="(min-width: 1024px) 66vw, 100vw"
-            />
-            <Plate
-              image={car.tall.image}
-              ratio="4/5"
-              caption={car.tall.caption}
-              tag={car.tall.tag}
-              className="mt-8 ml-auto w-[70%] lg:order-1 lg:col-span-4 lg:mt-0 lg:w-full"
-              sizes="(min-width: 1024px) 30vw, 70vw"
-              delay={120}
-            />
-          </div>
-          <div className="mt-16 lg:grid lg:grid-cols-12 lg:gap-8">
-            <Reveal className="lg:col-span-6 lg:col-start-5">
-              <p className="measure text-body text-night/80">{car.body}</p>
-              <div className="mt-8">
-                <Button href={car.cta.href} variant="ghost-light">
-                  {car.cta.label}
+                <Button href={seat.manifest.href} variant="text-dark">
+                  {seat.manifest.label}
                 </Button>
               </div>
             </Reveal>
@@ -142,13 +94,49 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* 04 · How the week runs: pinned horizontal sequence */}
-      <DriveSequence {...driveSequence} />
+      {/* 03 · The car: the wide frame at full width, the detail, one line */}
+      <Section roadbook="THE CAR" className="clip-x py-section">
+        <Container>
+          <Chapter code={car.code} number="03" title={car.title} tulip={2} instruction="OVER CREST · THE CAR" />
+        </Container>
+        <div className="mt-16 lg:mt-20 [&_figcaption]:px-5 sm:[&_figcaption]:px-8">
+          <Plate
+            image={car.wide.image}
+            ratio="21/9"
+            mobileRatio="4/5"
+            position="60% 50%"
+            caption={car.wide.caption}
+            sizes="100vw"
+          />
+        </div>
+        <Container className="mt-12 lg:grid lg:grid-cols-12 lg:items-end lg:gap-10">
+          <Plate
+            image={car.tall.image}
+            ratio="4/5"
+            caption={car.tall.caption}
+            tag={car.tall.tag}
+            className="w-[62%] lg:col-span-4 lg:w-full"
+            sizes="(min-width: 1024px) 30vw, 62vw"
+            delay={120}
+          />
+          <Reveal className="mt-12 lg:col-span-7 lg:col-start-6 lg:mt-0 lg:pb-10">
+            <p className="statement text-night/90">{car.statement}</p>
+            <div className="mt-10">
+              <Button href={car.cta.href} variant="ghost-light">
+                {car.cta.label}
+              </Button>
+            </div>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* 04 · How the week runs: five frames that stack */}
+      <FilmStack {...week} />
 
       {/* 05 · The people: the principal, the official line, the crew */}
       <Section roadbook="THE PEOPLE" className="clip-x py-section">
         <Container>
-          <Chapter code={people.code} number="05" title={people.title} tulip={4} />
+          <Chapter code={people.code} number="05" title={people.title} tulip={4} instruction="JUNCTION · THE PEOPLE" />
           <div className="mt-16 lg:mt-20 lg:grid lg:grid-cols-12 lg:items-end lg:gap-8">
             <Plate
               image={people.joey.image}
@@ -156,13 +144,15 @@ export default function HomePage() {
               maxWidth={335}
               frame
               caption={people.joey.caption}
-              className="w-[200px] sm:w-[260px] lg:col-span-3 lg:w-full"
+              className="w-[220px] sm:w-[280px] lg:col-span-3 lg:w-full"
               sizes="335px"
             />
             <Reveal className="mt-10 lg:col-span-7 lg:col-start-5 lg:mt-0">
               <p className="display-wide text-h2">{people.joey.name}</p>
               <p className="data-mono mt-3 text-data-s text-murram">{people.joey.role}</p>
-              <p className="measure mt-5 text-body text-night/80">{people.joey.line}</p>
+              <p className="editorial mt-5 max-w-[26ch] text-[clamp(1.5rem,1.2rem+1.4vw,2.25rem)] text-night/85">
+                {people.joey.line}
+              </p>
               <PhoneRow className="mt-10" />
             </Reveal>
           </div>
@@ -187,27 +177,29 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* The one marquee band */}
-      <Marquee text={marqueeLine} />
-
       {/* 06 · Heritage, briefly: the archive frame and three dates */}
-      <Section roadbook="HERITAGE" className="py-section">
+      <Section roadbook="HERITAGE" className="clip-x py-section">
         <Container>
-          <Chapter code={heritageStrip.code} number="06" title={heritageStrip.title} tulip={5} />
+          <Chapter code={heritageStrip.code} number="06" title={heritageStrip.title} tulip={5} instruction="CAUTION · HERITAGE" />
+        </Container>
+        <div className="mt-16 lg:mt-20 [&_figcaption]:px-5 sm:[&_figcaption]:px-8">
           <Plate
             image={heritageStrip.image}
-            ratio="16/9"
+            ratio="21/9"
             mobileRatio="4/5"
             position="55% 50%"
-            grain={0.08}
+            grain={0.09}
             caption={heritageStrip.caption}
-            className="bleed-x mt-16 lg:mx-0 lg:mt-20"
-            sizes="(min-width: 1024px) 80vw, 100vw"
+            sizes="100vw"
           />
+        </div>
+        <Container>
           <NumeralRow items={heritageStrip.numerals} size="l" className="mt-16" />
           <Reveal className="mt-10 lg:grid lg:grid-cols-12 lg:gap-8">
-            <div className="lg:col-span-7">
-              <p className="measure text-body text-night/80">{heritageStrip.line}</p>
+            <div className="lg:col-span-8">
+              <p className="editorial max-w-[30ch] text-[clamp(1.5rem,1.2rem+1.4vw,2.25rem)] text-night/85">
+                {heritageStrip.line}
+              </p>
               <div className="mt-6">
                 <Button href={heritageStrip.cta.href} variant="text-light">
                   {heritageStrip.cta.label}

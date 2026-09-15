@@ -1,25 +1,28 @@
 import { images } from "./images.generated";
 
 /**
- * Home page copy. Editorial pass (2026-09-15): every section is image-led,
- * number-led or a single statement. Plain British sentences, no em dashes,
- * nothing that is not in the verified facts.
+ * Home page copy. Round 3 (2026-09-15): the photographs and the numbers
+ * carry the page; the words are one line per section. Plain British
+ * sentences, no em dashes, nothing outside the verified facts.
  */
 
 export const hero = {
-  kicker: "ARRIVE & DRIVE · EAST AFRICAN SAFARI CLASSIC 2027",
-  headline: "A seat in the Safari.",
+  kicker: "THE 2027 SEAT · EAST AFRICAN SAFARI CLASSIC",
+  /** Two voices: the shout in Big Shoulders, the serif in italic. */
+  headline: { shout: "Arrive", serif: "& drive." },
   sub: "A new MST Escort. A Nairobi crew. You drive.",
   primaryCta: "Take a seat",
   primaryHref: "/enquire?e=eascr2027",
-  secondaryCta: "The full programme",
+  secondaryCta: "The programme",
   secondaryHref: "/the-drive",
   image: images.heroSafariJumpMurram,
+  /** The speed strip under the hero. Energy, not information. */
+  strip: ["East African Safari Classic 2027", "Arrive & Drive", "Nairobi", "Murram", "Escort Mk2", "One seat"],
 };
 
-export const deal = {
-  statement:
-    "Hard to organise. Easy to get wrong. We run it from Nairobi, with our own crew, on roads we have known for years. You drive.",
+export const route = {
+  code: "SS1/01 · THE ROUTE",
+  statement: "Hard to organise. Easy to get wrong. We run it from Nairobi with our own crew. You drive.",
   numerals: [
     { value: "2017", label: "FOUNDED · FAMILY RUN" },
     { value: "UNITED KINGDOM", label: "REGISTERED" },
@@ -34,34 +37,38 @@ export const seat = {
   line: "One hire cost covers the whole campaign. The figure is given plainly on the first call.",
   board: images.driveHeroCockpit,
   boardCaption: "PERIOD DIALS · THE COMPETITION CAR",
+  /** The package as figures, from the client's own sheet (content/eascr2027). */
   numerals: [
     { value: "1", label: "NEW MST ESCORT MK2" },
-    { value: "3", label: "SETS OF SPARES" },
     { value: "40", label: "NEW GRAVEL TYRES" },
+    { value: "3", label: "SETS OF SPARES" },
     { value: "5", label: "MECHANICS" },
+    { value: "2", label: "LAND CRUISERS" },
+    { value: "3", label: "SUPPORT DRIVERS" },
   ],
-  otherRoutes: { label: "The other programmes", href: "/the-drive#your-car-our-team" },
+  allIn: "ENTRY, FUEL, BEDS AND MEALS · ALL IN",
+  manifest: { label: "The full manifest", href: "/the-drive#arrive-and-drive" },
 };
 
 export const car = {
   code: "SS1/03 · THE CAR",
   title: "The Escort, done properly.",
-  body: "MST build them, new and original, to Safari specification. Minti holds the exclusive regional partnership. Built in the UK, shaken down in Nairobi.",
+  statement: "Built in the UK to Safari specification. Shaken down in Nairobi.",
   tall: { image: images.carsCockpitDetail, caption: "PERIOD DIAL", tag: "THE COMPETITION CAR" },
   wide: { image: images.carsMk1MountainRoad, caption: "ESCORT MK1 · GOLD WHEELS, WET PASS" },
   cta: { label: "See the car", href: "/the-cars" },
 };
 
-/** Card copy kept deliberately short (client, 2026-09-14): the images carry it. */
-export const driveSequence = {
+/** Frame copy kept deliberately short (client, 2026-09-14): the images carry it. */
+export const week = {
   code: "SS1/04 · HOW THE WEEK RUNS",
   title: "First call to finish ramp.",
-  cards: [
-    { tc: "01", title: "Arrive", body: "You land in Nairobi. We collect you.", image: images.drive01ArrivalNairobi, position: "50% 55%" },
-    { tc: "02", title: "Shakedown", body: "Private murram. Seat time until the car feels yours.", image: images.drive02ShakedownTest, position: "50% 50%" },
-    { tc: "03", title: "Scrutineering", body: "Our paperwork. Our problem.", image: images.drive03ReadyToStart, position: "45% 50%" },
-    { tc: "04", title: "The event", body: "You drive. We run everything else.", image: images.drive04TheEvent, position: "50% 55%" },
-    { tc: "05", title: "The finish", body: "Time card stamped. Dust still on the paint.", image: images.drive05FinishRamp, position: "60% 50%" },
+  frames: [
+    { tc: "01", title: "Arrive.", body: "You land in Nairobi. We collect you.", image: images.drive01ArrivalNairobi, position: "50% 55%" },
+    { tc: "02", title: "Shakedown.", body: "Private murram. Seat time until the car feels yours.", image: images.drive02ShakedownTest, position: "50% 50%" },
+    { tc: "03", title: "Scrutineering.", body: "Our paperwork. Our problem.", image: images.drive03ReadyToStart, position: "45% 50%" },
+    { tc: "04", title: "The event.", body: "You drive. We run everything else.", image: images.drive04TheEvent, position: "50% 55%" },
+    { tc: "05", title: "The finish.", body: "Time card stamped. Dust still on the paint.", image: images.drive05FinishRamp, position: "60% 50%" },
   ],
 };
 
@@ -99,6 +106,3 @@ export const ask = {
   scarcity: "EAST AFRICAN SAFARI CLASSIC 2027 · APPLICATIONS OPEN",
   image: images.askMurramRoadAerial,
 };
-
-export const marqueeLine =
-  "PRESERVING HERITAGE · FIRST CALL · SHAKEDOWN · SCRUTINEERING · FLYING FINISH · SERVICE OUT · FINISH RAMP";

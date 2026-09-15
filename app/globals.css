@@ -22,6 +22,7 @@
   --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
   --font-body: var(--font-familjen), "Segoe UI", "Helvetica Neue", sans-serif;
   --font-mono: var(--font-plex-mono), "Courier New", monospace;
+  --font-serif: var(--font-instrument), "Times New Roman", Georgia, serif;
 
   /* Named type scale — fluid. Sized for the tall condensed display face. */
   --text-data-s: 0.75rem;
@@ -43,8 +44,8 @@
   /* The number moment and the one-sentence voice (editorial pass, 2026-09-15) */
   --text-numeral: clamp(5rem, 3rem + 10vw, 14rem);
   --text-numeral--line-height: 0.82;
-  --text-statement: clamp(1.5rem, 1.15rem + 1.9vw, 2.75rem);
-  --text-statement--line-height: 1.15;
+  --text-statement: clamp(2rem, 1.35rem + 2.8vw, 4.25rem);
+  --text-statement--line-height: 1.05;
 
   /* Motion */
   --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
@@ -395,15 +396,20 @@ body {
 /*  Editorial system (2026-09-15): statement voice, numerals, plates   */
 /* ------------------------------------------------------------------ */
 
-/* One sentence set large: the only body-size display voice */
+/* One sentence set large, in the serif: the editorial voice */
 .statement {
-  font-family: var(--font-body);
-  font-weight: 500;
+  font-family: var(--font-serif);
+  font-weight: 400;
   font-size: var(--text-statement);
   line-height: var(--text-statement--line-height);
-  letter-spacing: -0.01em;
-  max-width: 30ch;
+  letter-spacing: -0.005em;
+  max-width: 24ch;
   text-wrap: balance;
+}
+
+.statement em,
+.statement i {
+  font-style: italic;
 }
 
 /* Prose never runs wider than a comfortable measure */
@@ -497,4 +503,151 @@ body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Round 3 (2026-09-15): the serif voice, the HUD, the roadbook map   */
+/* ------------------------------------------------------------------ */
+
+/* Editorial serif at display scale */
+.editorial {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.editorial-i {
+  font-style: italic;
+}
+
+/* The serif word inside a Big Shoulders headline: "TAKE A <em>seat.</em>" */
+.em-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: -0.015em;
+  font-size: 1.06em;
+  line-height: 0.9;
+}
+
+/* Stroke-only display type for the speed strip */
+.outline-text {
+  -webkit-text-stroke: 1px currentColor;
+  color: transparent;
+}
+
+/* Hero headline: rises, sharpens, settles */
+@keyframes hero-slam {
+  from {
+    opacity: 0;
+    transform: translateY(2.5rem) scale(1.015);
+    filter: blur(12px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+.hero-slam {
+  animation: hero-slam 1.15s var(--ease-settle) both;
+  animation-delay: var(--rise-delay, 0ms);
+}
+
+/* HUD readouts flicker on like a rally computer booting */
+@keyframes hud-boot {
+  0% { opacity: 0; }
+  18% { opacity: 1; }
+  30% { opacity: 0.15; }
+  44% { opacity: 1; }
+  56% { opacity: 0.35; }
+  70% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+.hud-boot {
+  animation: hud-boot 1s steps(1, end) both;
+  animation-delay: var(--boot-delay, 0ms);
+}
+
+/* Speed strip: faster than the marquee, stroke-only type */
+@keyframes speed-run {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.speed-track {
+  animation: speed-run 16s linear infinite;
+  will-change: transform;
+}
+
+/* Rotating stamp */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: spin-slow 32s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Stage map: the route draws itself once in view; controls light up after */
+@keyframes draw-route {
+  to { stroke-dashoffset: 0; }
+}
+
+.draw-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.is-inview .draw-path {
+  animation: draw-route 2.6s var(--ease-settle) forwards;
+}
+
+.draw-node {
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-settle);
+  transition-delay: var(--node-delay, 0ms);
+}
+
+.is-inview .draw-node {
+  opacity: 1;
+}
+
+/* Sticky film frames stack over one another */
+.film-frame {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slam,
+  .hud-boot,
+  .speed-track,
+  .spin-slow {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .draw-path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .draw-node {
+    opacity: 1;
+    transition: none;
+  }
 }

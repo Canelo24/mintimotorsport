@@ -36,7 +36,7 @@ export default function JournalPage() {
             className="hero-rise display-wide mt-4 text-h1"
             style={{ "--rise-delay": "120ms" } as React.CSSProperties}
           >
-            Notes from the road.
+            Notes from <span className="em-serif">the road.</span>
           </h1>
           <p
             className="hero-rise mt-6 max-w-[40ch] text-lead text-night/80"

@@ -1,12 +1,11 @@
-import Image from "next/image";
 import { Page } from "@/components/layout/Page";
-import { Parallax } from "@/components/motion/Parallax";
 import { Reveal } from "@/components/motion/Reveal";
+import { Stamp } from "@/components/roadbook/Stamp";
 import { Button } from "@/components/ui/Button";
 import { Chapter } from "@/components/ui/Chapter";
+import { PageHero } from "@/components/ui/PageHero";
 import { Plate } from "@/components/ui/Plate";
 import { Container, Section } from "@/components/ui/Section";
-import { StageStrip } from "@/components/ui/StageStrip";
 import { Statement } from "@/components/ui/Statement";
 import { TakeASeat } from "@/components/ui/TakeASeat";
 import { buildMetadata } from "@/lib/seo";
@@ -27,54 +26,18 @@ export default function TheCarsPage() {
   return (
     <Page path="/the-cars">
       {/* Hero: the reader meets the car before a sentence */}
-      <Section roadbook="THE PARTNERSHIP" className="relative flex min-h-[100svh] items-end">
-        <Parallax className="absolute inset-0" amount={0.08}>
-          <Image
-            src={carsHero.image.src}
-            alt={carsHero.image.alt}
-            fill
-            priority
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL={carsHero.image.blurDataURL}
-            className="object-cover"
-            style={{ objectPosition: carsHero.position }}
-          />
-        </Parallax>
-        <div
-          className="grain absolute inset-0"
-          style={{ "--grain": 0.06 } as React.CSSProperties}
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-night via-night/60 to-transparent"
-          aria-hidden="true"
-        />
-        <Container className="relative pb-12 pt-40 sm:pb-16">
-          <p className="hero-rise data-mono text-data font-medium text-sodium">{carsHero.kicker}</p>
-          <h1
-            className="hero-rise display-wide mt-4 max-w-[11ch] text-marquee text-chalk"
-            style={{ "--rise-delay": "180ms" } as React.CSSProperties}
-          >
-            {carsHero.headline}
-          </h1>
-          <div
-            className="hero-rise mt-10 hidden justify-end lg:flex"
-            style={{ "--rise-delay": "420ms" } as React.CSSProperties}
-          >
-            <Image
-              src="/brand/minti-crest.png"
-              alt=""
-              width={826}
-              height={549}
-              className="w-36 opacity-90"
-            />
-          </div>
-          <div className="hero-rise mt-12" style={{ "--rise-delay": "520ms" } as React.CSSProperties}>
-            <StageStrip path="/the-cars" />
-          </div>
-        </Container>
-      </Section>
+      <PageHero
+        path="/the-cars"
+        roadbook="THE PARTNERSHIP"
+        image={carsHero.image}
+        position={carsHero.position}
+        kicker={carsHero.kicker}
+        headline={
+          <>
+            The <span className="em-serif">Escort.</span>
+          </>
+        }
+      />
 
       {/* The partnership, in one breath */}
       <Section>
@@ -174,7 +137,10 @@ export default function TheCarsPage() {
           </div>
 
           <div className="mt-24 lg:grid lg:grid-cols-12 lg:gap-8">
-            <ol className="divide-y rule border-y lg:col-span-8">
+            <div className="mb-10 lg:order-2 lg:col-span-3 lg:col-start-10 lg:mb-0 lg:flex lg:justify-end">
+              <Stamp id="cars-stamp" text="SAFARI SPECIFICATION · MST · NAIROBI · " className="h-40 w-40 text-murram lg:h-48 lg:w-48" />
+            </div>
+            <ol className="divide-y rule border-y lg:order-1 lg:col-span-8">
               {buildProcess.steps.map((step, i) => (
                 <Reveal key={step.n} as="li" delay={i * 80} className="grid grid-cols-[auto_1fr] gap-x-4 py-6 lg:grid-cols-12 lg:gap-6">
                   <p className="display-wide text-h3 text-murram lg:col-span-1">{step.n}</p>

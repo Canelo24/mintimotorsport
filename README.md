@@ -59,16 +59,31 @@ exported shapes, and the components don't change. `lib/journal.ts` is the worked
    and blur data are regenerated from what's actually on disk. (Delete a file to get its
    placeholder back.) Alt text in the manifest doubles as the shot brief.
 
-## Editorial system (2026-09-15)
+## Editorial system (2026-09-15, round 3)
 
-Every marketing page is built from six components in `components/ui/`: `Chapter` (tulip +
-SS code + hairline + ghost numeral + title), `Plate` (every photograph: ratio, crop, caption,
-frame, grain, resolution cap), `Numeral` / `NumeralRow` (number moments), `Statement` (one
-sentence set large), `Ledger` (numbered mono lists, facts, IN / NOT IN checks), `PhoneRow`
-(the official line as a tappable row) and `TakeASeat` (the one closing ask on every page).
-Type and rhythm tokens live in `app/globals.css` (`--text-numeral`, `--text-statement`,
-`--spacing-section`). Captions state only what is visible in the frame; 911 frames are
-"the competition car". See DECISIONS.md 42.
+Five voices: Big Shoulders (the shout), **Instrument Serif** (the editorial voice: statements
+and the italic word in every hero headline, e.g. "TAKE A *seat.*"), Archivo condensed
+(labels), Familjen (body), Plex Mono (data). Every marketing page is built from the
+components in `components/ui/` and `components/roadbook/`:
+
+- `PageHero`: full-viewport photograph (plus loop where allowed), grain, the `Hud` (crop marks
+  and four readouts that boot on first paint), a two-voice headline, one serif line, the ask.
+- `Chapter` / `RoadbookRow`: every section opens with a real roadbook row (distance cell,
+  tulip cell, instruction cell) and a hairline to the grid edge, then the display title with
+  the chapter number ghosted behind it.
+- `StageMap`: the site's own route drawn as a stage map with eight controls (one per page),
+  contour lines, scale bar; draws itself on entry. Used on home and in the footer. It maps
+  this site, not a rally, and says so on the sheet.
+- `Stamp`: the slow-turning scrutineering roundel (cars, drive).
+- `SeatTicket`: the signature ask as a perforated time card ("EASCR 2027 · TAKE A SEAT →").
+  `TakeASeat` wraps it as the closing band on every page.
+- `FilmStack` (home): five full-viewport frames that stick and stack, one photograph, one
+  control, one serif word, one line. CSS sticky only.
+- `SpeedStrip`: stroke-only display type running under the home hero.
+- `Plate`, `Numeral` / `NumeralRow`, `Statement` (serif), `Ledger`, `PhoneRow` as before.
+
+Type and rhythm tokens live in `app/globals.css`. Captions state only what is visible in the
+frame; 911 frames are "the competition car". See DECISIONS.md 42 and 45.
 
 ## Lead delivery (configure before launch)
 

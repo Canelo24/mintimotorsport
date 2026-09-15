@@ -239,6 +239,40 @@ unless marked otherwise.
     grounds. The row is cleared, the image re-cropped to its content (826x549) and the
     hard-coded dimensions updated everywhere it is placed.
 
+## Design round 3 (2026-09-15) — "still not premium, still text heavy"
+45. **The serif, the roadbook row, the map, the ticket.** The client's second round of
+    notes repeated the first (not premium, text heavy, weak CTA, photography should carry
+    the site, hero needs adrenaline, typography needs personality, stronger safari identity,
+    "I love the SS, just more visual presentation"). The response is structural, not
+    cosmetic:
+    - **A fifth voice.** Instrument Serif (regular + italic, self-hosted, OFL) is the
+      editorial voice: statements are now serif, and every hero headline sets one word in
+      italic against Big Shoulders ("ARRIVE / *& drive.*", "TAKE A *seat.*", "THE
+      *Escort.*", "NAMES YOU CAN *phone.*"). Luxury editorial against motorsport.
+    - **The roadbook row.** Every chapter opens with a boxed three-cell roadbook row
+      (total and interval distance, tulip, code and instruction). The distances are the
+      roadbook idiom, derived from the chapter number, never a claim.
+    - **The stage map.** The site's eight pages drawn as a route with controls, contour
+      lines and a scale bar, drawing itself on entry; home and footer. Labelled "the route
+      through this site" so it can never be read as a rally route.
+    - **The HUD.** Crop marks and four readouts (stage, coordinates, ARRIVE & DRIVE, the
+      event) that flicker on like a rally computer; the stage strip is retired from photo
+      heros to avoid duplicating them.
+    - **The ticket.** The primary ask is a perforated time card, sodium, "TAKE A SEAT" at
+      display size with a line arrow. The button family gets the same line arrow and a
+      larger hit area.
+    - **The film.** The pinned GSAP sequence is replaced by five full-viewport frames that
+      stick and stack (CSS only): the photographs at their biggest, one serif word each.
+      GSAP is no longer imported anywhere.
+    - **Less text.** Home is 400 visible words (824 two rounds ago); the nine-row
+      inclusions ledger leaves the home page (six figures over the dials instead, the
+      full manifest on The Drive as a ticked list); the car and people sections carry one
+      serif line each.
+    - **Speed strip.** Stroke-only display type running under the home hero; the murram
+      marquee band is retired from home so there is one running element per page.
+    Every hard rule stands: no price, no Jeet, no third-party names, no ownership claims
+    about the Safari Classic, no em dashes, only the photographs that exist.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

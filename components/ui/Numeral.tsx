@@ -41,6 +41,7 @@ export function NumeralRow({
   dark,
   caption,
   columns,
+  mobileColumns,
   className = "",
 }: {
   items: Item[];
@@ -49,6 +50,8 @@ export function NumeralRow({
   caption?: string;
   /** Desktop column count; defaults to one per item (2x2 for four on phones). */
   columns?: 2 | 3 | 4;
+  /** Phone column count for three-column rows (default one, for long values). */
+  mobileColumns?: 1 | 2;
   className?: string;
 }) {
   const n = columns ?? Math.min(4, Math.max(2, items.length));
@@ -56,7 +59,7 @@ export function NumeralRow({
     n === 4
       ? "grid-cols-2 lg:grid-cols-4"
       : n === 3
-        ? "grid-cols-1 sm:grid-cols-3"
+        ? `${mobileColumns === 2 ? "grid-cols-2" : "grid-cols-1"} sm:grid-cols-3`
         : "grid-cols-2";
   return (
     <div className={className}>

@@ -22,7 +22,9 @@ export default function EnquirePage() {
           <p className="data-mono text-data font-medium text-sodium">
             FIN · FINISH CONTROL · FIVE QUESTIONS, THEN A CALL
           </p>
-          <h1 className="display-wide mt-4 text-h1">Take a seat.</h1>
+          <h1 className="display-wide mt-4 text-h1">
+            Take a <span className="em-serif">seat.</span>
+          </h1>
           <p className="mt-5 max-w-xl text-lead text-chalk/80">
             One question per screen, about a minute in total. Your answers go to the team and
             get read the same day.

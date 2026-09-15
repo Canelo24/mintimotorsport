@@ -20,21 +20,21 @@ type ButtonProps = {
 
 const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "display-cond min-h-14 bg-sodium px-9 py-4 text-[13px] tracking-[0.18em] text-night hover:bg-chalk focus-visible:bg-chalk",
+    "display-cond min-h-16 bg-sodium px-10 py-5 text-[14px] tracking-[0.2em] text-night hover:bg-chalk focus-visible:bg-chalk",
   "ghost-dark":
-    "display-cond min-h-14 border border-chalk/40 px-9 py-4 text-[13px] tracking-[0.18em] text-chalk hover:border-sodium hover:text-sodium",
+    "display-cond min-h-16 border border-chalk/45 px-10 py-5 text-[14px] tracking-[0.2em] text-chalk hover:border-sodium hover:text-sodium",
   "ghost-light":
-    "display-cond min-h-14 border border-night/40 px-9 py-4 text-[13px] tracking-[0.18em] text-night hover:border-murram hover:text-murram",
+    "display-cond min-h-16 border border-night/45 px-10 py-5 text-[14px] tracking-[0.2em] text-night hover:border-murram hover:text-murram",
   "text-dark":
-    "data-mono text-[12px] uppercase tracking-[0.12em] text-chalk/80 underline-offset-[6px] hover:text-sodium hover:underline",
+    "data-mono text-[12px] uppercase tracking-[0.14em] text-chalk/80 underline-offset-[6px] hover:text-sodium hover:underline",
   "text-light":
-    "data-mono text-[12px] uppercase tracking-[0.12em] text-murram underline-offset-[6px] hover:underline",
+    "data-mono text-[12px] uppercase tracking-[0.14em] text-murram underline-offset-[6px] hover:underline",
 };
 
 /**
  * One button system: a primary, a ghost and a text link. Every variant
- * carries a trailing arrow that slides on hover; the primary label site-wide
- * is "Take a seat".
+ * carries a trailing line arrow that lengthens on hover; the primary label
+ * site-wide is "Take a seat".
  */
 export function Button({
   href,
@@ -76,19 +76,26 @@ export function Button({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       onClick={() => event && track(event, eventProps)}
-      className={`group inline-flex items-center justify-center gap-3 transition-[background-color,color,border-color,transform] duration-200 ${
+      className={`group inline-flex items-center justify-center gap-4 transition-[background-color,color,border-color,transform] duration-200 ${
         block ? "w-full sm:w-auto" : ""
       } ${variants[variant]} ${className}`}
     >
       <span>{children}</span>
-      <span
+      <svg
         aria-hidden="true"
-        className={`inline-block transition-transform duration-200 group-hover:translate-x-1 ${
-          isText ? "" : "text-[15px]"
+        viewBox="0 0 32 16"
+        className={`shrink-0 transition-transform duration-300 group-hover:translate-x-1.5 ${
+          isText ? "h-3 w-6" : "h-4 w-8"
         }`}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
-        →
-      </span>
+        <path d="M1 8 H30" />
+        <path d="M23 2 L30 8 L23 14" />
+      </svg>
     </Link>
   );
 }

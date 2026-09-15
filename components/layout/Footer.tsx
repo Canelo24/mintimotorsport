@@ -1,11 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
+import { StageMap } from "@/components/roadbook/StageMap";
 import { site } from "@/content/site";
 import { NewsletterForm } from "./NewsletterForm";
 
 export function Footer() {
   return (
     <footer className="bg-night text-chalk">
+      {/* The route through the site, as the roadbook draws it */}
+      <div className="border-b rule">
+        <div className="mx-auto max-w-[84rem] px-5 py-12 sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
+          <p className="data-mono text-[11px] tracking-[0.18em] text-sodium">THE ROUTE · 8 CONTROLS</p>
+          <StageMap dark compact className="mt-6 max-w-4xl" />
+        </div>
+      </div>
       <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
