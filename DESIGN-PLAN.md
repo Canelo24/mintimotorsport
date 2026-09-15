@@ -25,7 +25,7 @@ Three buyers, one page must serve all without diluting:
   reach, media, hospitality, named partners.
 
 Non-negotiable truths: no cart, no public price list ("Packages from …" + qualification);
-scarcity stated plainly and never faked; EASCR stake is **past tense heritage, not current
+scarcity stated plainly and never faked; EASCR involvement is **stated as "inside the event since 2020" and nothing more, not current
 ownership**; Duncan / Tundo / Wahome / Khan are **crews we have run**, year-labelled, past
 tense; Kenya is home and expertise, never safari-tourism backdrop. Joey's filter: would a
 person who has stood in a service park at 2am nod at this?

@@ -156,7 +156,7 @@ export function Header() {
             src="/brand/minti-crest.png"
             alt=""
             width={826}
-            height={759}
+            height={549}
             className="w-32 opacity-95"
           />
         </div>

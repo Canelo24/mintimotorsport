@@ -8,7 +8,7 @@ Nothing on this list should be guessed — every value needs the named source.
 | Item | Value |
 |---|---|
 | Founding year | **2017** (footer, home heritage strip, heritage timeline) |
-| EASCR stake years | **from 2020** (shown as "FROM 2020"; wording stays past-tense) |
+| EASCR involvement | **from 2020** (shown as "FROM 2020 · INSIDE THE SAFARI CLASSIC"; ownership of the organisation is never mentioned, client instruction 2026-09-15) |
 | Crews run | **from 2017** |
 | Workshop address | **Galleria Business Park, Loita** (footer, contact, team facts) |
 | Enquiries email | **mintimotorsports@gmail.com** (site-wide default; env var overrides) |

@@ -19,7 +19,7 @@ export default function TermsPage() {
         },
         {
           h: "Event entry",
-          p: "Rally events are run by their own independent organisers. Nothing on this site implies that engaging Minti Motorsport guarantees or influences acceptance of an entry by any event organiser.",
+          p: "Rally events are run by their organisers. Nothing on this site implies that engaging Minti Motorsport guarantees acceptance of an entry by any event organiser.",
         },
         {
           h: "Intellectual property",

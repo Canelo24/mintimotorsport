@@ -68,7 +68,7 @@ export default function TheTeamPage() {
               src="/brand/minti-crest.png"
               alt=""
               width={826}
-              height={759}
+              height={549}
               className="w-36 opacity-90"
             />
           </div>

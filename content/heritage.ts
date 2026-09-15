@@ -1,10 +1,10 @@
 import { images } from "./images.generated";
 
 /**
- * Heritage: every claim here is PAST TENSE by design (brief §2/§3).
- * The EASCR stake is closed history, not current ownership, and the event
- * is independently run today. Crews are crews we have run. Dates confirmed
- * by the client 2026-09-10.
+ * Heritage. The site says Minti has been inside the East African Safari
+ * Classic Rally since 2020 and nothing about who owns the organisation
+ * (client instruction, 2026-09-15). Crews are crews we have run. Dates
+ * confirmed by the client 2026-09-10.
  */
 
 export const heritageHero = {
@@ -15,17 +15,17 @@ export const heritageHero = {
   record: [
     { value: "2017", label: "FOUNDED · FAMILY RUN" },
     { value: "FROM 2017", label: "CREWS RUN" },
-    { value: "FROM 2020", label: "THE SAFARI CLASSIC YEARS · CLOSED" },
+    { value: "FROM 2020", label: "INSIDE THE SAFARI CLASSIC" },
   ],
 };
 
 export const stewardship = {
-  code: "SS5/01 · THE SAFARI CLASSIC YEARS",
-  title: "The stewardship years.",
-  tenure: { value: "FROM 2020", label: "TENURE · CHAPTER CLOSED" },
+  code: "SS5/01 · THE SAFARI CLASSIC",
+  title: "Inside the Safari Classic.",
+  tenure: { value: "FROM 2020", label: "INSIDE THE EVENT" },
   statement:
-    "Minti held a controlling stake in East African Safari Classic Rally Ltd and took on the stewardship of one of rallying's great events. That chapter has closed. The rally is independently run today.",
-  body: "Entering with Minti gives you no special standing with the organiser. What those years left behind is harder to buy: we know what this event does to cars, crews and schedules.",
+    "We have lived inside the East African Safari Classic Rally since 2020. We know what this event does to cars, crews and schedules.",
+  body: "That is the part of a Safari entry that is hardest to buy.",
 };
 
 export const crews = {
@@ -53,7 +53,7 @@ export const timeline = {
     },
     {
       year: "FROM 2020",
-      text: "A controlling stake in East African Safari Classic Rally Ltd. That chapter has closed.",
+      text: "Minti's years inside the East African Safari Classic Rally begin.",
     },
     {
       year: "NOW",

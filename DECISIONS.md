@@ -224,6 +224,21 @@ unless marked otherwise.
     contact. Every hard rule stands: no price, no Jeet, no third-party names, EASCR in the
     past tense with the organiser-independence line on every ask.
 
+## Client corrections (2026-09-15, round 3)
+43. **The Safari Classic ownership is not discussed on the site.** The client corrected the
+    heritage copy: the earlier "held a controlling stake ... that chapter has closed ...
+    independently run today" was wrong (the stake is still held) and, in the client's words,
+    there is no need to mention it. Every mention of the stake, stewardship, "chapter
+    closed" or "independently run" is removed from home, heritage, team, the drive FAQ
+    and the terms page. The site now says only that Minti has been *inside* the East
+    African Safari Classic Rally since 2020 and knows what the event does to cars, crews
+    and schedules. The organiser note on each ask ("entry is granted by its organisers")
+    stays: it is true and it is the legal safeguard.
+44. **The crest PNG carried a stray top row** (a one-pixel, full-width, half-transparent
+    line left by the extraction) that rendered as a hairline over the logo on dark
+    grounds. The row is cleared, the image re-cropped to its content (826x549) and the
+    hard-coded dimensions updated everywhere it is placed.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

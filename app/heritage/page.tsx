@@ -16,7 +16,7 @@ import { crews, heritageHero, stewardship, timeline } from "@/content/heritage";
 export const metadata = buildMetadata({
   title: "Heritage · the Safari Classic years and the crews we have run",
   description:
-    "Minti Motorsport's record: past stewardship of the East African Safari Classic Rally organisation, and the crews the family has backed. Duncan, Tundo, Wahome and Khan.",
+    "Minti Motorsport's record: inside the East African Safari Classic Rally since 2020, and the crews the family has backed. Duncan, Tundo, Wahome and Khan.",
   path: "/heritage",
 });
 
@@ -62,7 +62,7 @@ export default function HeritagePage() {
             className="hero-rise mt-10 hidden justify-end lg:flex"
             style={{ "--rise-delay": "420ms" } as React.CSSProperties}
           >
-            <Image src="/brand/minti-crest.png" alt="" width={826} height={759} className="w-36 opacity-90" />
+            <Image src="/brand/minti-crest.png" alt="" width={826} height={549} className="w-36 opacity-90" />
           </div>
           <div className="hero-rise mt-12" style={{ "--rise-delay": "520ms" } as React.CSSProperties}>
             <StageStrip path="/heritage" />
@@ -77,8 +77,8 @@ export default function HeritagePage() {
         </Container>
       </Section>
 
-      {/* Stewardship: past tense, explicitly */}
-      <Section roadbook="STEWARDSHIP" className="py-section-xl">
+      {/* The Safari Classic: inside the event since 2020; ownership is never discussed */}
+      <Section roadbook="SAFARI CLASSIC" className="py-section-xl">
         <Container>
           <Chapter code={stewardship.code} title={stewardship.title} tulip={0} />
           <div className="mt-16 lg:mt-20 lg:grid lg:grid-cols-12 lg:gap-8">

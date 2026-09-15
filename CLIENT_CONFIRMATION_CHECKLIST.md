@@ -4,8 +4,9 @@ Everything Minti must approve or supply before launch. Companion to `CONTENT-TOD
 (field-by-field detail) and `ASSETS-NEEDED.md` (photography).
 
 ## Factual sign-off (Joey)
-- [ ] EASCR wording: site states the controlling stake **in the past tense** and that the
-      event is now independently run — approve the exact copy on `/heritage` and `/`
+- [x] EASCR wording (2026-09-15): the site says only that Minti has been **inside the
+      East African Safari Classic Rally since 2020**. Ownership of the organisation is not
+      mentioned anywhere, on client instruction — copy on `/heritage`, `/` and `/the-team`
 - [ ] Driver framing: Duncan, Tundo, Wahome & Khan presented as "crews we have run",
       past tense — approve copy and supply the years
 - [ ] MST partnership description on `/the-cars` and `/` — approve wording; supply any

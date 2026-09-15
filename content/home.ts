@@ -87,9 +87,9 @@ export const heritageStrip = {
   numerals: [
     { value: "2017", label: "FOUNDED" },
     { value: "FROM 2017", label: "CREWS RUN" },
-    { value: "FROM 2020", label: "THE SAFARI CLASSIC YEARS · CLOSED" },
+    { value: "FROM 2020", label: "INSIDE THE SAFARI CLASSIC" },
   ],
-  line: "We held a controlling stake in East African Safari Classic Rally Ltd and ran the event. It is independently run today.",
+  line: "We have lived inside the East African Safari Classic Rally since 2020. We know what this event does to cars, crews and schedules.",
   cta: { label: "The full story", href: "/heritage" },
 };
 

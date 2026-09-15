@@ -83,7 +83,7 @@ export function Hero() {
             src="/brand/minti-crest.png"
             alt=""
             width={826}
-            height={759}
+            height={549}
             className="hidden w-36 opacity-90 lg:block"
           />
         </div>

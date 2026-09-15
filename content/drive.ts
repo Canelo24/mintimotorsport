@@ -189,7 +189,7 @@ export const faqs = {
     },
     {
       q: "Do you guarantee event entry?",
-      a: "No. Entries are granted by the organisers and the events are independently run. What we guarantee is an entry that is professionally prepared and properly submitted.",
+      a: "No. Entries are granted by the event organisers. What we guarantee is an entry that is professionally prepared and properly submitted.",
     },
   ],
 };

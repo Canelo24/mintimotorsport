@@ -4,7 +4,8 @@
  * RULES (from the build brief):
  * - Anything not in the verified list below is marked with a {{TODO: …}} string
  *   and listed in CONTENT-TODO.md. Never present an invented number as final.
- * - EASCR involvement is HERITAGE — past tense. The event is independently run.
+ * - EASCR involvement: inside the event since 2020. Who owns the organisation is
+ *   not discussed anywhere on the site (client instruction, 2026-09-15).
  * - Drivers are "crews we have run" — past tense, year-labelled.
  */
 
@@ -106,7 +107,7 @@ export const verifiedFacts = {
   mstPartnership:
     "Exclusive regional partnership with MST Cars supplying new and original Ford Escort Mk1 and Mk2 Safari-spec rally cars, built for endurance events.",
   eascrHeritage:
-    "Previously acquired a controlling stake in East African Safari Classic Rally Ltd. The event is now independently run.",
+    "Inside the East African Safari Classic Rally since 2020. Ownership of the organisation is not discussed on the site.",
   // Per-crew years are unconfirmed; the site states only "from 2017" for
   // crews as a whole, so individual year labels are not published.
   crewsRun: [

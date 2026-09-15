@@ -14,7 +14,7 @@ export function Footer() {
               src="/brand/minti-crest.png"
               alt="Minti Motorsport, Preserving Heritage"
               width={826}
-              height={759}
+              height={549}
               className="mb-6 w-60 sm:w-72"
             />
             <p className="max-w-sm text-data text-chalk/70">

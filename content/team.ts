@@ -23,7 +23,7 @@ export const ghose = {
   name: "Joey Ghose",
   role: "FOUNDER & TEAM PRINCIPAL",
   caption: "JOEY GHOSE · PRINCIPAL",
-  body: "Joey built Minti and still runs every driver programme himself. He spent years stewarding the East African Safari Classic Rally organisation, and he knows which crossing floods first when the long rains come early.",
+  body: "Joey built Minti and still runs every driver programme himself. He has lived inside the Safari Classic for years, and he knows which crossing floods first when the long rains come early.",
   image: images.peopleJoeyGhose,
 };
 
