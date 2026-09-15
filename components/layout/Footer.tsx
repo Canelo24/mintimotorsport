@@ -6,7 +6,7 @@ import { NewsletterForm } from "./NewsletterForm";
 export function Footer() {
   return (
     <footer className="bg-night text-chalk">
-      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
+      <div className="mx-auto max-w-[84rem] px-5 py-16 sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             {/* The crest sits directly on the footer ground — no boxed logo */}

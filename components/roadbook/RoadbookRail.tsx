@@ -131,7 +131,7 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
       window.removeEventListener("scroll", onScroll);
       if (raf.current) cancelAnimationFrame(raf.current);
     };
-  }, [measure, stage.km]);
+  }, [measure, stage.km, stage.code]);
 
   const finished = progress > 0.995;
 

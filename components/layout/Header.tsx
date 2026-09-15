@@ -63,7 +63,7 @@ export function Header() {
       <div className="relative flex items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
         <Link
           href="/"
-          className="wordmark text-base leading-none sm:text-lg"
+          className="wordmark text-base leading-none sm:text-lg lg:text-[1.625rem]"
           aria-label="Minti Motorsport home"
         >
           MINTI<span className="text-sodium">·</span>MOTORSPORT

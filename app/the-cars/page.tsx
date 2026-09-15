@@ -1,12 +1,17 @@
 import Image from "next/image";
 import { Page } from "@/components/layout/Page";
+import { Parallax } from "@/components/motion/Parallax";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
-import { Container, Section, SectionHeading } from "@/components/ui/Section";
+import { Chapter } from "@/components/ui/Chapter";
+import { Plate } from "@/components/ui/Plate";
+import { Container, Section } from "@/components/ui/Section";
 import { StageStrip } from "@/components/ui/StageStrip";
+import { Statement } from "@/components/ui/Statement";
+import { TakeASeat } from "@/components/ui/TakeASeat";
 import { buildMetadata } from "@/lib/seo";
-import { site } from "@/content/site";
 import { buildProcess, carsHero, models, otherMachinery, partnership } from "@/content/cars";
+import { eascr2027 } from "@/content/eascr2027";
 
 export const metadata = buildMetadata({
   title: "The Cars · MST Escort Mk1 and Mk2, Safari spec",
@@ -16,138 +21,181 @@ export const metadata = buildMetadata({
 });
 
 export default function TheCarsPage() {
+  const { mk1, mk2 } = models;
+  const { cage, dial } = buildProcess.plates;
+
   return (
     <Page path="/the-cars">
-      <Section roadbook="THE PARTNERSHIP" className="pb-20 pt-36">
-        <Container>
-          <p className="hero-rise data-mono text-data font-medium text-murram">{carsHero.kicker}</p>
-          <h1 className="hero-rise display-wide mt-4 max-w-3xl text-h1" style={{ "--rise-delay": "120ms" } as React.CSSProperties}>
+      {/* Hero: the reader meets the car before a sentence */}
+      <Section roadbook="THE PARTNERSHIP" className="relative flex min-h-[100svh] items-end">
+        <Parallax className="absolute inset-0" amount={0.08}>
+          <Image
+            src={carsHero.image.src}
+            alt={carsHero.image.alt}
+            fill
+            priority
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL={carsHero.image.blurDataURL}
+            className="object-cover"
+            style={{ objectPosition: carsHero.position }}
+          />
+        </Parallax>
+        <div
+          className="grain absolute inset-0"
+          style={{ "--grain": 0.06 } as React.CSSProperties}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-night via-night/60 to-transparent"
+          aria-hidden="true"
+        />
+        <Container className="relative pb-12 pt-40 sm:pb-16">
+          <p className="hero-rise data-mono text-data font-medium text-sodium">{carsHero.kicker}</p>
+          <h1
+            className="hero-rise display-wide mt-4 max-w-[11ch] text-marquee text-chalk"
+            style={{ "--rise-delay": "180ms" } as React.CSSProperties}
+          >
             {carsHero.headline}
           </h1>
-          <p className="hero-rise mt-6 max-w-2xl text-lead text-night/80" style={{ "--rise-delay": "240ms" } as React.CSSProperties}>
-            {carsHero.sub}
-          </p>
-          <div className="hero-rise mt-10" style={{ "--rise-delay": "360ms" } as React.CSSProperties}>
-            <StageStrip path="/the-cars" dark={false} />
+          <div
+            className="hero-rise mt-10 hidden justify-end lg:flex"
+            style={{ "--rise-delay": "420ms" } as React.CSSProperties}
+          >
+            <Image
+              src="/brand/minti-crest.png"
+              alt=""
+              width={826}
+              height={759}
+              className="w-36 opacity-90"
+            />
           </div>
+          <div className="hero-rise mt-12" style={{ "--rise-delay": "520ms" } as React.CSSProperties}>
+            <StageStrip path="/the-cars" />
+          </div>
+        </Container>
+      </Section>
 
-          <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_1fr]">
-            <Reveal>
-              <p className="data-mono text-data-s font-medium text-murram">
-                SS3/01 · THE PARTNERSHIP
-              </p>
-              <h2 className="display-wide mt-2 text-h2">{partnership.title}</h2>
-              <div className="mt-5 space-y-4">
-                {partnership.body.map((p, i) => (
-                  <p key={i} className="text-body text-night/85">{p}</p>
-                ))}
-              </div>
-            </Reveal>
-            <Reveal delay={140} className="self-end border-l-2 border-murram pl-6">
-              <p className="text-data text-night/70">{partnership.disclaimer}</p>
-            </Reveal>
-          </div>
+      {/* The partnership, in one breath */}
+      <Section>
+        <Container className="py-section-xl">
+          <Statement rule>{partnership.statement}</Statement>
+          <Reveal delay={120}>
+            <p className="data-mono mt-8 max-w-xl text-[11px] leading-relaxed tracking-[0.08em] text-grease">
+              {partnership.footnote}
+            </p>
+          </Reveal>
         </Container>
       </Section>
 
       {/* The two models */}
-      <Section roadbook="MK1 / MK2" dark className="py-24">
-        <Container className="space-y-20">
-          {models.map((model, i) => (
-            <div
-              key={model.name}
-              className={`grid items-center gap-10 lg:grid-cols-[1.5fr_1fr] ${
-                i % 2 ? "lg:[direction:rtl]" : ""
-              }`}
-            >
-              <Reveal wipe className="lg:[direction:ltr]">
-                <Image
-                  src={model.image.src}
-                  alt={model.image.alt}
-                  width={model.image.width}
-                  height={model.image.height}
-                  sizes="(min-width: 1024px) 55vw, 100vw"
-                  placeholder="blur"
-                  blurDataURL={model.image.blurDataURL}
-                  className="w-full"
-                />
-              </Reveal>
-              <Reveal delay={120} className="lg:[direction:ltr]">
-                <p className="data-mono text-data-s font-medium text-sodium">
-                  SS3/{String(i + 2).padStart(2, "0")} · {model.name.toUpperCase()}
-                </p>
-                <h2 className="display-wide mt-2 text-h2">{model.name}</h2>
-                <p className="mt-4 text-body text-chalk/80">{model.blurb}</p>
-              </Reveal>
-            </div>
-          ))}
-        </Container>
-      </Section>
-
-      {/* Build process */}
-      <Section roadbook="THE BUILD" className="py-24">
+      <Section roadbook="MK1 / MK2" dark className="py-section clip-x">
         <Container>
-          <SectionHeading
-            instruction="SS3/03 · SAFARI SPECIFICATION"
-            title={buildProcess.title}
-            lead={buildProcess.intro}
+          <Chapter
+            dark
+            code={mk1.code}
+            number={mk1.number}
+            title={mk1.title}
+            statement={mk1.statement}
+            tulip={0}
           />
-          <div className="mt-12 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-            <div className="space-y-8">
-              {buildProcess.steps.map((step, i) => (
-                <Reveal key={step.title} delay={i * 80} className="border-l-2 border-murram pl-6">
-                  <p className="data-mono text-data-s font-medium text-murram">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="display-wide mt-1 text-h3">{step.title}</h3>
-                  <p className="mt-2 max-w-xl text-body text-night/80">{step.body}</p>
-                </Reveal>
-              ))}
+
+          <div className="mt-32 lg:mt-40 lg:grid lg:grid-cols-12 lg:gap-8 lg:items-end">
+            <div className="lg:col-span-5">
+              <Chapter
+                dark
+                code={mk2.code}
+                number={mk2.number}
+                title={mk2.title}
+                statement={mk2.statement}
+                tulip={1}
+              />
+              <Reveal delay={120}>
+                <div className="mt-8">
+                  <Button
+                    href={eascr2027.applyHref}
+                    variant="text-dark"
+                    event="campaign_cta_click"
+                    eventProps={{ campaign: "eascr2027", from: "the-cars-mk2" }}
+                  >
+                    {eascr2027.applyCta}
+                  </Button>
+                </div>
+              </Reveal>
             </div>
-            <div className="space-y-6">
-              <Reveal wipe>
-                <Image
-                  src={buildProcess.image.src}
-                  alt={buildProcess.image.alt}
-                  width={buildProcess.image.width}
-                  height={buildProcess.image.height}
-                  sizes="(min-width: 1024px) 38vw, 100vw"
-                  placeholder="blur"
-                  blurDataURL={buildProcess.image.blurDataURL}
-                  className="w-full"
-                />
-              </Reveal>
-              <Reveal wipe delay={120}>
-                <Image
-                  src={buildProcess.detail.src}
-                  alt={buildProcess.detail.alt}
-                  width={buildProcess.detail.width}
-                  height={buildProcess.detail.height}
-                  sizes="(min-width: 1024px) 38vw, 100vw"
-                  placeholder="blur"
-                  blurDataURL={buildProcess.detail.blurDataURL}
-                  className="w-full"
-                />
-              </Reveal>
+            {/* 800px source: never rendered wider than its native width */}
+            <div className="bleed-x mt-12 lg:col-span-7 lg:mt-0">
+              <Plate
+                image={mk2.image}
+                ratio="native"
+                maxWidth={800}
+                frame
+                grain={0.08}
+                caption={mk2.caption}
+                sizes="(min-width: 1024px) 800px, 100vw"
+                dark
+                className="ml-auto [&_figcaption]:px-5 sm:[&_figcaption]:px-8 lg:[&_figcaption]:px-0"
+              />
             </div>
           </div>
-
-          <Reveal delay={100}>
-            <div className="mt-20 border-t rule pt-10">
-              <p className="data-mono text-data-s font-medium text-murram">
-                SS3/04 · BEYOND THE ESCORTS
-              </p>
-              <h2 className="display-wide mt-2 text-h3">{otherMachinery.title}</h2>
-              <p className="mt-3 max-w-2xl text-body text-night/80">{otherMachinery.body}</p>
-              <div className="mt-8">
-                <Button href="/enquire" magnetic>
-                  {site.cta.primary}
-                </Button>
-              </div>
-            </div>
-          </Reveal>
         </Container>
       </Section>
+
+      {/* Safari specification: what happens after the paint */}
+      <Section roadbook="THE BUILD" className="py-section clip-x">
+        <Container>
+          <Chapter
+            code={buildProcess.code}
+            number={buildProcess.number}
+            title={buildProcess.title}
+            tulip={2}
+          />
+
+          <div className="mt-16 lg:mt-20 lg:grid lg:grid-cols-12 lg:gap-8">
+            <Plate
+              image={cage.image}
+              ratio="3/2"
+              mobileRatio="4/5"
+              position="50% 50%"
+              caption={cage.caption}
+              tag={cage.tag}
+              sizes="(min-width: 1024px) 60vw, 100vw"
+              className="bleed-x lg:col-span-7 lg:mx-0"
+            />
+            <Plate
+              image={dial.image}
+              ratio="4/5"
+              caption={dial.caption}
+              tag={dial.tag}
+              sizes="(min-width: 1024px) 30vw, 70vw"
+              delay={120}
+              className="mt-12 ml-auto w-[70%] lg:col-span-4 lg:col-start-9 lg:mt-32 lg:w-full"
+            />
+          </div>
+
+          <div className="mt-24 lg:grid lg:grid-cols-12 lg:gap-8">
+            <ol className="divide-y rule border-y lg:col-span-8">
+              {buildProcess.steps.map((step, i) => (
+                <Reveal key={step.n} as="li" delay={i * 80} className="grid grid-cols-[auto_1fr] gap-x-4 py-6 lg:grid-cols-12 lg:gap-6">
+                  <p className="display-wide text-h3 text-murram lg:col-span-1">{step.n}</p>
+                  <h3 className="display-wide text-h3 lg:col-span-4">{step.title}</h3>
+                  <p className="col-span-2 mt-3 text-data text-night/75 lg:col-span-7 lg:mt-0">{step.line}</p>
+                </Reveal>
+              ))}
+            </ol>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Finish */}
+      <TakeASeat
+        variant="compact"
+        roadbook="FINISH"
+        headline={otherMachinery.headline}
+        line={otherMachinery.line}
+        from="the-cars"
+        href={otherMachinery.href}
+      />
     </Page>
   );
 }

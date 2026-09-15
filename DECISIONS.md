@@ -206,6 +206,24 @@ unless marked otherwise.
       dark pages) and translucent over text.
     - Joey's portrait enlarged on The Team.
 
+## Editorial rebuild (2026-09-15) — "make it a masterpiece with the photos that exist"
+42. **The site is rebuilt as one editorial system** after the client and the project lead
+    judged it still text-heavy and not premium. An art-direction panel (three competing
+    directions, three judges) chose a luxury-editorial spine and grafted in the roadbook
+    devices: every section is now image-led (Plate), number-led (Numeral / NumeralRow) or a
+    single statement (Statement), opened by a Chapter (tulip glyph + SS code + hairline +
+    ghost chapter numeral) and closed by the one signature ask (TakeASeat). Type scale up
+    (h1 to 8rem, hero marquee to 11rem), section rhythm tokens (96 to 192px), 56ch prose
+    measure, per-photo captions that state only what is visible ("the competition car" for
+    every 911 frame, no invented locations), resolution caps (Joey's portrait at native
+    335px, the Mk2 at its native 800px, the 1299px Mk1 never a full-screen hero), no photo
+    repeated on a page, strict light/dark band alternation, film grain on heroes.
+    Copy cut to roughly half per page. The Finish/Result/Programme tier cards (our own
+    invention, never client content) are deleted; the FAQ is five questions. The official
+    line becomes a tappable PhoneRow ("names you can phone", literally) on home, team and
+    contact. Every hard rule stands: no price, no Jeet, no third-party names, EASCR in the
+    past tense with the organiser-independence line on every ask.
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

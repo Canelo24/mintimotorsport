@@ -2,25 +2,26 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { SectionHeading, Container } from "@/components/ui/Section";
+import { Chapter } from "@/components/ui/Chapter";
+import { Container } from "@/components/ui/Section";
+import { tulipCycle, TulipFinish } from "@/components/roadbook/tulips";
 import type { ImageSlot } from "@/content/images.generated";
 
-type Card = { tc: string; title: string; body: string; image: ImageSlot };
+type Card = { tc: string; title: string; body: string; image: ImageSlot; position?: string };
 
 type Props = {
-  instruction: string;
+  code: string;
   title: string;
-  lead: string;
   cards: Card[];
 };
 
 /**
- * "What a seat includes" — the pinned horizontal sequence (brief §7).
+ * "How the week runs": the pinned horizontal sequence (brief §7).
  * Desktop + full motion: GSAP ScrollTrigger pins the section and scrubs the
  * track. Mobile / reduced motion: a native horizontal scroll-snap rail —
  * same content, no pinning, no library loaded.
  */
-export function DriveSequence({ instruction, title, lead, cards }: Props) {
+export function DriveSequence({ code, title, cards }: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   // Only lock the track's own scrolling once GSAP pinning is actually live;
@@ -76,64 +77,71 @@ export function DriveSequence({ instruction, title, lead, cards }: Props) {
     <section
       ref={sectionRef}
       data-roadbook="THE SEAT"
-      className="overflow-hidden bg-night py-20 text-chalk lg:flex lg:min-h-screen lg:flex-col lg:justify-center"
+      className="overflow-hidden bg-night py-section text-chalk lg:flex lg:min-h-screen lg:flex-col lg:justify-center lg:py-20"
     >
       <Container>
-        <SectionHeading dark instruction={instruction} title={title} lead={lead} />
+        <Chapter dark code={code} number="04" title={title} tulip={3} />
       </Container>
       <div
         ref={trackRef}
-        className={`no-scrollbar mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 sm:px-8 ${
+        className={`no-scrollbar mt-16 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 sm:px-8 ${
           pinned ? "lg:snap-none lg:overflow-x-visible lg:will-change-transform" : ""
         }`}
       >
-        {/* Image-led cards (client, 2026-09-14): the photograph is the card,
-            with a number, a title and one short line over its lower edge. */}
-        {cards.map((card, i) => (
-          <article
-            key={card.tc}
-            className="relative w-[78vw] max-w-[440px] shrink-0 snap-start overflow-hidden bg-night-2 sm:w-[46vw] lg:w-[29vw]"
-          >
-            <div className="relative aspect-[3/4]">
-              <Image
-                src={card.image.src}
-                alt={card.image.alt}
-                fill
-                sizes="(min-width: 1024px) 29vw, 78vw"
-                placeholder="blur"
-                blurDataURL={card.image.blurDataURL}
-                className="object-cover"
-                loading={i === 0 ? "eager" : "lazy"}
-              />
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-night via-night/25 to-transparent"
-                aria-hidden="true"
-              />
-            </div>
-            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
-              <p className="data-mono text-lead font-semibold text-sodium">{card.tc}</p>
-              <h3 className="display-wide mt-1 text-h2 uppercase leading-none">{card.title}</h3>
-              <p className="mt-3 max-w-[30ch] text-data leading-relaxed text-chalk/85">
-                {card.body}
-              </p>
-            </div>
-          </article>
-        ))}
+        {/* Image-led cards: the photograph is the card, with the control's
+            tulip, its number, a title and one line over its lower edge. */}
+        {cards.map((card, i) => {
+          const Glyph = tulipCycle[i % tulipCycle.length];
+          return (
+            <article
+              key={card.tc}
+              className="relative w-[78vw] max-w-[460px] shrink-0 snap-start overflow-hidden bg-night-2 sm:w-[46vw] lg:w-[29vw]"
+            >
+              <div className="relative aspect-[3/4]">
+                <Image
+                  src={card.image.src}
+                  alt={card.image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 29vw, 78vw"
+                  placeholder="blur"
+                  blurDataURL={card.image.blurDataURL}
+                  className="object-cover"
+                  style={{ objectPosition: card.position ?? "50% 50%" }}
+                  loading={i === 0 ? "eager" : "lazy"}
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-night via-night/25 to-transparent"
+                  aria-hidden="true"
+                />
+              </div>
+              <div className="absolute left-6 top-6 flex items-center gap-3 text-sodium sm:left-7 sm:top-7">
+                <Glyph className="h-6 w-6" />
+                <span className="data-mono text-data-s tracking-[0.16em]">TC{i + 1}</span>
+              </div>
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+                <p className="display-wide text-h1 leading-none text-chalk/40">{card.tc}</p>
+                <h3 className="display-wide mt-2 text-[clamp(2rem,3.4vw,3.5rem)] leading-none">{card.title}</h3>
+                <p className="mt-3 max-w-[30ch] text-data leading-relaxed text-chalk/85">{card.body}</p>
+              </div>
+            </article>
+          );
+        })}
         {/* End card: the ask, inside the sequence */}
-        <article className="flex w-[78vw] max-w-[440px] shrink-0 snap-start flex-col items-start justify-end border border-sodium/60 bg-night-2 p-6 sm:w-[46vw] sm:p-7 lg:w-[29vw]">
-          <p className="data-mono text-data-s text-sodium">FINISH CONTROL · EASCR 2027</p>
-          <h3 className="display-wide mt-2 text-h2 uppercase leading-none">
-            Your name on the door
-          </h3>
-          <p className="mt-3 text-data text-chalk/75">
-            The full programme, in writing, after one call.
-          </p>
-          <a
-            href="/enquire?e=eascr2027"
-            className="display-cond mt-7 bg-sodium px-7 py-4 text-data tracking-[0.16em] text-night transition-colors hover:bg-chalk"
-          >
-            Take a seat
-          </a>
+        <article className="flex w-[78vw] max-w-[460px] shrink-0 snap-start flex-col justify-between border border-sodium/60 bg-night-2 p-6 sm:w-[46vw] sm:p-7 lg:w-[29vw]">
+          <div className="flex items-center gap-3 text-sodium">
+            <TulipFinish className="h-6 w-6" />
+            <span className="data-mono text-data-s tracking-[0.16em]">FINISH CONTROL · EASCR 2027</span>
+          </div>
+          <div>
+            <h3 className="display-wide text-[clamp(2rem,3.4vw,3.5rem)] leading-none">Your name on the door.</h3>
+            <p className="mt-3 text-data text-chalk/75">The full programme, in writing, after one call.</p>
+            <a
+              href="/enquire?e=eascr2027"
+              className="display-cond mt-7 inline-flex min-h-14 items-center gap-3 bg-sodium px-9 py-4 text-[13px] tracking-[0.18em] text-night transition-colors hover:bg-chalk"
+            >
+              Take a seat <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </article>
       </div>
     </section>

@@ -1,39 +1,90 @@
 import { images } from "./images.generated";
 
+/**
+ * SS4 · THE TEAM. Copy for /the-team.
+ *
+ * Facts are limited to the verified list in content/site.ts. Joey Ghose is
+ * the only named person on the site. Captions state only what is visible
+ * in the frame and never carry a location.
+ */
+
 export const teamHero = {
   kicker: "SS4 · THE TEAM",
-  headline: "A family name, then a crew.",
-  sub: "Minti is UK registered and family run. Joey Ghose founded it and still runs it, and the crew in Nairobi have made careers out of finishing rallies.",
+  headline: "Names you can phone.",
+  line: "UK registered. Family run. At home in Nairobi.",
+  image: images.teamCrewService,
+  /** Keeps the crew's heads under the carport roof in the 100svh crop. */
+  position: "50% 35%",
 };
 
-export const ghose = [
-  {
-    name: "Joey Ghose",
-    role: "Founder & team principal",
-    body: "Joey built Minti from a family obsession into a rally operation, including the years spent stewarding the East African Safari Classic Rally organisation. He still owns every driver programme personally, and he knows which crossing floods first when the long rains come early.",
-    image: images.peopleJoeyGhose,
-  },
-];
+/** The principal. */
+export const ghose = {
+  code: "SS4/01 · PRINCIPAL",
+  name: "Joey Ghose",
+  role: "FOUNDER & TEAM PRINCIPAL",
+  caption: "JOEY GHOSE · PRINCIPAL",
+  body: "Joey built Minti and still runs every driver programme himself. He spent years stewarding the East African Safari Classic Rally organisation, and he knows which crossing floods first when the long rains come early.",
+  image: images.peopleJoeyGhose,
+};
 
+/** Kept for its export. The hero now carries the crew photograph instead. */
 export const familyPhoto = images.teamCrewWorking;
 
+/** SS4/02 · Home ground. */
 export const base = {
-  title: "Home ground: Nairobi",
-  body: [
-    "Most international teams freight everything in and hope. Our workshop, crew, spares and test roads are already here. This is where the team lives, not somewhere it deploys to.",
-    "That changes what we can promise. Cars are prepared and shaken down on the surfaces they will race on. Local knowledge here is not a consultant's report. It is the crew's commute.",
+  code: "SS4/02 · THE BASE",
+  number: "02",
+  title: "Home ground.",
+  statement:
+    "This is where the team lives, not somewhere it deploys to. Cars are prepared and shaken down on the surfaces they race on.",
+  plate: {
+    image: images.teamWorkshopBay,
+    caption: "THE BAY · A FRESH BUILD",
+    tag: "THE COMPETITION CAR",
+    position: "50% 55%",
+  },
+  coordinates: [
+    { value: "1.2921° S", label: "LATITUDE · NAIROBI" },
+    { value: "36.8219° E", label: "LONGITUDE · NAIROBI" },
   ],
-  image: images.teamWorkshopBay,
   facts: [
-    { k: "WORKSHOP", v: "GALLERIA BUSINESS PARK, LOITA" },
-    { k: "COORDINATES", v: "1.2921°S 36.8219°E" },
-    { k: "REGISTERED", v: "UNITED KINGDOM" },
-    { k: "TEST ROADS", v: "PRIVATE MURRAM" },
+    { k: "WORKSHOP", v: "Galleria Business Park, Loita" },
+    { k: "REGISTERED", v: "United Kingdom" },
+    { k: "TEST ROADS", v: "Private murram" },
   ],
 };
 
+/** SS4/03 · The service crew. */
 export const crew = {
-  title: "The 2am department",
-  body: "Rallies are won between midnight and scrutineering. The service crew is the part of the programme you will be gladdest you paid for, and the part we are proudest of. You will know every name by the end of shakedown week.",
-  image: images.teamCrewService,
+  code: "SS4/03 · SERVICE",
+  number: "03",
+  title: "The 2am department.",
+  numerals: {
+    caption: "IN THE 2027 PACKAGE",
+    items: [
+      { value: "1", label: "TEAM MANAGER" },
+      { value: "5", label: "MECHANICS" },
+      { value: "3", label: "SUPPORT DRIVERS" },
+    ],
+  },
+  plates: {
+    shirts: {
+      image: images.peopleCrewAtWork,
+      caption: "TEAM SHIRTS · SERVICE",
+      tag: "THE COMPETITION CAR",
+      position: "50% 30%",
+    },
+    wheelNuts: {
+      image: images.journalServiceParkCraft,
+      caption: "WHEEL NUTS · MID CHANGE",
+      position: "55% 50%",
+    },
+  },
+  body: "Rallies are won between midnight and scrutineering. The service crew is the part of the programme you will be gladdest you paid for.",
+};
+
+/** The finish control. */
+export const finish = {
+  headline: "You will know every name by shakedown week.",
+  line: "The people who keep the car alive, and the seat they run.",
 };

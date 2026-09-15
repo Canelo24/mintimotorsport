@@ -29,7 +29,7 @@ export function Container({
   className?: string;
   children: ReactNode;
 }) {
-  return <div className={`mx-auto w-full max-w-6xl px-5 sm:px-8 ${className}`}>{children}</div>;
+  return <div className={`mx-auto w-full max-w-[84rem] px-5 sm:px-8 ${className}`}>{children}</div>;
 }
 
 type HeadingProps = {

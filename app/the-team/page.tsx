@@ -1,13 +1,18 @@
 import Image from "next/image";
 import { Page } from "@/components/layout/Page";
+import { Parallax } from "@/components/motion/Parallax";
 import { Reveal } from "@/components/motion/Reveal";
-import { Button } from "@/components/ui/Button";
-import { Container, Section, SectionHeading } from "@/components/ui/Section";
+import { Chapter } from "@/components/ui/Chapter";
+import { Ledger } from "@/components/ui/Ledger";
+import { NumeralRow } from "@/components/ui/Numeral";
+import { PhoneRow } from "@/components/ui/PhoneRow";
+import { Plate } from "@/components/ui/Plate";
+import { Container, Section } from "@/components/ui/Section";
 import { StageStrip } from "@/components/ui/StageStrip";
-import { Todo } from "@/components/ui/Todo";
+import { Statement } from "@/components/ui/Statement";
+import { TakeASeat } from "@/components/ui/TakeASeat";
 import { buildMetadata } from "@/lib/seo";
-import { site } from "@/content/site";
-import { base, crew, familyPhoto, ghose, teamHero } from "@/content/team";
+import { base, crew, finish, ghose, teamHero } from "@/content/team";
 
 export const metadata = buildMetadata({
   title: "The Team · Joey Ghose and the Nairobi crew",
@@ -16,130 +21,171 @@ export const metadata = buildMetadata({
   path: "/the-team",
 });
 
+/** Hero first-paint stagger, in ms. */
+const rise = (ms: number) => ({ "--rise-delay": `${ms}ms` }) as React.CSSProperties;
+
 export default function TheTeamPage() {
   return (
     <Page path="/the-team">
-      <Section roadbook="THE FAMILY" className="pb-20 pt-36">
-        <Container>
-          <p className="hero-rise data-mono text-data font-medium text-murram">{teamHero.kicker}</p>
-          <h1 className="hero-rise display-wide mt-4 max-w-3xl text-h1" style={{ "--rise-delay": "120ms" } as React.CSSProperties}>
+      {/* SS4 · Hero: the crew, and the line that names the page */}
+      <Section roadbook="THE FAMILY" className="relative flex min-h-[100svh] items-end">
+        <Parallax className="absolute inset-0" amount={0.08}>
+          <Image
+            src={teamHero.image.src}
+            alt={teamHero.image.alt}
+            fill
+            priority
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL={teamHero.image.blurDataURL}
+            className="object-cover"
+            style={{ objectPosition: teamHero.position }}
+          />
+        </Parallax>
+        <div
+          className="grain absolute inset-0"
+          style={{ "--grain": 0.06 } as React.CSSProperties}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-night via-night/60 to-transparent"
+          aria-hidden="true"
+        />
+        <Container className="relative pb-12 pt-40 sm:pb-16">
+          <p className="hero-rise data-mono text-data font-medium text-sodium">{teamHero.kicker}</p>
+          <h1
+            className="hero-rise display-wide mt-4 max-w-[10ch] text-marquee text-chalk"
+            style={rise(180)}
+          >
             {teamHero.headline}
           </h1>
-          <p className="hero-rise mt-6 max-w-2xl text-lead text-night/80" style={{ "--rise-delay": "240ms" } as React.CSSProperties}>
-            {teamHero.sub}
+          <p className="hero-rise mt-6 max-w-[40ch] text-lead text-chalk/85" style={rise(300)}>
+            {teamHero.line}
           </p>
-          <div className="hero-rise mt-10" style={{ "--rise-delay": "360ms" } as React.CSSProperties}>
-            <StageStrip path="/the-team" dark={false} />
-          </div>
-
-          <Reveal wipe className="mt-14">
+          {/* No button here: the phone row in the next band is the action. */}
+          <div className="hero-rise mt-10 hidden justify-end lg:flex" style={rise(420)}>
             <Image
-              src={familyPhoto.src}
-              alt={familyPhoto.alt}
-              width={familyPhoto.width}
-              height={familyPhoto.height}
-              sizes="(min-width: 1024px) 80vw, 100vw"
-              placeholder="blur"
-              blurDataURL={familyPhoto.blurDataURL}
-              className="w-full"
-              priority
+              src="/brand/minti-crest.png"
+              alt=""
+              width={826}
+              height={759}
+              className="w-36 opacity-90"
             />
-          </Reveal>
-
-          <div className="mt-12 grid gap-10 md:grid-cols-2">
-            {ghose.map((person, i) => (
-              <Reveal key={person.name} delay={i * 120} className="border-t-2 border-murram pt-5">
-                <div className="flex flex-wrap gap-6">
-                  <div className="relative aspect-[4/5] w-36 shrink-0 sm:w-48">
-                    <Image
-                      src={person.image.src}
-                      alt={person.image.alt}
-                      fill
-                      sizes="144px"
-                      placeholder="blur"
-                      blurDataURL={person.image.blurDataURL}
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h2 className="display-wide text-h3">{person.name}</h2>
-                    <p className="data-mono mt-1 text-data-s text-murram">{person.role}</p>
-                    <p className="mt-3 text-body text-night/80">{person.body}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+          </div>
+          <div className="hero-rise mt-12" style={rise(520)}>
+            <StageStrip path="/the-team" />
           </div>
         </Container>
       </Section>
 
-      {/* Nairobi base */}
-      <Section roadbook="HOME GROUND" dark className="py-24">
-        <Container>
-          <SectionHeading dark instruction="SS4/02 · THE BASE" title={base.title} />
-          <div className="mt-12 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-            <div>
-              <Reveal wipe>
-                <Image
-                  src={base.image.src}
-                  alt={base.image.alt}
-                  width={base.image.width}
-                  height={base.image.height}
-                  sizes="(min-width: 1024px) 55vw, 100vw"
-                  placeholder="blur"
-                  blurDataURL={base.image.blurDataURL}
-                  className="w-full"
-                />
-              </Reveal>
-              <div className="mt-6 space-y-4">
-                {base.body.map((p, i) => (
-                  <Reveal key={i} delay={i * 80}>
-                    <p className="text-body text-chalk/80">{p}</p>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-            <Reveal delay={150}>
-              <dl className="divide-y rule border-y">
-                {base.facts.map((row) => (
-                  <div key={row.k} className="py-3.5">
-                    <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">{row.k}</dt>
-                    <dd className="data-mono mt-1 text-data text-chalk">
-                      <Todo value={row.v} />
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+      {/* SS4/01 · The principal: his picture properly, then the line you can ring */}
+      <Section className="py-section">
+        <Container className="lg:grid lg:grid-cols-12 lg:items-end lg:gap-8">
+          <div className="lg:col-span-3">
+            <Plate
+              image={ghose.image}
+              ratio="native"
+              maxWidth={335}
+              frame
+              caption={ghose.caption}
+              sizes="(min-width: 1024px) 335px, (min-width: 640px) 260px, 200px"
+              className="w-[200px] sm:w-[260px] lg:w-full"
+            />
+          </div>
+          <div className="mt-12 lg:col-span-8 lg:col-start-5 lg:mt-0">
+            <Reveal>
+              <p className="data-mono text-[11px] tracking-[0.16em] text-murram">{ghose.code}</p>
+              <h2 className="display-wide mt-4 text-h1">{ghose.name}</h2>
+              <p className="data-mono mt-3 text-data-s text-murram">{ghose.role}</p>
+            </Reveal>
+            <Reveal delay={80}>
+              <p className="measure mt-6 text-body text-night/80">{ghose.body}</p>
+            </Reveal>
+            <Reveal delay={140}>
+              <PhoneRow className="mt-10" />
             </Reveal>
           </div>
         </Container>
       </Section>
 
-      {/* The crew */}
-      <Section roadbook="THE CREW" className="py-24">
+      {/* SS4/02 · Home ground: the bay, one statement, the coordinates */}
+      <Section roadbook="HOME GROUND" dark className="py-section">
         <Container>
-          <SectionHeading instruction="SS4/03 · SERVICE" title={crew.title} lead={crew.body} />
-          <Reveal wipe className="mt-12">
-            <Image
-              src={crew.image.src}
-              alt={crew.image.alt}
-              width={crew.image.width}
-              height={crew.image.height}
-              sizes="(min-width: 1024px) 80vw, 100vw"
-              placeholder="blur"
-              blurDataURL={crew.image.blurDataURL}
-              className="w-full"
-            />
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="mt-14">
-              <Button href="/enquire" magnetic>
-                {site.cta.primary}
-              </Button>
+          <Chapter dark code={base.code} number={base.number} title={base.title} tulip={1} />
+        </Container>
+        <div className="mt-16 lg:mt-20 [&_figcaption]:px-5 [&_figcaption]:sm:px-8">
+          <Plate
+            image={base.plate.image}
+            ratio="21/9"
+            mobileRatio="4/5"
+            position={base.plate.position}
+            caption={base.plate.caption}
+            tag={base.plate.tag}
+            sizes="100vw"
+            dark
+          />
+        </div>
+        <Container className="mt-16 space-y-12 lg:grid lg:grid-cols-12 lg:gap-8 lg:space-y-0">
+          <div className="lg:col-span-6">
+            <Statement dark rule={false}>
+              {base.statement}
+            </Statement>
+          </div>
+          <div className="lg:col-span-5 lg:col-start-8">
+            <NumeralRow dark size="m" items={base.coordinates} />
+            <Ledger dark mode="facts" numbered={false} rows={base.facts} className="mt-10" />
+          </div>
+        </Container>
+      </Section>
+
+      {/* SS4/03 · The crew: the numbers, two frames, one paragraph */}
+      <Section roadbook="THE CREW" className="clip-x py-section">
+        <Container>
+          <Chapter code={crew.code} number={crew.number} title={crew.title} tulip={2} />
+          <NumeralRow
+            className="mt-16"
+            size="m"
+            caption={crew.numerals.caption}
+            items={crew.numerals.items}
+          />
+          <div className="mt-20 lg:grid lg:grid-cols-12 lg:gap-8">
+            <div className="lg:col-span-5">
+              <Plate
+                image={crew.plates.shirts.image}
+                ratio="4/5"
+                position={crew.plates.shirts.position}
+                caption={crew.plates.shirts.caption}
+                tag={crew.plates.shirts.tag}
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="bleed-x lg:mx-0 [&_figcaption]:px-5 [&_figcaption]:sm:px-8 [&_figcaption]:lg:px-0"
+              />
             </div>
+            <div className="lg:col-span-7">
+              <Plate
+                image={crew.plates.wheelNuts.image}
+                ratio="3/2"
+                position={crew.plates.wheelNuts.position}
+                caption={crew.plates.wheelNuts.caption}
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                delay={120}
+                className="mt-12 bleed-x bleed-right lg:mt-24 [&_figcaption]:px-5 [&_figcaption]:sm:px-8 [&_figcaption]:lg:px-0"
+              />
+            </div>
+          </div>
+          <Reveal>
+            <p className="measure mt-16 text-body text-night/80">{crew.body}</p>
           </Reveal>
         </Container>
       </Section>
+
+      {/* Finish control */}
+      <TakeASeat
+        variant="compact"
+        roadbook="FINISH"
+        headline={finish.headline}
+        line={finish.line}
+        from="the-team"
+      />
     </Page>
   );
 }

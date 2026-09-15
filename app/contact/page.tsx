@@ -1,7 +1,9 @@
-import Image from "next/image";
 import { Page } from "@/components/layout/Page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
+import { Ledger } from "@/components/ui/Ledger";
+import { PhoneRow } from "@/components/ui/PhoneRow";
+import { Plate } from "@/components/ui/Plate";
 import { Container, Section } from "@/components/ui/Section";
 import { StageStrip } from "@/components/ui/StageStrip";
 import { buildMetadata } from "@/lib/seo";
@@ -16,143 +18,102 @@ export const metadata = buildMetadata({
 });
 
 export default function ContactPage() {
-  const whatsappHref = site.contact.whatsapp ? `https://wa.me/${site.contact.whatsapp}` : null;
-
   return (
     <Page path="/contact">
-      <Section roadbook="THE LINES" className="pb-24 pt-36">
+      <Section roadbook="THE LINES" className="pb-section pt-40 lg:pt-48">
         <Container>
           <p className="hero-rise data-mono text-data font-medium text-murram">SS7 · CONTACT</p>
-          <h1 className="hero-rise display-wide mt-4 text-h1" style={{ "--rise-delay": "120ms" } as React.CSSProperties}>
+          <h1
+            className="hero-rise display-wide mt-4 text-h1"
+            style={{ "--rise-delay": "120ms" } as React.CSSProperties}
+          >
             Talk to a person.
           </h1>
-          <p className="hero-rise mt-6 max-w-2xl text-lead text-night/80" style={{ "--rise-delay": "240ms" } as React.CSSProperties}>
-            Serious about a seat? The fastest route is the enquiry, which lands with the team
-            directly. For everything else, use the lines below.
+          <p
+            className="hero-rise mt-6 max-w-[40ch] text-lead text-night/80"
+            style={{ "--rise-delay": "240ms" } as React.CSSProperties}
+          >
+            The enquiry lands with the team directly. For everything else, the lines below.
           </p>
           <div className="hero-rise mt-10" style={{ "--rise-delay": "360ms" } as React.CSSProperties}>
             <StageStrip path="/contact" dark={false} />
           </div>
 
-          <div className="mt-14 grid gap-10 lg:grid-cols-2">
-            <div className="space-y-8">
-              {/* Primary: the official line — no personal name attached.
-                  Each line is a full-width tappable row (client feedback:
-                  the plain text didn't read as clickable). */}
-              <Reveal className="border-t-2 border-murram pt-5">
-                <p className="data-mono text-data-s font-medium text-murram">PRIMARY CONTACT</p>
-                <h2 className="display-wide mt-1 text-h3">{site.contact.officialLabel}</h2>
-                <div className="mt-5 divide-y rule border-y">
-                  <a
-                    href={`tel:${site.contact.phone.replace(/\s/g, "")}`}
-                    className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-murram"
+          <div className="mt-16 lg:mt-20 lg:grid lg:grid-cols-12 lg:gap-10">
+            {/* The lines: phone, WhatsApp and email as tappable rows, then who answers. */}
+            <div className="lg:col-span-6">
+              <PhoneRow />
+              <a
+                href={`mailto:${site.contact.email}`}
+                className="group flex flex-col gap-1 border-b rule py-4 text-night sm:flex-row sm:items-baseline sm:justify-between"
+              >
+                <span className="data-mono text-[11px] tracking-[0.16em] text-grease">EMAIL</span>
+                <span className="data-mono flex items-baseline gap-4 text-data font-semibold">
+                  {site.contact.email}
+                  <span
+                    aria-hidden="true"
+                    className="text-sodium transition-transform duration-200 group-hover:translate-x-1"
                   >
-                    <span className="display-cond text-[10px] tracking-[0.2em] text-grease">
-                      PHONE
-                    </span>
-                    <span className="data-mono flex items-center gap-3 text-data font-semibold">
-                      {site.contact.phone}
-                      <span className="text-sodium transition-transform group-hover:translate-x-1" aria-hidden="true">
-                        →
-                      </span>
-                    </span>
-                  </a>
-                  {whatsappHref ? (
-                    <a
-                      href={whatsappHref}
-                      className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-murram"
+                    →
+                  </span>
+                </span>
+              </a>
+
+              <div className="mt-12 space-y-10">
+                <Reveal className="border-t rule pt-6">
+                  <h2 className="display-wide text-h3">Joey Ghose</h2>
+                  <p className="mt-2 measure text-body text-night/75">
+                    Founder and team principal. The conversations that decide a programme end up
+                    with him.
+                  </p>
+                </Reveal>
+
+                <Reveal delay={80} className="border-t rule pt-6">
+                  <h2 className="display-wide text-h3">Drivers</h2>
+                  <p className="mt-2 measure text-body text-night/75">Five questions, then a call.</p>
+                  <div className="mt-6">
+                    <Button
+                      href="/enquire"
+                      block
+                      event="campaign_cta_click"
+                      eventProps={{ campaign: "eascr2027", from: "contact" }}
                     >
-                      <span className="display-cond text-[10px] tracking-[0.2em] text-grease">
-                        WHATSAPP
-                      </span>
-                      <span className="data-mono flex items-center gap-3 text-data font-semibold">
-                        Message the team
-                        <span className="text-sodium transition-transform group-hover:translate-x-1" aria-hidden="true">
-                          →
-                        </span>
-                      </span>
-                    </a>
-                  ) : null}
-                  <a
-                    href={`mailto:${site.contact.email}`}
-                    className="group flex items-center justify-between gap-4 py-4 transition-colors hover:text-murram"
-                  >
-                    <span className="display-cond text-[10px] tracking-[0.2em] text-grease">
-                      EMAIL
-                    </span>
-                    <span className="data-mono flex items-center gap-3 text-data font-semibold">
-                      {site.contact.email}
-                      <span className="text-sodium transition-transform group-hover:translate-x-1" aria-hidden="true">
-                        →
-                      </span>
-                    </span>
-                  </a>
-                </div>
-              </Reveal>
+                      {site.cta.primary}
+                    </Button>
+                  </div>
+                </Reveal>
 
-              {/* Secondary: Joey */}
-              <Reveal delay={100} className="border-t-2 border-night/20 pt-5">
-                <p className="data-mono text-data-s font-medium text-grease">THEN, WHEN IT MATTERS</p>
-                <h2 className="display-wide mt-1 text-h3">Joey Ghose</h2>
-                <p className="mt-2 text-body text-night/80">
-                  Founder and team principal. The official line reaches the team fastest, and
-                  the conversations that decide a programme end up with Joey.
-                </p>
-              </Reveal>
-
-              <Reveal delay={140} className="border-t-2 border-night/20 pt-5">
-                <h2 className="display-wide text-h3">Drivers</h2>
-                <p className="mt-2 text-body text-night/80">
-                  Five questions, then a call. The enquiry page is the front of the queue.
-                </p>
-                <div className="mt-5">
-                  <Button href="/enquire">{site.cta.primary}</Button>
-                </div>
-              </Reveal>
-
-              <Reveal delay={180} className="border-t-2 border-night/20 pt-5">
-                <h2 className="display-wide text-h3">Partners & media</h2>
-                <p className="mt-2 text-body text-night/80">
-                  Sponsorship, hospitality and media programmes are built per event. Start with the
-                  enquiry and pick <em>“Sponsor or partner”</em>. It reaches the same desk,
-                  faster.
-                </p>
-              </Reveal>
+                <Reveal delay={160} className="border-t rule pt-6">
+                  <h2 className="display-wide text-h3">Partners &amp; media</h2>
+                  <p className="mt-2 measure text-body text-night/75">
+                    Start with the enquiry and pick Sponsor or partner. Same desk, faster.
+                  </p>
+                </Reveal>
+              </div>
             </div>
 
-            <div>
-              <Reveal wipe>
-                <Image
-                  src={images.journalReadingTheRoad.src}
-                  alt={images.journalReadingTheRoad.alt}
-                  width={images.journalReadingTheRoad.width}
-                  height={images.journalReadingTheRoad.height}
-                  sizes="(min-width: 1024px) 45vw, 100vw"
-                  placeholder="blur"
-                  blurDataURL={images.journalReadingTheRoad.blurDataURL}
-                  className="w-full"
-                />
-              </Reveal>
-              <Reveal delay={120}>
-                <dl className="mt-6 divide-y rule border-y">
-                  <div className="flex justify-between gap-6 py-3">
-                    <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">WORKSHOP</dt>
-                    <dd className="data-mono text-data">NAIROBI, KENYA</dd>
-                  </div>
-                  <div className="flex justify-between gap-6 py-3">
-                    <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">COORDINATES</dt>
-                    <dd className="data-mono text-data text-murram">{site.base.coords}</dd>
-                  </div>
-                  <div className="flex justify-between gap-6 py-3">
-                    <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">ADDRESS</dt>
-                    <dd className="data-mono text-right text-data">{site.base.address}</dd>
-                  </div>
-                  <div className="flex justify-between gap-6 py-3">
-                    <dt className="display-cond text-[10px] tracking-[0.2em] text-grease">REGISTERED</dt>
-                    <dd className="data-mono text-data">UNITED KINGDOM</dd>
-                  </div>
-                </dl>
-              </Reveal>
+            {/* The workshop: one photograph and the facts. */}
+            <div className="mt-12 lg:col-span-5 lg:col-start-8 lg:mt-0">
+              <Plate
+                image={images.peopleWorkshopNairobi}
+                ratio="4/5"
+                caption="THE BAY · A FRESH BUILD"
+                tag="THE COMPETITION CAR"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="bleed-x lg:mx-0"
+              />
+              <Ledger
+                mode="facts"
+                numbered={false}
+                emphasis
+                className="mt-10"
+                rows={[
+                  { k: "WORKSHOP", v: "Nairobi, Kenya" },
+                  { k: "ADDRESS", v: site.base.address },
+                  { k: "COORDINATES", v: site.base.coords },
+                  { k: "REGISTERED", v: "United Kingdom" },
+                ]}
+              />
             </div>
           </div>
         </Container>

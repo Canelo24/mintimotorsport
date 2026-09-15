@@ -59,6 +59,17 @@ exported shapes, and the components don't change. `lib/journal.ts` is the worked
    and blur data are regenerated from what's actually on disk. (Delete a file to get its
    placeholder back.) Alt text in the manifest doubles as the shot brief.
 
+## Editorial system (2026-09-15)
+
+Every marketing page is built from six components in `components/ui/`: `Chapter` (tulip +
+SS code + hairline + ghost numeral + title), `Plate` (every photograph: ratio, crop, caption,
+frame, grain, resolution cap), `Numeral` / `NumeralRow` (number moments), `Statement` (one
+sentence set large), `Ledger` (numbered mono lists, facts, IN / NOT IN checks), `PhoneRow`
+(the official line as a tappable row) and `TakeASeat` (the one closing ask on every page).
+Type and rhythm tokens live in `app/globals.css` (`--text-numeral`, `--text-statement`,
+`--spacing-section`). Captions state only what is visible in the frame; 911 frames are
+"the competition car". See DECISIONS.md 42.
+
 ## Lead delivery (configure before launch)
 
 `lib/leads.ts` is the adapter. Configure any combination in `.env` (see `.env.example`):

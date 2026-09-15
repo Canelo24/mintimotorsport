@@ -31,7 +31,7 @@ export function StickyEnquiryBar() {
         }`}
         aria-hidden={!show}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
+        <div className="mx-auto flex max-w-[84rem] items-center justify-between gap-4 px-5 py-3 sm:px-8">
           <p className="data-mono hidden text-data-s text-chalk/80 sm:block">
             SEATS ARE ALLOCATED IN ORDER OF COMMITMENT, NOT ENQUIRY.
           </p>
