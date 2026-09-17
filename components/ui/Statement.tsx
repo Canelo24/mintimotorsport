@@ -28,14 +28,14 @@ export function Statement({
       className={`${screen ? "flex min-h-[60svh] flex-col justify-center" : ""} ${className}`}
     >
       {eyebrow ? (
-        <p className={`data-mono mb-8 text-[11px] tracking-[0.16em] ${dark ? "text-sodium" : "text-murram"}`}>
+        <p className={`display-cond mb-8 text-[13px] tracking-[0.14em] ${dark ? "text-sodium" : "text-murram"}`}>
           {eyebrow}
         </p>
       ) : null}
       <div className={rule ? "rule border-y py-8 sm:py-10" : ""}>
         <p className={`statement ${dark ? "text-chalk" : "text-night"}`}>{children}</p>
         {cite ? (
-          <p className={`data-mono mt-6 text-[11px] tracking-[0.16em] ${dark ? "text-chalk/55" : "text-grease"}`}>
+          <p className={`data-mono mt-6 text-[12px] font-medium tracking-[0.1em] ${dark ? "text-chalk/60" : "text-murram"}`}>
             {cite}
           </p>
         ) : null}

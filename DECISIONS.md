@@ -273,6 +273,58 @@ unless marked otherwise.
     Every hard rule stands: no price, no Jeet, no third-party names, no ownership claims
     about the Safari Classic, no em dashes, only the photographs that exist.
 
+## Round 4 (2026-09-17) — "absolutely not that font"
+46. **The serif is gone; Big Shoulders is the only display face.** The client rejected
+    Instrument Serif on sight ("extremely terrible and horrifying"), rolled the deployment
+    back, and attached a sample of the site's own Big Shoulders 800 "ARRIVE & DRIVE" with
+    the instruction to use it everywhere and keep it premium and institutional. The font
+    files, loader and token are removed and every serif slot is reset in the display face.
+    Rather than guess at weights and sizes, three Big Shoulders-only type systems were
+    rendered as specimens (all nine key surfaces, 1440 and 390) and scored by three
+    judges (premium, institutional, legibility). All three chose the "timing sheet"
+    system, and its corrections are what shipped:
+    - Two registers only. 800 uppercase, tracking 0.01em, line-height 0.86 to 0.9 for the
+      big moments (hero, chapter titles, film titles, numerals, ticket label, phone number).
+      700 uppercase, tracked, for everything else that speaks: statements (0.05em,
+      line-height 1.28, so a sentence reads as a plaque), lines (0.06em, small, under a
+      headline), labels, kickers, numeral labels, nav, buttons and text links (0.12em).
+    - Mono only for readouts and captions: SS codes, TOT/INT, coordinates, time controls,
+      ticket meta, photo captions. The roadbook row is entirely mono, like the document.
+    - One primary button style (sodium fill, Big Shoulders 700, 15px, 0.12em) plus the
+      ticket; text links in the face with a hairline underline.
+    - The ghost chapter index moves to the right of the title on its baseline (it used to
+      sit behind the first letters and read as a misprint) and is hidden on phones.
+    - Captions and small labels on the light ground are murram, not grease (6.3:1 rather
+      than 3.2:1 contrast); on the dark ground chalk at 55 to 60 percent.
+    - The hero headline is set exactly as the client's sample: "ARRIVE &" over "DRIVE.".
+    The wordmark stays in Archivo expanded: it is the mark, drawn to match the logo lockup,
+    not typography, and the answer is ready if the client asks.
+
+47. **Adversarial verification of round 4, and what it changed.** Four refuting lenses
+    (client match, premium and institutional, mobile legibility, hard rules) ran against the
+    built site before the push. Applied: the speed strip under the home hero was invisible
+    (a stroke inheriting a transparent colour) and, being the least institutional device on
+    the site, is deleted rather than fixed; enquiry option titles, FAQ questions, footer
+    navigation and the contact facts move into the display face; numerals follow one rule
+    per row (a row with words steps down one size, only a coordinate pair stays in mono);
+    the count-up animation is gone; one list primitive (hairline rows, mono index, no
+    glyphs); one finish size everywhere; the offer strip no longer repeats itself (the
+    ticket meta is the event and the year, the eyebrow carries "applications open" once);
+    the package figures live once, on home, and The Drive's IN list is the client's own
+    nine-item sheet; no photograph appears twice on a page (The Drive hero is now the event
+    frame, the seat plate the shakedown frame, home's tall car plate the welded-in cage, the
+    contact plate is gone); the cars finish sells the own-car programme with "Start with a
+    call"; the header is light on the light pages; HUD readouts get a scrim; map labels get
+    a knockout halo and lose the invented kilometres; small labels move up to 12px and AA
+    contrast; the rail goes glyph-only below a legible label size instead of clipping the
+    finish control at laptop heights; the sticky bar on The Drive is phone and tablet only
+    and steps aside for tickets and the footer; the legal pages lose the visible DRAFT
+    banner (counsel review still pending in the checklist); the brief form's success copy
+    is now true; the wizard's em dash is gone; footer tel links are valid. Declined: any
+    caption or label that would invent a fact (dates, chassis numbers, event years), and
+    replacing the five film frames on home with a list (the client asked for the
+    photography to carry the site).
+
 ## Verification notes
 17. Full-page screenshots are taken with `prefers-reduced-motion` emulated — this doubles
     as the reduced-motion acceptance pass. A real bug was found and fixed this way

@@ -8,7 +8,7 @@ export default function NotFound() {
           OFF ROUTE · CONTROL NOT FOUND (404)
         </p>
         <h1 className="display-wide mt-4 text-h1">Wrong slot, wrong page.</h1>
-        <p className="mt-6 max-w-xl text-lead text-chalk/80">
+        <p className="editorial mt-6 max-w-[46ch] text-chalk/85">
           This control does not exist on the roadbook. Rejoin at the last passage control
           and carry on. No penalty applied.
         </p>

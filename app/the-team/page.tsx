@@ -2,7 +2,6 @@ import { Page } from "@/components/layout/Page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Chapter } from "@/components/ui/Chapter";
 import { Ledger } from "@/components/ui/Ledger";
-import { NumeralRow } from "@/components/ui/Numeral";
 import { PageHero } from "@/components/ui/PageHero";
 import { PhoneRow } from "@/components/ui/PhoneRow";
 import { Plate } from "@/components/ui/Plate";
@@ -31,7 +30,7 @@ export default function TheTeamPage() {
         kicker={teamHero.kicker}
         headline={
           <>
-            Names you can <span className="em-serif">phone.</span>
+            Names you can phone.
           </>
         }
         headlineClassName="max-w-[10ch] text-marquee"
@@ -54,7 +53,7 @@ export default function TheTeamPage() {
           </div>
           <div className="mt-12 lg:col-span-8 lg:col-start-5 lg:mt-0">
             <Reveal>
-              <p className="data-mono text-[11px] tracking-[0.16em] text-murram">{ghose.code}</p>
+              <p className="display-cond text-[13px] tracking-[0.14em] text-murram">{ghose.code}</p>
               <h2 className="display-wide mt-4 text-h1">{ghose.name}</h2>
               <p className="data-mono mt-3 text-data-s text-murram">{ghose.role}</p>
             </Reveal>
@@ -80,7 +79,6 @@ export default function TheTeamPage() {
             mobileRatio="4/5"
             position={base.plate.position}
             caption={base.plate.caption}
-            tag={base.plate.tag}
             sizes="100vw"
             dark
           />
@@ -90,10 +88,12 @@ export default function TheTeamPage() {
             <Statement dark rule={false}>
               {base.statement}
             </Statement>
+            <Reveal delay={100}>
+              <p className="measure mt-6 text-body text-chalk/75">{base.body}</p>
+            </Reveal>
           </div>
           <div className="lg:col-span-5 lg:col-start-8">
-            <NumeralRow dark size="m" items={base.coordinates} />
-            <Ledger dark mode="facts" numbered={false} rows={base.facts} className="mt-10" />
+            <Ledger dark mode="facts" numbered={false} rows={base.facts} />
           </div>
         </Container>
       </Section>
@@ -102,20 +102,13 @@ export default function TheTeamPage() {
       <Section roadbook="THE CREW" className="clip-x py-section">
         <Container>
           <Chapter code={crew.code} number={crew.number} title={crew.title} tulip={2} />
-          <NumeralRow
-            className="mt-16"
-            size="m"
-            caption={crew.numerals.caption}
-            items={crew.numerals.items}
-          />
-          <div className="mt-20 lg:grid lg:grid-cols-12 lg:gap-8">
+          <div className="mt-16 lg:mt-20 lg:grid lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-5">
               <Plate
                 image={crew.plates.shirts.image}
                 ratio="4/5"
                 position={crew.plates.shirts.position}
                 caption={crew.plates.shirts.caption}
-                tag={crew.plates.shirts.tag}
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="bleed-x lg:mx-0 [&_figcaption]:px-5 [&_figcaption]:sm:px-8 [&_figcaption]:lg:px-0"
               />

@@ -51,19 +51,25 @@ export function Header() {
     ? `https://wa.me/${site.contact.whatsapp}`
     : null;
 
+  // Pages that open on the light ground get a light bar until they scroll.
+  const LIGHT = ["/contact", "/journal", "/privacy", "/terms", "/cookies"];
+  const light = !solid && !open && LIGHT.some((p) => pathname === p || pathname?.startsWith(p + "/"));
+
   return (
     <>
     <header
-      className={`fixed inset-x-0 top-0 z-[70] text-chalk transition-colors duration-300 ${
+      className={`fixed inset-x-0 top-0 z-[70] transition-colors duration-300 ${
         solid || open
-          ? "bg-night"
-          : "bg-gradient-to-b from-night/60 to-transparent"
+          ? "bg-night text-chalk"
+          : light
+            ? "border-b rule bg-feshfesh/90 text-night backdrop-blur-sm"
+            : "bg-gradient-to-b from-night/60 to-transparent text-chalk"
       }`}
     >
       <div className="relative flex items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
         <Link
           href="/"
-          className="wordmark text-base leading-none sm:text-lg lg:text-[1.625rem]"
+          className="wordmark -my-2 py-2 text-base leading-none sm:text-lg lg:text-[1.625rem]"
           aria-label="Minti Motorsport home"
         >
           MINTI<span className="text-sodium">·</span>MOTORSPORT
@@ -71,7 +77,7 @@ export function Header() {
 
         <span
           aria-hidden="true"
-          className={`data-mono absolute right-[72px] top-1/2 hidden -translate-y-1/2 whitespace-nowrap text-[10px] font-semibold tracking-[0.08em] text-sodium transition-opacity duration-300 min-[375px]:block lg:!hidden ${
+          className={`data-mono absolute right-[72px] top-1/2 hidden -translate-y-1/2 whitespace-nowrap text-[11px] font-semibold tracking-[0.08em] transition-opacity duration-300 min-[400px]:block lg:!hidden ${light ? "text-murram" : "text-sodium"} ${
             roadbook?.show && !open ? "opacity-100" : "opacity-0"
           }`}
         >
@@ -86,8 +92,14 @@ export function Header() {
               key={item.href}
               href={item.href}
               aria-current={pathname === item.href ? "page" : undefined}
-              className={`display-cond text-data-s tracking-[0.14em] transition-colors hover:text-sodium ${
-                pathname === item.href ? "text-sodium" : "text-chalk/80"
+              className={`display-cond text-[0.875rem] transition-colors ${
+                light
+                  ? pathname === item.href
+                    ? "text-murram"
+                    : "text-night/80 hover:text-murram"
+                  : pathname === item.href
+                    ? "text-sodium"
+                    : "text-chalk/80 hover:text-sodium"
               }`}
             >
               {item.label}
@@ -95,7 +107,7 @@ export function Header() {
           ))}
           <Link
             href="/enquire"
-            className="display-cond bg-sodium px-5 py-2.5 text-data-s tracking-[0.14em] text-night transition-colors hover:bg-chalk"
+            className="display-cond bg-sodium px-5 py-2.5 text-[0.8125rem] text-night transition-colors hover:bg-chalk"
           >
             {site.cta.primary}
           </Link>
@@ -106,7 +118,7 @@ export function Header() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen(!open)}
-          className="display-cond -mr-2 px-2 py-2 text-data-s tracking-[0.16em] lg:hidden"
+          className="display-cond -mr-2 px-2 py-2 text-[0.875rem] lg:hidden"
         >
           {open ? "Close" : "Menu"}
         </button>
@@ -166,14 +178,14 @@ export function Header() {
           style={{ "--menu-delay": "420ms" } as React.CSSProperties}
         >
           <div className="flex items-center justify-between border-t border-chalk/15 pt-5">
-            <p className="data-mono text-[11px] text-grease">
+            <p className="data-mono text-[12px] text-chalk/60">
               NAIROBI · {site.base.coords}
             </p>
             {whatsappHref ? (
               <a
                 href={whatsappHref}
                 onClick={() => track(events.whatsapp)}
-                className="data-mono text-[11px] text-chalk/70 underline-offset-4 hover:text-sodium"
+                className="display-cond py-3 text-[13px] text-chalk/80 hover:text-sodium"
               >
                 WhatsApp
               </a>
@@ -187,7 +199,7 @@ export function Header() {
         >
           <Link
             href="/enquire"
-            className="display-cond block bg-sodium px-6 py-5 text-center text-data tracking-[0.2em] text-night"
+            className="display-cond block bg-sodium px-6 py-5 text-center text-[15px] text-night"
           >
             {site.cta.primary}
           </Link>

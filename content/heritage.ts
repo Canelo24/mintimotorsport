@@ -23,9 +23,8 @@ export const stewardship = {
   code: "SS5/01 · THE SAFARI CLASSIC",
   title: "Inside the Safari Classic.",
   tenure: { value: "FROM 2020", label: "INSIDE THE EVENT" },
-  statement:
-    "We have lived inside the East African Safari Classic Rally since 2020. We know what this event does to cars, crews and schedules.",
-  body: "That is the part of a Safari entry that is hardest to buy.",
+  statement: "Inside the Safari Classic since 2020.",
+  body: "We know what this event does to cars, crews and schedules. That is the part of a Safari entry that is hardest to buy.",
 };
 
 export const crews = {

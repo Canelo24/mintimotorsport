@@ -35,7 +35,7 @@ export function Accordion({ items, dark }: { items: Item[]; dark?: boolean }) {
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-lead font-semibold">{item.q}</span>
+                  <span className="display-wide text-h3 leading-none">{item.q}</span>
                 </span>
                 <span
                   aria-hidden="true"

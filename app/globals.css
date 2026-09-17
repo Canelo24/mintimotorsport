@@ -22,7 +22,6 @@
   --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
   --font-body: var(--font-familjen), "Segoe UI", "Helvetica Neue", sans-serif;
   --font-mono: var(--font-plex-mono), "Courier New", monospace;
-  --font-serif: var(--font-instrument), "Times New Roman", Georgia, serif;
 
   /* Named type scale — fluid. Sized for the tall condensed display face. */
   --text-data-s: 0.75rem;
@@ -44,8 +43,8 @@
   /* The number moment and the one-sentence voice (editorial pass, 2026-09-15) */
   --text-numeral: clamp(5rem, 3rem + 10vw, 14rem);
   --text-numeral--line-height: 0.82;
-  --text-statement: clamp(2rem, 1.35rem + 2.8vw, 4.25rem);
-  --text-statement--line-height: 1.05;
+  --text-statement: clamp(1.75rem, 1.2rem + 2.3vw, 3.125rem);
+  --text-statement--line-height: 1.28;
 
   /* Motion */
   --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
@@ -108,12 +107,13 @@ body {
   letter-spacing: -0.015em;
 }
 
+/* The rubric register: labels, buttons, nav, kickers. Big Shoulders 700, tracked */
 .display-cond {
-  font-family: var(--font-display);
-  font-stretch: 66%;
-  font-weight: 600;
+  font-family: var(--font-marquee);
+  font-weight: 700;
+  font-optical-sizing: auto;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
 }
 
 /* Roadbook / data voice */
@@ -342,7 +342,7 @@ body {
 
 /* Journal long-form typography */
 .journal-prose {
-  max-width: 65ch;
+  max-width: 60ch;
 }
 
 .journal-prose p {
@@ -396,20 +396,17 @@ body {
 /*  Editorial system (2026-09-15): statement voice, numerals, plates   */
 /* ------------------------------------------------------------------ */
 
-/* One sentence set large, in the serif: the editorial voice */
+/* One sentence set as a plaque: Big Shoulders 700, tracked, air between lines */
 .statement {
-  font-family: var(--font-serif);
-  font-weight: 400;
+  font-family: var(--font-marquee);
+  font-weight: 700;
+  font-optical-sizing: auto;
   font-size: var(--text-statement);
   line-height: var(--text-statement--line-height);
-  letter-spacing: -0.005em;
-  max-width: 24ch;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  max-width: 34ch;
   text-wrap: balance;
-}
-
-.statement em,
-.statement i {
-  font-style: italic;
 }
 
 /* Prose never runs wider than a comfortable measure */
@@ -417,29 +414,36 @@ body {
   max-width: 56ch;
 }
 
-/* Ghost chapter numeral behind a title */
+/* Ghost chapter index: right-aligned on the title's baseline, never under the words.
+   Hidden on phones, where the title owns the full width. */
 .ghost-numeral {
   position: absolute;
-  left: -0.08em;
-  top: -0.3em;
+  right: -0.03em;
+  bottom: -0.1em;
   font-family: var(--font-marquee);
   font-weight: 800;
   font-size: var(--text-numeral);
-  line-height: 1;
+  line-height: 0.8;
   letter-spacing: -0.02em;
-  opacity: 0.12;
+  opacity: 0.1;
   pointer-events: none;
   user-select: none;
   z-index: 0;
 }
 
-/* Photo captions: mono, small, factual */
+@media (max-width: 1023px) {
+  .ghost-numeral {
+    display: none;
+  }
+}
+
+/* Photo captions: mono, small, factual. Colour set at the usage (murram on light, chalk on dark). */
 .caption {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-grease);
 }
 
 /* Film grain over photography: a static SVG noise tile, blended over.
@@ -506,36 +510,18 @@ body {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Round 3 (2026-09-15): the serif voice, the HUD, the roadbook map   */
+/*  Round 3 (2026-09-15, revised 09-17): one display face, HUD, map    */
 /* ------------------------------------------------------------------ */
 
-/* Editorial serif at display scale */
+/* The line voice: one or two lines under a headline, Big Shoulders 700, tracked, small */
 .editorial {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.01em;
-}
-
-.editorial-i {
-  font-style: italic;
-}
-
-/* The serif word inside a Big Shoulders headline: "TAKE A <em>seat.</em>" */
-.em-serif {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-style: italic;
-  text-transform: none;
-  letter-spacing: -0.015em;
-  font-size: 1.06em;
-  line-height: 0.9;
-}
-
-/* Stroke-only display type for the speed strip */
-.outline-text {
-  -webkit-text-stroke: 1px currentColor;
-  color: transparent;
+  font-family: var(--font-marquee);
+  font-weight: 700;
+  font-optical-sizing: auto;
+  text-transform: uppercase;
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  line-height: 1.38;
+  letter-spacing: 0.06em;
 }
 
 /* Hero headline: rises, sharpens, settles */
@@ -574,17 +560,6 @@ body {
 .hud-boot {
   animation: hud-boot 1s steps(1, end) both;
   animation-delay: var(--boot-delay, 0ms);
-}
-
-/* Speed strip: faster than the marquee, stroke-only type */
-@keyframes speed-run {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.speed-track {
-  animation: speed-run 16s linear infinite;
-  will-change: transform;
 }
 
 /* Rotating stamp */
@@ -633,7 +608,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .hero-slam,
   .hud-boot,
-  .speed-track,
   .spin-slow {
     animation: none;
     opacity: 1;

@@ -34,7 +34,7 @@ export default function TheCarsPage() {
         kicker={carsHero.kicker}
         headline={
           <>
-            The <span className="em-serif">Escort.</span>
+            The Escort.
           </>
         }
       />
@@ -44,9 +44,8 @@ export default function TheCarsPage() {
         <Container className="py-section-xl">
           <Statement rule>{partnership.statement}</Statement>
           <Reveal delay={120}>
-            <p className="data-mono mt-8 max-w-xl text-[11px] leading-relaxed tracking-[0.08em] text-grease">
-              {partnership.footnote}
-            </p>
+            <p className="measure mt-8 text-body text-night/80">{partnership.body}</p>
+            <p className="measure mt-4 text-data text-night/70">{partnership.footnote}</p>
           </Reveal>
         </Container>
       </Section>
@@ -68,7 +67,6 @@ export default function TheCarsPage() {
               <Chapter
                 dark
                 code={mk2.code}
-                number={mk2.number}
                 title={mk2.title}
                 statement={mk2.statement}
                 tulip={1}
@@ -121,7 +119,6 @@ export default function TheCarsPage() {
               mobileRatio="4/5"
               position="50% 50%"
               caption={cage.caption}
-              tag={cage.tag}
               sizes="(min-width: 1024px) 60vw, 100vw"
               className="bleed-x lg:col-span-7 lg:mx-0"
             />
@@ -129,7 +126,6 @@ export default function TheCarsPage() {
               image={dial.image}
               ratio="4/5"
               caption={dial.caption}
-              tag={dial.tag}
               sizes="(min-width: 1024px) 30vw, 70vw"
               delay={120}
               className="mt-12 ml-auto w-[70%] lg:col-span-4 lg:col-start-9 lg:mt-32 lg:w-full"
@@ -161,6 +157,9 @@ export default function TheCarsPage() {
         line={otherMachinery.line}
         from="the-cars"
         href={otherMachinery.href}
+        eyebrow={otherMachinery.eyebrow}
+        ticketMeta={otherMachinery.ticketMeta}
+        ticketLabel={otherMachinery.ticketLabel}
       />
     </Page>
   );

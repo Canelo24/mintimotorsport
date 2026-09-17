@@ -288,7 +288,7 @@ export function EnquiryWizard() {
                       {...register(current.field)}
                     />
                     <span className="flex items-start justify-between gap-3">
-                      <span className="text-lead font-semibold text-chalk">{opt.label}</span>
+                      <span className="display-wide text-h3 leading-none text-chalk">{opt.label}</span>
                       <span
                         aria-hidden="true"
                         className={`data-mono mt-1 text-data ${selected ? "text-sodium" : "text-grease"}`}

@@ -33,7 +33,7 @@ export default function HeritagePage() {
         kicker={heritageHero.kicker}
         headline={
           <>
-            We have stood in <span className="em-serif">this dust before.</span>
+            We have stood in this dust before.
           </>
         }
         headlineClassName="max-w-[14ch] text-[clamp(3.25rem,2rem+6.5vw,9rem)] leading-[0.9]"
@@ -69,7 +69,7 @@ export default function HeritagePage() {
       {/* Crews we have run: the names only */}
       <Section roadbook="CREWS RUN" dark className="py-section">
         <Container>
-          <Chapter dark code={crews.code} title={crews.title} size="m" tulip={1} />
+          <Chapter dark code={crews.code} title={crews.title} tulip={1} />
           <ol className="mt-16 divide-y rule border-y">
             {crews.entries.map((entry, i) => (
               <Reveal
@@ -81,7 +81,7 @@ export default function HeritagePage() {
                 <p className="data-mono text-data-s text-sodium lg:col-span-1">
                   {String(i + 1).padStart(2, "0")}
                 </p>
-                <p className="display-wide mt-3 text-h1 lg:col-span-8 lg:mt-0">{entry.name}</p>
+                <p className="display-wide mt-3 text-h2 lg:col-span-8 lg:mt-0">{entry.name}</p>
                 <p className="data-mono mt-4 text-data text-sodium lg:col-span-3 lg:mt-0 lg:text-right">
                   {entry.car}
                 </p>
@@ -115,7 +115,6 @@ export default function HeritagePage() {
         variant="full"
         roadbook="FINISH"
         headline="The next chapter has a seat in it."
-        scarcity="EAST AFRICAN SAFARI CLASSIC 2027 · APPLICATIONS OPEN"
         from="heritage"
         image={images.askMurramRoadAerial}
         position="50% 60%"

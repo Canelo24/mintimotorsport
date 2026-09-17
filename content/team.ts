@@ -35,20 +35,16 @@ export const base = {
   code: "SS4/02 · THE BASE",
   number: "02",
   title: "Home ground.",
-  statement:
-    "This is where the team lives, not somewhere it deploys to. Cars are prepared and shaken down on the surfaces they race on.",
+  statement: "Where the team lives, not somewhere it deploys to.",
+  body: "Cars are prepared and shaken down on the surfaces they race on.",
   plate: {
     image: images.teamWorkshopBay,
     caption: "THE BAY · A FRESH BUILD",
-    tag: "THE COMPETITION CAR",
     position: "50% 55%",
   },
-  coordinates: [
-    { value: "1.2921° S", label: "LATITUDE · NAIROBI" },
-    { value: "36.8219° E", label: "LONGITUDE · NAIROBI" },
-  ],
   facts: [
     { k: "WORKSHOP", v: "Galleria Business Park, Loita" },
+    { k: "COORDINATES", v: "1.2921° S, 36.8219° E" },
     { k: "REGISTERED", v: "United Kingdom" },
     { k: "TEST ROADS", v: "Private murram" },
   ],
@@ -59,19 +55,10 @@ export const crew = {
   code: "SS4/03 · SERVICE",
   number: "03",
   title: "The 2am department.",
-  numerals: {
-    caption: "IN THE 2027 PACKAGE",
-    items: [
-      { value: "1", label: "TEAM MANAGER" },
-      { value: "5", label: "MECHANICS" },
-      { value: "3", label: "SUPPORT DRIVERS" },
-    ],
-  },
   plates: {
     shirts: {
       image: images.peopleCrewAtWork,
       caption: "TEAM SHIRTS · SERVICE",
-      tag: "THE COMPETITION CAR",
       position: "50% 30%",
     },
     wheelNuts: {
@@ -85,6 +72,6 @@ export const crew = {
 
 /** The finish control. */
 export const finish = {
-  headline: "You will know every name by shakedown week.",
+  headline: "Every name, by shakedown.",
   line: "The people who keep the car alive, and the seat they run.",
 };

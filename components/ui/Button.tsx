@@ -20,15 +20,15 @@ type ButtonProps = {
 
 const variants: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "display-cond min-h-16 bg-sodium px-10 py-5 text-[14px] tracking-[0.2em] text-night hover:bg-chalk focus-visible:bg-chalk",
+    "display-cond min-h-16 bg-sodium px-10 py-5 text-[15px] text-night hover:bg-chalk focus-visible:bg-chalk",
   "ghost-dark":
-    "display-cond min-h-16 border border-chalk/45 px-10 py-5 text-[14px] tracking-[0.2em] text-chalk hover:border-sodium hover:text-sodium",
+    "display-cond min-h-16 border border-chalk/45 px-10 py-5 text-[15px] text-chalk hover:border-sodium hover:text-sodium",
   "ghost-light":
-    "display-cond min-h-16 border border-night/45 px-10 py-5 text-[14px] tracking-[0.2em] text-night hover:border-murram hover:text-murram",
+    "display-cond min-h-16 border border-night/45 px-10 py-5 text-[15px] text-night hover:border-murram hover:text-murram",
   "text-dark":
-    "data-mono text-[12px] uppercase tracking-[0.14em] text-chalk/80 underline-offset-[6px] hover:text-sodium hover:underline",
+    "display-cond -my-2 py-2 text-[13px] text-chalk/85 underline decoration-1 underline-offset-[6px] hover:text-sodium",
   "text-light":
-    "data-mono text-[12px] uppercase tracking-[0.14em] text-murram underline-offset-[6px] hover:underline",
+    "display-cond -my-2 py-2 text-[13px] text-murram underline decoration-1 underline-offset-[6px] hover:text-night",
 };
 
 /**

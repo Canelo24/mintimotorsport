@@ -18,7 +18,7 @@ type Props = {
   /** Optional film loop over the still (still remains the fallback). */
   video?: { src: string; mobileSrc?: string };
   kicker: string;
-  /** JSX so a page can set one word in the serif: TAKE A <span className="em-serif">seat.</span> */
+  /** JSX so a page can break lines or set a word in sodium. Always Big Shoulders. */
   headline: ReactNode;
   headlineClassName?: string;
   line?: string;
@@ -53,7 +53,7 @@ export function PageHero({
   primary,
   secondary,
   grain = 0.07,
-  gradient = "h-[64%]",
+  gradient = "h-[72%] lg:h-[64%]",
   crest = true,
   strip = false,
   children,
@@ -86,10 +86,10 @@ export function PageHero({
         aria-hidden="true"
       />
       {/* a whisper of vignette at the top so the header never fights the sky */}
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-night/50 to-transparent" aria-hidden="true" />
+      <div className="absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-night/75 via-night/35 to-transparent" aria-hidden="true" />
       <Hud path={path} />
       <Container className="relative pb-16 pt-44 sm:pb-20">
-        <p className="hero-rise data-mono text-data font-medium tracking-[0.14em] text-sodium" style={rise(60)}>
+        <p className="hero-rise display-cond text-[0.875rem] tracking-[0.16em] text-sodium" style={rise(60)}>
           {kicker}
         </p>
         <h1 className={`hero-slam display-wide mt-5 text-chalk ${headlineClassName}`} style={rise(160)}>
@@ -97,7 +97,7 @@ export function PageHero({
         </h1>
         {line ? (
           <p
-            className="hero-rise editorial mt-8 max-w-[30ch] text-[clamp(1.5rem,1.2rem+1.5vw,2.5rem)] text-chalk/90"
+            className="hero-rise editorial mt-8 max-w-[44ch] text-chalk/90"
             style={rise(360)}
           >
             {line}

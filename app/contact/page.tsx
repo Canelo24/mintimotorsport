@@ -3,12 +3,10 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Ledger } from "@/components/ui/Ledger";
 import { PhoneRow } from "@/components/ui/PhoneRow";
-import { Plate } from "@/components/ui/Plate";
 import { Container, Section } from "@/components/ui/Section";
 import { StageStrip } from "@/components/ui/StageStrip";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
-import { images } from "@/content/images.generated";
 
 export const metadata = buildMetadata({
   title: "Contact · Nairobi workshop, direct lines",
@@ -22,15 +20,15 @@ export default function ContactPage() {
     <Page path="/contact">
       <Section roadbook="THE LINES" className="pb-section pt-40 lg:pt-48">
         <Container>
-          <p className="hero-rise data-mono text-data font-medium text-murram">SS7 · CONTACT</p>
+          <p className="hero-rise display-cond text-[0.875rem] tracking-[0.16em] text-murram">SS7 · CONTACT</p>
           <h1
             className="hero-rise display-wide mt-4 text-h1"
             style={{ "--rise-delay": "120ms" } as React.CSSProperties}
           >
-            Talk to a <span className="em-serif">person.</span>
+            Talk to a person.
           </h1>
           <p
-            className="hero-rise mt-6 max-w-[40ch] text-lead text-night/80"
+            className="hero-rise editorial mt-6 max-w-[46ch] text-night/85"
             style={{ "--rise-delay": "240ms" } as React.CSSProperties}
           >
             The enquiry lands with the team directly. For everything else, the lines below.
@@ -47,15 +45,22 @@ export default function ContactPage() {
                 href={`mailto:${site.contact.email}`}
                 className="group flex flex-col gap-1 border-b rule py-4 text-night sm:flex-row sm:items-baseline sm:justify-between"
               >
-                <span className="data-mono text-[11px] tracking-[0.16em] text-grease">EMAIL</span>
-                <span className="data-mono flex items-baseline gap-4 text-data font-semibold">
+                <span className="data-mono text-[12px] font-medium tracking-[0.1em] text-murram">EMAIL</span>
+                <span className="data-mono flex items-center gap-4 text-data font-medium">
                   {site.contact.email}
-                  <span
+                  <svg
+                    viewBox="0 0 32 16"
+                    className="h-3.5 w-7 shrink-0 text-sodium transition-transform duration-200 group-hover:translate-x-1.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     aria-hidden="true"
-                    className="text-sodium transition-transform duration-200 group-hover:translate-x-1"
                   >
-                    →
-                  </span>
+                    <path d="M1 8 H30" />
+                    <path d="M23 2 L30 8 L23 14" />
+                  </svg>
                 </span>
               </a>
 
@@ -92,21 +97,12 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* The workshop: one photograph and the facts. */}
+            {/* The workshop: the facts. */}
             <div className="mt-12 lg:col-span-5 lg:col-start-8 lg:mt-0">
-              <Plate
-                image={images.peopleWorkshopNairobi}
-                ratio="4/5"
-                caption="THE BAY · A FRESH BUILD"
-                tag="THE COMPETITION CAR"
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="bleed-x lg:mx-0"
-              />
               <Ledger
                 mode="facts"
                 numbered={false}
                 emphasis
-                className="mt-10"
                 rows={[
                   { k: "WORKSHOP", v: "Nairobi, Kenya" },
                   { k: "ADDRESS", v: site.base.address },

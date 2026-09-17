@@ -41,15 +41,15 @@ export function FilmStack({ code, title, frames }: Props) {
                 style={{ objectPosition: f.position ?? "50% 50%" }}
                 loading={i === 0 ? "eager" : "lazy"}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-night via-night/35 to-night/10" aria-hidden="true" />
+              <div className="absolute inset-0 bg-gradient-to-t from-night via-night/35 to-night/60" aria-hidden="true" />
               <div className="grain absolute inset-0" style={{ "--grain": 0.07 } as React.CSSProperties} aria-hidden="true" />
               {/* control header */}
               <div className="absolute inset-x-0 top-0 flex items-center justify-between px-5 pt-24 text-sodium sm:px-8 lg:pl-[calc(var(--spacing-rail)+2rem)]">
                 <span className="flex items-center gap-3">
                   <Glyph className="h-7 w-7" />
-                  <span className="data-mono text-[11px] tracking-[0.18em]">TIME CONTROL {f.tc}</span>
+                  <span className="data-mono text-[12px] font-medium tracking-[0.1em]">TIME CONTROL {f.tc}</span>
                 </span>
-                <span className="data-mono text-[11px] tracking-[0.18em] text-chalk/70">
+                <span className="data-mono text-[12px] font-medium tracking-[0.1em] text-chalk/85">
                   {f.tc} / {String(frames.length).padStart(2, "0")}
                 </span>
               </div>
@@ -57,8 +57,8 @@ export function FilmStack({ code, title, frames }: Props) {
               <div className="absolute inset-x-0 bottom-0 px-5 pb-12 sm:px-8 sm:pb-16 lg:pl-[calc(var(--spacing-rail)+2rem)]">
                 <div className="mx-auto max-w-[84rem]">
                   <p className="display-wide text-h2 leading-none text-chalk/35">{f.tc}</p>
-                  <h3 className="editorial editorial-i mt-2 text-[clamp(3rem,1.5rem+7.5vw,10rem)] text-chalk">{f.title}</h3>
-                  <p className="mt-5 max-w-[34ch] text-lead text-chalk/85">{f.body}</p>
+                  <h3 className="display-wide mt-2 text-h1 text-chalk">{f.title}</h3>
+                  <p className="editorial mt-5 max-w-[44ch] text-chalk/90">{f.body}</p>
                 </div>
               </div>
             </article>

@@ -17,15 +17,15 @@ export const metadata = buildMetadata({
 export default function EnquirePage() {
   return (
     <Page path="/enquire">
-      <Section roadbook="FINISH CONTROL" dark className="min-h-screen pb-28 pt-36">
+      <Section roadbook="FINISH CONTROL" dark className="clip-x min-h-screen pb-28 pt-36">
         <Container className="max-w-3xl">
-          <p className="data-mono text-data font-medium text-sodium">
+          <p className="display-cond text-[0.875rem] tracking-[0.16em] text-sodium">
             FIN · FINISH CONTROL · FIVE QUESTIONS, THEN A CALL
           </p>
           <h1 className="display-wide mt-4 text-h1">
-            Take a <span className="em-serif">seat.</span>
+            Take a seat.
           </h1>
-          <p className="mt-5 max-w-xl text-lead text-chalk/80">
+          <p className="editorial mt-5 max-w-[46ch] text-chalk/85">
             One question per screen, about a minute in total. Your answers go to the team and
             get read the same day.
           </p>

@@ -1,17 +1,15 @@
 import { PageHero } from "@/components/ui/PageHero";
-import { SpeedStrip } from "@/components/ui/SpeedStrip";
 import { events } from "@/lib/analytics";
 import { hero } from "@/content/home";
 
 /**
  * Home hero: the film loop where context allows (muted, no controls, a
  * sub-1MB rendition on phones) with the jump still beneath as the fallback.
- * Two words in two voices, one line, one ask, then the speed strip.
+ * Two lines, one face, one line, one ask.
  */
 export function Hero() {
   return (
-    <>
-      <PageHero
+    <PageHero
         path="/"
         roadbook="THE OFFER"
         image={hero.image}
@@ -20,12 +18,12 @@ export function Hero() {
         kicker={hero.kicker}
         headline={
           <>
-            {hero.headline.shout}
+            {hero.headline.line1}
             <br />
-            <span className="em-serif">{hero.headline.serif}</span>
+            {hero.headline.line2}
           </>
         }
-        headlineClassName="max-w-[9ch] text-[clamp(4.75rem,2rem+11.5vw,13.5rem)] leading-[0.84]"
+        headlineClassName="max-w-[9ch] text-[clamp(4.75rem,2rem+11.5vw,13.5rem)] leading-[0.86]"
         line={hero.sub}
         primary={{
           label: hero.primaryCta,
@@ -36,7 +34,5 @@ export function Hero() {
         secondary={{ label: hero.secondaryCta, href: hero.secondaryHref }}
         grain={0.08}
       />
-      <SpeedStrip words={hero.strip} solid={1} />
-    </>
   );
 }

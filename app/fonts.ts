@@ -8,9 +8,9 @@ import localFont from "next/font/local";
  * - Familjen Grotesk (variable)         — body: warm editorial grotesk,
  *   17–19px long-form with actual personality
  * - IBM Plex Mono                       — everything numeric and factual
- * - Instrument Serif (regular + italic) — the editorial voice: statements,
- *   the serif half of every hero headline, the one word set in italic
- *   against the condensed grotesk. Luxury editorial against motorsport.
+ *
+ * One display face only (client, 2026-09-17): Big Shoulders carries every
+ * headline, statement, label, button and nav role. No serif.
  */
 
 export const bigShoulders = localFont({
@@ -62,14 +62,4 @@ export const plexMono = localFont({
   fallback: ["Courier New", "monospace"],
 });
 
-export const instrumentSerif = localFont({
-  src: [
-    { path: "./fonts/instrument-serif-regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/instrument-serif-italic.woff2", weight: "400", style: "italic" },
-  ],
-  display: "swap",
-  variable: "--font-instrument",
-  fallback: ["Times New Roman", "Georgia", "serif"],
-});
-
-export const fontClassNames = `${bigShoulders.variable} ${archivo.variable} ${familjen.variable} ${plexMono.variable} ${instrumentSerif.variable}`;
+export const fontClassNames = `${bigShoulders.variable} ${archivo.variable} ${familjen.variable} ${plexMono.variable}`;

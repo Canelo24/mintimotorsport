@@ -61,13 +61,18 @@ exported shapes, and the components don't change. `lib/journal.ts` is the worked
 
 ## Editorial system (2026-09-15, round 3)
 
-Five voices: Big Shoulders (the shout), **Instrument Serif** (the editorial voice: statements
-and the italic word in every hero headline, e.g. "TAKE A *seat.*"), Archivo condensed
-(labels), Familjen (body), Plex Mono (data). Every marketing page is built from the
-components in `components/ui/` and `components/roadbook/`:
+One display face (client instruction, 2026-09-17: "use this font everywhere, keep it premium
+and institutional"). **Big Shoulders** carries every headline, statement, line, label, button
+and nav item in two registers: 800 uppercase for the big moments (hero, chapter titles,
+numerals, ticket label, phone number) and 700 uppercase, tracked 0.05 to 0.16em, for
+statements, lines, labels, buttons and nav (`.display-cond`, `.statement`, `.editorial`).
+IBM Plex Mono is reserved for data readouts and captions (SS codes, TOT/INT, coordinates,
+time controls, ticket meta). Familjen Grotesk is body paragraphs only. The wordmark stays
+in Archivo expanded because it matches the logo lockup. No serif anywhere. Every marketing
+page is built from the components in `components/ui/` and `components/roadbook/`:
 
 - `PageHero`: full-viewport photograph (plus loop where allowed), grain, the `Hud` (crop marks
-  and four readouts that boot on first paint), a two-voice headline, one serif line, the ask.
+  and four readouts that boot on first paint), the headline, one tracked line, the ask.
 - `Chapter` / `RoadbookRow`: every section opens with a real roadbook row (distance cell,
   tulip cell, instruction cell) and a hairline to the grid edge, then the display title with
   the chapter number ghosted behind it.
@@ -78,12 +83,12 @@ components in `components/ui/` and `components/roadbook/`:
 - `SeatTicket`: the signature ask as a perforated time card ("EASCR 2027 · TAKE A SEAT →").
   `TakeASeat` wraps it as the closing band on every page.
 - `FilmStack` (home): five full-viewport frames that stick and stack, one photograph, one
-  control, one serif word, one line. CSS sticky only.
+  control, one word, one line. CSS sticky only.
 - `SpeedStrip`: stroke-only display type running under the home hero.
-- `Plate`, `Numeral` / `NumeralRow`, `Statement` (serif), `Ledger`, `PhoneRow` as before.
+- `Plate`, `Numeral` / `NumeralRow`, `Statement`, `Ledger`, `PhoneRow` as before.
 
 Type and rhythm tokens live in `app/globals.css`. Captions state only what is visible in the
-frame; 911 frames are "the competition car". See DECISIONS.md 42 and 45.
+frame; 911 frames are "the competition car". See DECISIONS.md 42, 45 and 46.
 
 ## Lead delivery (configure before launch)
 

@@ -8,26 +8,25 @@ import { images, type ImageSlot } from "./images.generated";
  */
 
 /** A photograph and its caption. Captions state only what is in the frame. */
-type Plate = { image: ImageSlot; caption: string; tag: string };
+type Plate = { image: ImageSlot; caption: string };
 
 export const driveHero = {
   kicker: "SS2 · THE DRIVE · ARRIVE & DRIVE",
   headline: "Take a seat.",
   line: "Our car, our crew, your name on the door.",
-  image: images.driveHeroCockpit,
-  position: "50% 50%",
+  image: images.drive04TheEvent,
+  position: "50% 55%",
 };
 
 /** SS2/01. The 2027 package, from the client's own sheet (content/eascr2027). */
 export const seat = {
   code: "SS2/01 · APPLICATIONS OPEN",
   title: "The 2027 seat.",
-  priceLine: `${eascr2027.price.toUpperCase()} · ${eascr2027.priceLabel}`,
-  body: "One hire cost covers the whole campaign: a new MST Escort Mk2 built for you in the UK, freighted to Kenya and run by our crew. The figure is given plainly on the first call.",
+  body: "One all-in hire cost, priced on application. The figure is given plainly on the first call.",
+  detail: "A new MST Escort Mk2 is built for you in the UK, freighted to Kenya and run by our crew for the full event.",
   plate: {
-    image: images.drive04TheEvent,
-    caption: "THE EVENT · MURRAM AND THORN",
-    tag: "THE COMPETITION CAR",
+    image: images.drive02ShakedownTest,
+    caption: "SHAKEDOWN",
   } satisfies Plate,
   numerals: [
     { value: "1", label: "NEW MST ESCORT MK2" },
@@ -99,17 +98,9 @@ export const included = {
   plate: {
     image: images.drive01ArrivalNairobi,
     caption: "ARRIVAL DAY · THE FLEET",
-    tag: "THE COMPETITION CAR",
   } satisfies Plate,
-  yes: [
-    "A new MST Escort, Safari specification",
-    "Shakedown and seat time on private murram",
-    "Service crew, chase vehicles, spares, logistics",
-    "A co-driver, if you do not bring your own",
-    "Entry, scrutineering and administration",
-    "Accommodation and travel coordination for your family",
-    "Afterwards: storage, onward sale, or your next start",
-  ],
+  /** The client's own package sheet, verbatim: the one definitive list. */
+  yes: [...eascr2027.includes],
   no: [
     "Your flights to Nairobi. We coordinate, you book",
     "Competition licence and medical. We guide, you sign",
@@ -135,7 +126,6 @@ export const timeline = {
   plate: {
     image: images.drive05FinishRamp,
     caption: "END OF THE DAY · THE CREW",
-    tag: "THE COMPETITION CAR",
   } satisfies Plate,
 };
 
@@ -156,14 +146,13 @@ export const experience = {
   plate: {
     image: images.drive03ReadyToStart,
     caption: "STRAPPED IN · WAITING FOR THE OFF",
-    tag: "THE COMPETITION CAR",
   } satisfies Plate,
 };
 
 export const family = {
   eyebrow: "FAMILY",
-  statement:
-    "A Safari is one of the last rallies a family can genuinely follow. We arrange the accommodation, the spectating points and the days out between the halts.",
+  line: "A Safari is one of the last rallies a family can genuinely follow.",
+  body: "We arrange the accommodation, the spectating points and the days out between the halts.",
 };
 
 /** SS2/06. The questions asked on every first call. */

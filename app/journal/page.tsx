@@ -31,15 +31,15 @@ export default function JournalPage() {
     <Page path="/journal">
       <Section roadbook="THE NOTES" className="pb-section pt-40 lg:pt-48">
         <Container>
-          <p className="hero-rise data-mono text-data font-medium text-murram">SS6 · JOURNAL</p>
+          <p className="hero-rise display-cond text-[0.875rem] tracking-[0.16em] text-murram">SS6 · JOURNAL</p>
           <h1
             className="hero-rise display-wide mt-4 text-h1"
             style={{ "--rise-delay": "120ms" } as React.CSSProperties}
           >
-            Notes from <span className="em-serif">the road.</span>
+            Notes from the road.
           </h1>
           <p
-            className="hero-rise mt-6 max-w-[40ch] text-lead text-night/80"
+            className="hero-rise editorial mt-6 max-w-[46ch] text-night/85"
             style={{ "--rise-delay": "240ms" } as React.CSSProperties}
           >
             Build diaries, event reports, service-park craft. Written by the people who do the

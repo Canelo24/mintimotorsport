@@ -12,7 +12,7 @@ export const purposeOptions = [
 export const eventOptions = [
   { value: "eascr-2027", label: "East African Safari Classic 2027", detail: "Arrive & Drive, applications open now" },
   { value: "future", label: "A future edition", detail: "Planning one to three years out" },
-  { value: "advise", label: "Not sure yet — advise me", detail: "We'll recommend the right event and year" },
+  { value: "advise", label: "Not sure yet, advise me", detail: "We'll recommend the right event and year" },
 ] as const;
 
 export const experienceOptions = [

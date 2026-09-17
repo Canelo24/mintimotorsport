@@ -65,9 +65,7 @@ export default async function JournalPostPage({
           </article>
 
           <aside className="mt-16 border-t rule pt-8">
-            <p className="text-lead font-semibold">
-              Reading this from the other side of a decision?
-            </p>
+            <p className="editorial max-w-[44ch]">Reading this from the other side of a decision?</p>
             <div className="mt-5">
               <Button href="/enquire">{site.cta.primary}</Button>
             </div>

@@ -116,7 +116,7 @@ export function Plate({
       {caption || tag ? (
         <figcaption
           className={`caption mt-3 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 ${
-            dark ? "text-chalk/55" : ""
+            dark ? "text-chalk/55" : "text-murram"
           } ${bleeds ? "px-5 sm:px-8 lg:px-0" : ""}`}
         >
           <span>{caption}</span>

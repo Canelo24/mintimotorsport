@@ -9,7 +9,6 @@ import type { ImageSlot } from "@/content/images.generated";
 type TakeASeatProps = {
   headline: string;
   line?: string;
-  scarcity?: string;
   /** Analytics source, e.g. "home-finish". */
   from: string;
   href?: string;
@@ -18,18 +17,21 @@ type TakeASeatProps = {
   position?: string;
   video?: string;
   roadbook?: string;
+  /** The programme line above the headline. */
+  eyebrow?: string;
+  ticketMeta?: string;
+  ticketLabel?: string;
   className?: string;
 };
 
 /**
- * The signature ask, identical on every page: night band, one headline, one
- * serif line, the ticket, the organiser note. Full variant carries the
- * photograph (and optionally the service loop) at near full strength.
+ * The signature ask, identical on every page: night band, one eyebrow, one
+ * headline at one size, one line, the ticket, the organiser note. Full
+ * variant carries the photograph (and optionally the service loop).
  */
 export function TakeASeat({
   headline,
   line,
-  scarcity,
   from,
   href = eascr2027.applyHref,
   variant = "full",
@@ -37,6 +39,9 @@ export function TakeASeat({
   position = "50% 60%",
   video,
   roadbook = "FINISH",
+  eyebrow = "ARRIVE & DRIVE · APPLICATIONS OPEN",
+  ticketMeta,
+  ticketLabel,
   className = "",
 }: TakeASeatProps) {
   const full = variant === "full";
@@ -66,24 +71,17 @@ export function TakeASeat({
       ) : null}
       <Container className={`relative ${full ? "pb-16 pt-36 sm:pb-20" : "py-section"}`}>
         <Reveal>
-          <p className="data-mono text-[11px] tracking-[0.18em] text-sodium">
-            ARRIVE &amp; DRIVE · EAST AFRICAN SAFARI CLASSIC 2027
-          </p>
-          <h2 className={`display-wide mt-5 max-w-[12ch] ${full ? "text-marquee" : "text-h1"}`}>{headline}</h2>
+          <p className="display-cond text-[13px] tracking-[0.14em] text-sodium">{eyebrow}</p>
+          <h2 className="display-wide mt-5 max-w-[14ch] text-h1">{headline}</h2>
         </Reveal>
         {line ? (
           <Reveal delay={100}>
-            <p className="statement mt-8 text-chalk/90">{line}</p>
-          </Reveal>
-        ) : null}
-        {scarcity ? (
-          <Reveal delay={160}>
-            <p className="data-mono mt-8 text-data tracking-[0.12em] text-sodium">{scarcity}</p>
+            <p className="editorial mt-8 max-w-[44ch] text-chalk/90">{line}</p>
           </Reveal>
         ) : null}
         <Reveal delay={220}>
-          <SeatTicket href={href} from={from} className="mt-12" />
-          <p className="data-mono mt-5 max-w-md text-[11px] leading-relaxed text-grease">
+          <SeatTicket href={href} from={from} meta={ticketMeta} label={ticketLabel} className="mt-12" />
+          <p className="data-mono mt-5 max-w-md text-data-s leading-relaxed text-chalk/60">
             {eascr2027.organiserNote}
           </p>
         </Reveal>

@@ -50,7 +50,7 @@ export function SectionHeading({ instruction, title, lead, dark, className = "" 
       </p>
       <h2 className="display-wide mt-3 text-h2">{title}</h2>
       {lead ? (
-        <p className={`mt-5 text-lead ${dark ? "text-chalk/80" : "text-night/80"}`}>{lead}</p>
+        <p className={`editorial mt-5 max-w-[46ch] ${dark ? "text-chalk/85" : "text-night/85"}`}>{lead}</p>
       ) : null}
     </header>
   );

@@ -7,12 +7,10 @@ import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { Chapter } from "@/components/ui/Chapter";
 import { Ledger } from "@/components/ui/Ledger";
-import { NumeralRow } from "@/components/ui/Numeral";
 import { PageHero } from "@/components/ui/PageHero";
 import { Plate } from "@/components/ui/Plate";
 import { SeatTicket } from "@/components/ui/SeatTicket";
 import { Container, Section } from "@/components/ui/Section";
-import { Statement } from "@/components/ui/Statement";
 import { TakeASeat } from "@/components/ui/TakeASeat";
 import { buildMetadata, serviceJsonLd } from "@/lib/seo";
 import {
@@ -51,7 +49,7 @@ export default function TheDrivePage() {
         kicker={driveHero.kicker}
         headline={
           <>
-            Take a <span className="em-serif">seat.</span>
+            Take a seat.
           </>
         }
         line={driveHero.line}
@@ -63,7 +61,7 @@ export default function TheDrivePage() {
         }}
       />
 
-      {/* 2 · The 2027 seat: one hire cost, the manifest, four numbers, the ticket */}
+      {/* 2 · The 2027 seat: one hire cost, one photograph, the ticket */}
       <Section roadbook="THE 2027 SEAT" id="arrive-and-drive" dark className="clip-x py-section">
         <Container>
           <Chapter code={seat.code} number="01" tulip={0} title={seat.title} dark instruction="KEEP LEFT · ARRIVE & DRIVE" />
@@ -76,25 +74,20 @@ export default function TheDrivePage() {
                 mobileRatio="1/1"
                 position="50% 55%"
                 caption={seat.plate.caption}
-                tag={seat.plate.tag}
                 dark
                 className="bleed-x bleed-right [&_figcaption]:px-5 sm:[&_figcaption]:px-8 lg:[&_figcaption]:pl-0 lg:[&_figcaption]:pr-8"
               />
-              <NumeralRow className="mt-12" items={seat.numerals} size="m" dark />
             </div>
             <div className="mt-12 lg:order-1 lg:col-span-5 lg:mt-0">
               <Reveal>
-                <p className="data-mono text-[11px] tracking-[0.18em] text-sodium">{seat.priceLine}</p>
-                <p className="editorial mt-5 max-w-[26ch] text-[clamp(1.5rem,1.2rem+1.4vw,2.25rem)] text-chalk/90">
-                  {seat.body}
-                </p>
+                <p className="statement text-chalk/90">{seat.body}</p>
+                <p className="measure mt-8 text-body text-chalk/80">{seat.detail}</p>
               </Reveal>
-              <Ledger className="mt-10" mode="check" heading="THE MANIFEST · ALL IN" rows={eascr2027.includes} dark />
             </div>
           </div>
           <Reveal delay={120} className="mt-16">
             <SeatTicket from="the-drive-package" />
-            <p className="data-mono mt-5 max-w-md text-[11px] leading-relaxed text-grease">
+            <p className="data-mono mt-5 max-w-md text-data-s leading-relaxed text-chalk/60">
               {eascr2027.organiserNote}
             </p>
           </Reveal>
@@ -112,14 +105,14 @@ export default function TheDrivePage() {
                   id={prog.id}
                   className="scroll-mt-24 border-t rule py-10 lg:grid lg:grid-cols-12 lg:gap-6"
                 >
-                  <p className="display-wide text-h1 text-murram lg:col-span-2" aria-hidden="true">
+                  <p className="display-wide text-h3 text-murram lg:col-span-2" aria-hidden="true">
                     {String(i + 1).padStart(2, "0")}
                   </p>
                   <div className="mt-4 lg:col-span-4 lg:mt-0">
                     <h3 className="display-wide text-h2">{prog.name}</h3>
-                    <p className="editorial mt-3 text-[clamp(1.35rem,1.1rem+1vw,1.9rem)] text-night/75">{prog.strap}</p>
+                    <p className="editorial mt-3 max-w-[30ch] text-night/75">{prog.strap}</p>
                   </div>
-                  <Ledger className="mt-8 lg:col-span-4 lg:mt-0" rows={prog.points} numbered />
+                  <Ledger className="mt-8 lg:col-span-4 lg:mt-0" rows={prog.points} numbered={false} />
                   <div className="mt-8 lg:col-span-2 lg:mt-0 lg:text-right">
                     {prog.badge ? (
                       <p className="data-mono mb-4 text-[11px] text-murram">{prog.badge}</p>
@@ -145,7 +138,6 @@ export default function TheDrivePage() {
               ratio="4/5"
               position="50% 60%"
               caption={included.plate.caption}
-              tag={included.plate.tag}
               sizes="(min-width: 1024px) 28vw, 100vw"
               className={`bleed-x lg:col-span-4 lg:mx-0 ${captionInset}`}
             />
@@ -193,7 +185,6 @@ export default function TheDrivePage() {
             mobileRatio="4/5"
             position="50% 45%"
             caption={timeline.plate.caption}
-            tag={timeline.plate.tag}
             sizes="100vw"
             dark
           />
@@ -218,7 +209,6 @@ export default function TheDrivePage() {
               ratio="4/5"
               position="40% 50%"
               caption={experience.plate.caption}
-              tag={experience.plate.tag}
               sizes="(min-width: 1024px) 42vw, 100vw"
               className={`bleed-x lg:order-2 lg:col-span-6 lg:col-start-7 lg:mx-0 ${captionInset}`}
             />
@@ -234,14 +224,16 @@ export default function TheDrivePage() {
               </Reveal>
             </div>
           </div>
-          <Statement eyebrow={family.eyebrow} rule className="mt-24">
-            {family.statement}
-          </Statement>
+          <Reveal className="mt-24 rule border-y py-10">
+            <p className="display-cond text-[13px] tracking-[0.14em] text-murram">{family.eyebrow}</p>
+            <p className="editorial mt-6 max-w-[44ch] text-night/90">{family.line}</p>
+            <p className="measure mt-4 text-body text-night/75">{family.body}</p>
+          </Reveal>
         </Container>
       </Section>
 
       {/* 7 · Straight answers, and the brief in writing */}
-      <Section roadbook="STRAIGHT ANSWERS" className="border-t rule py-section">
+      <Section roadbook="ANSWERS" className="border-t rule py-section">
         <Container>
           <Chapter code={faqs.code} number="06" tulip={5} title={faqs.title} instruction="FORK · THE QUESTIONS" />
           <div className="mt-16 lg:mt-20 lg:grid lg:grid-cols-12 lg:gap-6">

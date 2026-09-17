@@ -40,9 +40,10 @@ Everything Minti must approve or supply before launch. Companion to `CONTENT-TOD
 - [ ] Final logo files if the header wordmark should be replaced with the supplied logo
 
 ## Legal (counsel)
-- [ ] Privacy page reviewed and approved (currently a flagged draft)
-- [ ] Terms page reviewed and approved (currently a flagged draft)
-- [ ] Cookies page reviewed and approved (currently a flagged draft)
+- [ ] Privacy page reviewed and approved by counsel (the visible DRAFT banner was removed
+      on 2026-09-17 because the site is live; the text is still unreviewed)
+- [ ] Terms page reviewed and approved by counsel (same)
+- [ ] Cookies page reviewed and approved by counsel (same)
 - [ ] Programme agreement referenced on `/the-drive` exists and matches the site's claims
       (damage/excess, what's included, continuation provisions)
 

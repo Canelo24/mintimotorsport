@@ -67,22 +67,19 @@ export default function HomePage() {
           <div className="grain absolute inset-0" style={{ "--grain": 0.07 } as React.CSSProperties} aria-hidden="true" />
           <Container className="relative py-16 lg:py-24">
             <NumeralRow items={seat.numerals} dark size="l" columns={3} mobileColumns={2} />
-            <p className="caption mt-6 text-chalk/50">{seat.boardCaption}</p>
+            <p className="caption mt-6 text-chalk/55">{seat.boardCaption}</p>
           </Container>
         </div>
         <Container className="mt-16 lg:grid lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-5">
-            <p className="data-mono text-[11px] tracking-[0.18em] text-sodium">{seat.priceLine}</p>
-            <p className="editorial mt-5 max-w-[24ch] text-[clamp(1.6rem,1.2rem+1.6vw,2.5rem)] text-chalk/90">
-              {seat.line}
-            </p>
-            <p className="data-mono mt-6 text-[11px] tracking-[0.18em] text-chalk/60">{seat.allIn}</p>
+            <p className="statement text-chalk/90">{seat.line}</p>
+            <p className="display-cond mt-6 text-[13px] tracking-[0.12em] text-chalk/60">{seat.allIn}</p>
           </Reveal>
           <div className="mt-12 lg:col-span-7 lg:mt-0">
             <Reveal delay={120}>
               <SeatTicket from="home-product" />
               <div className="mt-6 flex flex-wrap items-baseline justify-between gap-4">
-                <p className="data-mono max-w-md text-[11px] leading-relaxed text-grease">
+                <p className="data-mono max-w-md text-data-s leading-relaxed text-chalk/60">
                   {eascr2027.organiserNote}
                 </p>
                 <Button href={seat.manifest.href} variant="text-dark">
@@ -114,7 +111,6 @@ export default function HomePage() {
             image={car.tall.image}
             ratio="4/5"
             caption={car.tall.caption}
-            tag={car.tall.tag}
             className="w-[62%] lg:col-span-4 lg:w-full"
             sizes="(min-width: 1024px) 30vw, 62vw"
             delay={120}
@@ -150,9 +146,7 @@ export default function HomePage() {
             <Reveal className="mt-10 lg:col-span-7 lg:col-start-5 lg:mt-0">
               <p className="display-wide text-h2">{people.joey.name}</p>
               <p className="data-mono mt-3 text-data-s text-murram">{people.joey.role}</p>
-              <p className="editorial mt-5 max-w-[26ch] text-[clamp(1.5rem,1.2rem+1.4vw,2.25rem)] text-night/85">
-                {people.joey.line}
-              </p>
+              <p className="editorial mt-5 max-w-[44ch] text-night/85">{people.joey.line}</p>
               <PhoneRow className="mt-10" />
             </Reveal>
           </div>
@@ -164,7 +158,6 @@ export default function HomePage() {
             mobileRatio="4/5"
             position="50% 40%"
             caption={people.crew.caption}
-            tag={people.crew.tag}
             sizes="100vw"
           />
         </div>
@@ -194,12 +187,9 @@ export default function HomePage() {
           />
         </div>
         <Container>
-          <NumeralRow items={heritageStrip.numerals} size="l" className="mt-16" />
-          <Reveal className="mt-10 lg:grid lg:grid-cols-12 lg:gap-8">
+          <Reveal className="mt-12 lg:grid lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-8">
-              <p className="editorial max-w-[30ch] text-[clamp(1.5rem,1.2rem+1.4vw,2.25rem)] text-night/85">
-                {heritageStrip.line}
-              </p>
+              <p className="editorial max-w-[52ch] text-night/85">{heritageStrip.line}</p>
               <div className="mt-6">
                 <Button href={heritageStrip.cta.href} variant="text-light">
                   {heritageStrip.cta.label}
@@ -214,7 +204,6 @@ export default function HomePage() {
       <TakeASeat
         headline={ask.headline}
         line={ask.line}
-        scarcity={ask.scarcity}
         from="home-finish"
         image={ask.image}
         position="50% 60%"

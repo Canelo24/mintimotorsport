@@ -16,7 +16,7 @@ export function PackRequest({ title, body }: { title: string; body: string }) {
       <p className="mt-3 max-w-xl text-data text-chalk/75">{body}</p>
       {state === "done" ? (
         <p className="data-mono mt-6 text-data text-sodium" role="status">
-          On its way. Check your inbox, including the folder nobody checks.
+          Noted. The brief comes from a person, usually within one working day.
         </p>
       ) : (
         <form

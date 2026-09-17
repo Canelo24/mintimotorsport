@@ -22,8 +22,12 @@ const fmt = (n: number) => n.toFixed(2).padStart(5, "0");
  * Roadbook distances for the row. They are the roadbook idiom, not a claim:
  * derived from the chapter number so the same chapter always reads the same.
  */
-function distances(number?: string) {
-  const n = Number.parseInt(number ?? "", 10) || 1;
+function distances(number?: string, code?: string) {
+  let n = Number.parseInt(number ?? "", 10);
+  if (!n) {
+    const m = /\/(\d+)/.exec(code ?? "");
+    n = m ? Number.parseInt(m[1], 10) : 1;
+  }
   return { total: fmt(n * 6.4 + 2.3), interval: fmt(1.2 + ((n * 7) % 5) * 0.55) };
 }
 
@@ -40,7 +44,7 @@ function glyphFor(tulip?: Tulip) {
  */
 export function RoadbookRow({ code, number, tulip, instruction, dark, className = "" }: RowProps) {
   const Glyph = glyphFor(tulip);
-  const { total, interval } = distances(number);
+  const { total, interval } = distances(number, code);
   const line = dark ? "border-sodium/45" : "border-murram/45";
   const accent = dark ? "text-sodium" : "text-murram";
   return (
@@ -49,18 +53,18 @@ export function RoadbookRow({ code, number, tulip, instruction, dark, className 
       role="presentation"
     >
       <div className={`flex flex-col justify-center border-r px-3 py-2 ${line}`}>
-        <span className="data-mono text-[9px] tracking-[0.16em] opacity-60">TOT</span>
+        <span className="data-mono text-[11px] font-medium tracking-[0.12em] opacity-90">TOT</span>
         <span className="data-mono text-[13px] font-semibold leading-tight tabular-nums">{total}</span>
-        <span className="data-mono mt-1.5 text-[9px] tracking-[0.16em] opacity-60">INT</span>
-        <span className="data-mono text-[11px] leading-tight tabular-nums">{interval}</span>
+        <span className="data-mono mt-1.5 text-[11px] font-medium tracking-[0.12em] opacity-90">INT</span>
+        <span className="data-mono text-[12px] font-medium leading-tight tabular-nums">{interval}</span>
       </div>
       <div className={`flex items-center justify-center border-r px-3 ${line}`}>
         {Glyph ? <Glyph className="h-9 w-9" /> : <span className="h-9 w-9" />}
       </div>
       <div className="flex min-w-0 flex-col justify-center px-4 py-2">
-        <span className="data-mono text-[11px] font-medium tracking-[0.16em]">{code}</span>
+        <span className="data-mono text-[12px] font-semibold tracking-[0.12em]">{code}</span>
         {instruction ? (
-          <span className="display-cond mt-1.5 text-[11px] tracking-[0.2em] opacity-75">{instruction}</span>
+          <span className="data-mono mt-1.5 text-[12px] font-medium tracking-[0.08em]">{instruction}</span>
         ) : null}
       </div>
     </div>
@@ -69,7 +73,7 @@ export function RoadbookRow({ code, number, tulip, instruction, dark, className 
 
 type ChapterProps = RowProps & {
   title: string;
-  /** One sentence set in the statement (serif) voice under the title. */
+  /** One sentence set in the statement voice under the title. */
   statement?: ReactNode;
   size?: "l" | "m";
   as?: "h1" | "h2";

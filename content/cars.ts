@@ -17,10 +17,10 @@ export const carsHero = {
 };
 
 export const partnership = {
-  statement:
-    "MST build them, new and original, to Safari specification. Minti holds the exclusive regional partnership. Same parts book, same build standard, and a workshop in Nairobi that has torqued every fastener.",
+  statement: "MST build them. Minti holds the exclusive regional partnership.",
+  body: "New and original, to Safari specification. Same parts book, same build standard, and a workshop in Nairobi that has torqued every fastener.",
   footnote:
-    "WHERE A CAR IS A NEW BUILD RATHER THAN AN ORIGINAL FORD SHELL, WE SAY SO IN ITS PAPERS AND IN PERSON.",
+    "Where a car is a new build rather than an original Ford shell, we say so in its papers and in person.",
 };
 
 export const models = {
@@ -46,8 +46,8 @@ export const buildProcess = {
   title: "After the paint.",
   /** The 911 frames: always "the competition car", never "the Escort". */
   plates: {
-    cage: { image: images.carsBuildMstWorkshop, caption: "WELDED-IN CAGE", tag: "THE COMPETITION CAR" },
-    dial: { image: images.carsCockpitDetail, caption: "PERIOD DIAL", tag: "THE COMPETITION CAR" },
+    cage: { image: images.carsBuildMstWorkshop, caption: "WELDED-IN CAGE" },
+    dial: { image: images.carsCockpitDetail, caption: "PERIOD DIAL · THE COMPETITION CAR" },
   },
   steps: [
     {
@@ -75,7 +75,10 @@ export const buildProcess = {
 
 /** The finish: owner cars, prepared case by case. Start with a call. */
 export const otherMachinery = {
+  eyebrow: "YOUR CAR, OUR TEAM · 2027",
   headline: "Already have the car?",
   line: "Your car, our team. Start the same way, with a call.",
+  ticketMeta: "YOUR CAR, OUR TEAM · 2027 ENTRY",
+  ticketLabel: "Start with a call",
   href: "/enquire",
 };

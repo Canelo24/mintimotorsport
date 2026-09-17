@@ -8,16 +8,14 @@ import { images } from "./images.generated";
 
 export const hero = {
   kicker: "THE 2027 SEAT · EAST AFRICAN SAFARI CLASSIC",
-  /** Two voices: the shout in Big Shoulders, the serif in italic. */
-  headline: { shout: "Arrive", serif: "& drive." },
+  /** Two lines, one face: set exactly as the client's sample, "ARRIVE &" over "DRIVE". */
+  headline: { line1: "Arrive &", line2: "Drive." },
   sub: "A new MST Escort. A Nairobi crew. You drive.",
   primaryCta: "Take a seat",
   primaryHref: "/enquire?e=eascr2027",
   secondaryCta: "The programme",
   secondaryHref: "/the-drive",
   image: images.heroSafariJumpMurram,
-  /** The speed strip under the hero. Energy, not information. */
-  strip: ["East African Safari Classic 2027", "Arrive & Drive", "Nairobi", "Murram", "Escort Mk2", "One seat"],
 };
 
 export const route = {
@@ -26,15 +24,14 @@ export const route = {
   numerals: [
     { value: "2017", label: "FOUNDED · FAMILY RUN" },
     { value: "UNITED KINGDOM", label: "REGISTERED" },
-    { value: "1.2921° S 36.8219° E", label: "BASE · NAIROBI" },
+    { value: "NAIROBI", label: "BASE · KENYA" },
   ],
 };
 
 export const seat = {
   code: "SS1/02 · APPLICATIONS OPEN",
   title: "The 2027 seat.",
-  priceLine: "ONE ALL-IN HIRE COST · PRICED ON APPLICATION",
-  line: "One hire cost covers the whole campaign. The figure is given plainly on the first call.",
+  line: "One all-in hire cost, priced on application. The figure is given plainly on the first call.",
   board: images.driveHeroCockpit,
   boardCaption: "PERIOD DIALS · THE COMPETITION CAR",
   /** The package as figures, from the client's own sheet (content/eascr2027). */
@@ -54,7 +51,7 @@ export const car = {
   code: "SS1/03 · THE CAR",
   title: "The Escort, done properly.",
   statement: "Built in the UK to Safari specification. Shaken down in Nairobi.",
-  tall: { image: images.carsCockpitDetail, caption: "PERIOD DIAL", tag: "THE COMPETITION CAR" },
+  tall: { image: images.carsBuildMstWorkshop, caption: "WELDED-IN CAGE" },
   wide: { image: images.carsMk1MountainRoad, caption: "ESCORT MK1 · GOLD WHEELS, WET PASS" },
   cta: { label: "See the car", href: "/the-cars" },
 };
@@ -80,10 +77,10 @@ export const people = {
     role: "FOUNDER & TEAM PRINCIPAL",
     line: "He takes the first call. He is on the radio when it counts.",
     image: images.peopleJoeyGhose,
-    caption: "JOEY GHOSE · PRINCIPAL",
+    caption: "IN THE CAR",
   },
-  crew: { image: images.teamCrewService, caption: "SERVICE · THE CREW", tag: "THE COMPETITION CAR" },
-  cta: { label: "The team, the workshop, the 2am department", href: "/the-team" },
+  crew: { image: images.teamCrewService, caption: "SERVICE · THE CREW" },
+  cta: { label: "The team", href: "/the-team" },
 };
 
 export const heritageStrip = {
@@ -91,18 +88,12 @@ export const heritageStrip = {
   title: "Heritage, briefly.",
   image: images.heritageMintiStageBw,
   caption: "ARCHIVE · MINTI LIVERY, EAST AFRICAN STAGE",
-  numerals: [
-    { value: "2017", label: "FOUNDED" },
-    { value: "FROM 2017", label: "CREWS RUN" },
-    { value: "FROM 2020", label: "INSIDE THE SAFARI CLASSIC" },
-  ],
-  line: "We have lived inside the East African Safari Classic Rally since 2020. We know what this event does to cars, crews and schedules.",
+  line: "Inside the East African Safari Classic Rally since 2020.",
   cta: { label: "The full story", href: "/heritage" },
 };
 
 export const ask = {
   headline: "The 2027 start list is short.",
   line: "We take on only as many drivers as we can run properly.",
-  scarcity: "EAST AFRICAN SAFARI CLASSIC 2027 · APPLICATIONS OPEN",
   image: images.askMurramRoadAerial,
 };

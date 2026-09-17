@@ -125,17 +125,19 @@ function Map({
               fontSize={fontSize}
               fill="currentColor"
               className="data-mono"
-              style={{ letterSpacing: "0.12em" }}
+              style={{ letterSpacing: "0.1em", paintOrder: "stroke" }}
+              stroke={dark ? "var(--color-night)" : "var(--color-feshfesh)"}
+              strokeWidth={5}
+              strokeLinejoin="round"
             >
               <tspan fontWeight="600" fill={isCurrent ? accent : "currentColor"}>{st.code}</tspan>
-              <tspan opacity="0.6"> · {st.name}</tspan>
-              {!compact && wide ? <tspan opacity="0.6"> · {st.km.toFixed(1)} KM</tspan> : null}
+              <tspan opacity="0.75"> · {st.name}</tspan>
             </text>
           </a>
         );
       })}
       {!compact ? (
-        <g className="data-mono" fill="currentColor" opacity="0.55" fontSize={fontSize - 1} style={{ letterSpacing: "0.14em" }}>
+        <g className="data-mono" fill="currentColor" opacity="0.75" fontSize={fontSize} style={{ letterSpacing: "0.1em" }}>
           {w > h ? (
             <>
               <text x={w - 12} y={h - 14} textAnchor="end">THE ROUTE THROUGH THIS SITE · 8 CONTROLS</text>
@@ -162,7 +164,7 @@ export function StageMap({ current, dark, compact, className = "" }: Props) {
   const cur = current ?? (pathname === "/journal" || pathname?.startsWith("/journal/") ? "/journal" : pathname ?? "/");
   return (
     <Reveal className={className}>
-      <Map pts={WIDE} w={1000} h={420} current={cur} dark={dark} compact={compact} fontSize={compact ? 12 : 11} className="hidden w-full md:block" />
+      <Map pts={WIDE} w={1000} h={420} current={cur} dark={dark} compact={compact} fontSize={12} className="hidden w-full md:block" />
       <Map pts={TALL} w={400} h={760} current={cur} dark={dark} compact={compact} fontSize={12} className="w-full md:hidden" />
     </Reveal>
   );

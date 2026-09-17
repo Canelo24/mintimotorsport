@@ -29,6 +29,9 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
   const sectionsRef = useRef<Section[]>([]);
   const navRef = useRef<HTMLElement | null>(null);
   const [labelPx, setLabelPx] = useState(10);
+  // Below a legible size the rail goes glyph-only (labels stay for screen readers).
+  const [labelsHidden, setLabelsHidden] = useState(false);
+  const slopeRef = useRef(0);
   const [fitTick, setFitTick] = useState(0);
 
   useEffect(() => {
@@ -73,12 +76,25 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
       chrome += b.offsetHeight - sh;
     }
     const currentPx = parseFloat(getComputedStyle(spans[0]).fontSize);
-    if (!currentPx || labelTotal <= 0) return;
-    const slope = labelTotal / currentPx;
+    if (!currentPx) return;
+    // While hidden, the spans measure 1px, so the last visible slope decides
+    // whether there is room to bring the labels back.
+    let slope = slopeRef.current;
+    if (!labelsHidden && labelTotal > 0) {
+      slope = labelTotal / currentPx;
+      slopeRef.current = slope;
+    }
+    if (!slope) return;
     const room = nav.clientHeight - padding - chrome - 4;
     const cap = Math.min(12, Math.max(9, window.innerHeight * 0.0135));
-    setLabelPx(Math.max(7, Math.min(cap, Math.floor((room / slope) * 2) / 2)));
-  }, [sections, fitTick]);
+    const fit = Math.floor((room / slope) * 2) / 2;
+    if (fit < 9) {
+      setLabelsHidden(true);
+    } else {
+      setLabelsHidden(false);
+      setLabelPx(Math.min(cap, fit));
+    }
+  }, [sections, fitTick, labelsHidden]);
 
   const measure = useCallback(() => {
     const els = Array.from(document.querySelectorAll("[data-roadbook]"));
@@ -162,12 +178,12 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
 
         <div className="border-b rule px-3 py-3 text-center">
           <div className="display-wide text-xl leading-none">{stage.code}</div>
-          <div className="data-mono mt-1 text-[11px] text-grease">
+          <div className="data-mono mt-1 text-[12px] text-night/65">
             {stage.km.toFixed(2)} KM
           </div>
         </div>
 
-        <nav ref={navRef} className="flex flex-1 flex-col justify-between overflow-hidden py-4">
+        <nav ref={navRef} className="flex min-h-0 flex-1 flex-col justify-between overflow-y-auto py-4 [scrollbar-width:none]">
           {sections.map((s, i) => {
             const isLast = i === sections.length - 1;
             const Glyph = isLast ? TulipFinish : tulipCycle[i % tulipCycle.length];
@@ -180,13 +196,13 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
                 aria-label={`Go to section: ${s.label}`}
                 aria-current={isActive ? "true" : undefined}
                 className={`group flex shrink-0 flex-col items-center gap-0.5 px-2 py-0.5 transition-colors ${
-                  isActive ? "text-murram" : "text-grease hover:text-night"
+                  isActive ? "text-murram" : "text-night/65 hover:text-night"
                 }`}
               >
                 <Glyph active={isActive} />
                 <span
-                  className="display-cond shrink-0 font-medium tracking-[0.15em]"
-                  style={{ writingMode: "vertical-rl", fontSize: `${labelPx}px` }}
+                  className={labelsHidden ? "sr-only" : "display-cond shrink-0 font-medium tracking-[0.15em]"}
+                  style={labelsHidden ? undefined : { writingMode: "vertical-rl", fontSize: `${labelPx}px` }}
                 >
                   {s.label}
                 </span>
@@ -203,7 +219,7 @@ export function RoadbookRail({ stage }: { stage: Stage }) {
           >
             {km.toFixed(1)}
           </div>
-          <div className="data-mono mt-0.5 text-[11px] text-grease">
+          <div className="data-mono mt-0.5 text-[12px] text-night/65">
             {finished ? "FIN" : "KM"}
           </div>
         </div>

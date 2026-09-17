@@ -1,4 +1,3 @@
-import { CountUp } from "@/components/motion/CountUp";
 import { Reveal } from "@/components/motion/Reveal";
 
 type Item = { value: string; label: string; unit?: string };
@@ -10,31 +9,32 @@ type NumeralProps = Item & {
 };
 
 const isInteger = (v: string) => /^\d{1,4}$/.test(v);
+const isCoord = (v: string) => /°/.test(v);
 
 /**
- * The number moment: a single allowed fact set big enough to stand alone.
- * Integers count up once on entry (final value under reduced motion); long
- * values such as coordinates or "FROM 2020" set in mono so they never wrap.
+ * The number moment: one allowed fact set in the display face. Integers and
+ * words alike are Big Shoulders 800 (one rule for one role); only a
+ * coordinate pair is a readout and stays in mono. Final values are rendered
+ * server-side and never animated.
  */
 export function Numeral({ value, label, unit, size = "l", dark, className = "" }: NumeralProps) {
-  const long = !isInteger(value);
-  const valueClass = long
-    ? "data-mono text-lead font-semibold sm:text-h3"
-    : `display-wide ${size === "xl" ? "text-numeral" : size === "l" ? "text-h1" : "text-h2"}`;
+  const valueClass = isCoord(value)
+    ? "data-mono text-h3 font-semibold"
+    : `display-wide leading-[0.86] ${size === "xl" ? "text-numeral" : size === "l" ? "text-h1" : "text-h2"}`;
   return (
     <div className={className}>
-      <p className={`${valueClass} ${dark ? "text-chalk" : "text-night"} flex items-baseline gap-3`}>
-        {long ? value : <CountUp value={Number(value)} className="!font-[inherit] !tracking-[inherit]" />}
+      <p className={`${valueClass} ${dark ? "text-chalk" : "text-night"} flex flex-wrap items-baseline gap-3`}>
+        {value}
         {unit ? <span className="data-mono text-h3 font-medium">{unit}</span> : null}
       </p>
-      <p className={`data-mono mt-3 text-[11px] tracking-[0.16em] ${dark ? "text-sodium" : "text-murram"}`}>
+      <p className={`display-cond mt-3 text-[13px] tracking-[0.1em] ${dark ? "text-sodium" : "text-murram"}`}>
         {label}
       </p>
     </div>
   );
 }
 
-/** Two to four numerals across the grid, hairlines between. */
+/** Two to four numerals across the grid, hairlines between. One size per row. */
 export function NumeralRow({
   items,
   size = "l",
@@ -61,17 +61,20 @@ export function NumeralRow({
       : n === 3
         ? `${mobileColumns === 2 ? "grid-cols-2" : "grid-cols-1"} sm:grid-cols-3`
         : "grid-cols-2";
+  // A row with words in it steps the whole row down one size so every value shares one rule.
+  const uniform = items.every((it) => isInteger(it.value));
+  const rowSize = uniform ? size : size === "xl" ? "l" : "m";
   return (
     <div className={className}>
       {caption ? (
-        <p className={`data-mono mb-6 text-[11px] tracking-[0.16em] ${dark ? "text-chalk/55" : "text-grease"}`}>
+        <p className={`display-cond mb-6 text-[13px] tracking-[0.12em] ${dark ? "text-chalk/60" : "text-murram"}`}>
           {caption}
         </p>
       ) : null}
       <div className={`grid ${cols} gap-x-8`}>
         {items.map((it, i) => (
           <Reveal key={it.label} delay={i * 80} className="rule border-t py-7">
-            <Numeral {...it} size={size} dark={dark} />
+            <Numeral {...it} size={rowSize} dark={dark} />
           </Reveal>
         ))}
       </div>
